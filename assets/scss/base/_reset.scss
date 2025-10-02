@@ -1,0 +1,108 @@
+@use '../global/' as g;
+
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  box-sizing: inherit;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+details,
+main {
+  display: block;
+}
+
+a {
+  background-color: transparent;
+  transition: opacity .3s ease-in-out;
+  color: inherit;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  color: g.$white02;
+
+  &:hover,
+  &:active {
+    outline-width: 0;
+  }
+
+  &[target=_blank] {
+    color: g.$red01;
+  }
+
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+ul,
+ol {
+  margin-left: 20px;
+  margin-bottom: 30px;
+
+  li {
+    line-height: 2;
+  }
+}
+
+input {
+  border-radius: 0;
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border-style: none;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  &:focus {
+    outline-width: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+}

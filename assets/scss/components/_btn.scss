@@ -1,0 +1,15 @@
+@use '../global/' as g;
+
+.c-btn {
+
+  &__01 {
+    text-decoration: none;
+    background-color: g.$yellow01;
+    color: g.$black01 !important;
+    padding: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 40px;
+    display: inline-flex;
+  }
+}

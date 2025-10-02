@@ -1,0 +1,38 @@
+@use '../global/' as g;
+
+.c-paging {
+  &__loop {
+    margin-top: 24px;
+
+    &--item {
+      margin-block: 24px;
+    }
+
+    &--next {
+      text-align: right;
+    }
+  }
+
+  &__post {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .page-numbers {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      width: 35px;
+      height: 35px;
+      border: 1px solid g.$yellow01;
+
+      &.current {
+        background-color: g.$yellow01;
+        color: g.$black01;
+      }
+    }
+  }
+}
