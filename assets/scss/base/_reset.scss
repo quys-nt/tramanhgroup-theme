@@ -4,7 +4,7 @@
 ::before,
 ::after {
   background-repeat: no-repeat;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 * {
@@ -18,16 +18,17 @@ main {
 }
 
 a {
-  background-color: transparent;
   transition: opacity .3s ease-in-out;
   color: inherit;
   text-underline-offset: 3px;
-  font-weight: 500;
-  color: g.$white02;
 
   &:hover,
   &:active {
     outline-width: 0;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 
   &[target=_blank] {

@@ -3,13 +3,27 @@
 .c-btn {
 
   &__01 {
-    text-decoration: none;
-    background-color: g.$yellow01;
-    color: g.$black01 !important;
-    padding: 10px 20px;
-    font-weight: 500;
-    cursor: pointer;
-    min-height: 40px;
+    position: relative;
     display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+
+    background-color: g.$white01;
+    padding: 10px 24px;
+    border-radius: 50px;
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url("../images/icon-arrow-right-up.svg") no-repeat center / cover;
+    }
   }
 }
