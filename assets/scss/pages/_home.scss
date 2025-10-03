@@ -112,6 +112,7 @@
         right: 20px;
         bottom: 40px;
       }
+
       @include g.media(sp) {
         display: none;
       }
@@ -156,6 +157,328 @@
 
           &:nth-child(6) {
             opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
+
+  &__since {
+    padding: 120px 0 80px;
+
+    @include g.media(sp) {
+      padding: 80px 0 40px;
+    }
+
+    &--box {
+      &01 {
+        display: grid;
+        grid-template-columns: 1fr 480px;
+        align-items: end;
+        gap: 40px;
+        margin-bottom: 100px;
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+          margin-bottom: 64px;
+        }
+
+        &-right {
+          &>* {
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+
+      &02 {
+        display: grid;
+        grid-template-columns: 61.8% calc(38.2% - 40px);
+        gap: 40px;
+
+        @include g.media(tab) {
+          grid-template-columns: 61.8% calc(38.2% - 10px);
+          gap: 10px;
+        }
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        img {
+          width: 100%;
+          max-width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &__our {
+    overflow: hidden;
+    padding: 40px 0 80px;
+
+    @include g.media(sp) {
+      padding: 40px 0;
+    }
+
+    &--box {
+      &01 {
+        text-align: center;
+        margin-bottom: 48px;
+
+        .c-text__intro01 {
+          @include g.media(sp) {
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      &02 {
+        padding-top: 70px;
+
+        @include g.media(sp) {
+          padding-top: 0;
+        }
+      }
+
+      &03 {
+        position: relative;
+        display: grid;
+        grid-template-columns: 300px 1fr 300px;
+
+        @include g.media(tab) {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 24px;
+        }
+
+        @include g.media(sp) {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 76%;
+          height: 100%;
+          transform: translateX(-50%);
+          max-height: 91px;
+          border-radius: 32px 32px 0 0;
+          border: 1px dashed g.$gray02;
+          border-bottom: 0;
+
+          @media screen and (max-width: 1200px) {
+            width: 70%;
+          }
+
+          @include g.media(sp) {
+            content: unset;
+          }
+        }
+      }
+
+      &04 {
+        position: relative;
+        max-width: 1110px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+        margin-inline: auto;
+        padding-top: 66px;
+
+        @include g.media(tab) {
+          gap: 24px;
+        }
+
+        @include g.media(sp) {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          padding: 0;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 71%;
+          height: 100%;
+          transform: translateX(-50%);
+          max-height: 91px;
+          border-radius: 32px 32px 0 0;
+          border: 1px dashed g.$gray02;
+          border-bottom: 0;
+
+          @include g.media(sp) {
+            content: unset;
+          }
+        }
+      }
+    }
+
+    &--item {
+      position: relative;
+      text-align: center;
+
+      @include g.media(sp) {
+        text-align: left;
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 16px;
+        padding-block: 20px;
+      }
+
+      &.first,
+      &.last {
+        margin-top: 60px;
+
+        @include g.media(sp) {
+          margin-top: 0;
+        }
+      }
+
+      &.first {
+        @include g.media(sp) {
+          order: 1;
+        }
+      }
+
+      &.last {
+        @include g.media(sp) {
+          order: 2;
+        }
+      }
+
+      .icons {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 64px;
+        height: 64px;
+        margin-inline: auto;
+        background-color: #F8F8F8;
+        border-radius: 12px;
+
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+        }
+      }
+
+      .title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        margin-top: 16px;
+
+        @include g.media(sp) {
+          margin-top: 0;
+        }
+      }
+
+      .desc {
+        font-weight: 450;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.02em;
+        color: g.$gray01;
+        margin: 12px 0 16px;
+
+        @include g.media(sp) {
+          margin: 8px 0 16px;
+        }
+      }
+
+      &-center {
+        display: inline-flex;
+        width: 466px;
+        margin-inline: auto;
+        padding: 10px;
+        border: 1px dashed g.$gray02;
+        border-top: 0;
+        border-bottom: 0;
+
+        @media screen and (max-width: 1200px) {
+          width: auto;
+        }
+
+        @include g.media(sp) {
+          position: relative;
+          left: -20px;
+          width: calc(100% + 40px);
+          padding: 0;
+          border: 0;
+          order: 0;
+        }
+      }
+
+      &-main {
+        text-align: center;
+        background: url("../images/home-page/img-our-bg-02.png") no-repeat center / cover;
+        padding: 40px 11px 30px;
+        border-radius: 32px;
+
+        @include g.media(sp) {
+          text-align: left;
+          display: grid;
+          grid-template-columns: 64px 1fr;
+          gap: 16px;
+          padding: 20px;
+          border-radius: 0;
+        }
+
+        .icons {
+          position: relative;
+          margin-bottom: 32px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            width: 36px;
+            height: 129px;
+            transform: translateX(-50%);
+            background: url("../images/home-page/icons/icon-our-01.png") no-repeat center / cover;
+
+            @include g.media(sp) {
+              content: unset;
+            }
+          }
+        }
+
+        .title {
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 32px;
+          letter-spacing: -0.03em;
+          margin-bottom: 12px;
+
+          @include g.media(sp) {
+            margin-bottom: 8px;
+          }
+        }
+
+        .desc {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+          color: g.$gray01;
+          margin-bottom: 32px;
+
+          @include g.media(sp) {
+            margin-bottom: 16px;
           }
         }
       }

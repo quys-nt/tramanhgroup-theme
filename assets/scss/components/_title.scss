@@ -1,0 +1,59 @@
+@use '../global/' as g;
+
+
+.c-title {
+  &__02 {
+    display: grid;
+    gap: 4px;
+
+    span {
+      letter-spacing: -0.04em;
+
+      &:first-child {
+        font: 300 48px g.$font-family02;
+        font-style: Italic;
+        line-height: 1;
+
+        @include g.media(sp) {
+          font-size: 32px;
+        }
+      }
+
+      &:last-child {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 56px;
+
+        @include g.media(sp) {
+          line-height: 1;
+          font-size: 28px;
+        }
+      }
+    }
+
+    &.type-02 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        &:first-child {
+          margin-bottom: 3px;
+
+          @include g.media(sp) {
+            margin-bottom: 0;
+          }
+        }
+
+        &:last-child {
+          margin-top: 3px;
+
+          @include g.media(sp) {
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+  }
+}

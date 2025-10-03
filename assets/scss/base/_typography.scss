@@ -15,38 +15,3 @@ html {
 body {
   font-size: 1.4rem;
 }
-
-
-.c-title {
-  &__02 {
-    font-size: 50px;
-    color: g.$yellow01;
-    text-align: center;
-    text-transform: capitalize;
-
-    @include g.media(sp) {
-      font-size: 32px;
-    }
-  }
-
-  &__03 {
-    font-size: 50px;
-    color: g.$yellow01;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-
-    @include g.media(sp) {
-      font-size: 32px;
-    }
-  }
-}
-
-.c-text {
-  &__center {
-    text-align: center;
-  }
-}
-
-.u-mt-0 {
-  margin-top: 0 !important;
-}

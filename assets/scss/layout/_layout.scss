@@ -2,8 +2,11 @@
 
 .l-container {
   width: 100%;
-  max-width: 1380px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 10px;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding: 0 20px;
+
+  &.small {
+    max-width: 1300px;
+  }
 }
