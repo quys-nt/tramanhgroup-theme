@@ -8,26 +8,26 @@
 
     span {
       letter-spacing: -0.04em;
+    }
 
-      &:first-child {
-        font: 300 48px g.$font-family02;
-        font-style: Italic;
-        line-height: 1;
+    &--first {
+      font: 300 48px g.$font-family02;
+      font-style: Italic;
+      line-height: 1;
 
-        @include g.media(sp) {
-          font-size: 32px;
-        }
+      @include g.media(sp) {
+        font-size: 32px;
       }
+    }
 
-      &:last-child {
-        font-weight: 600;
-        font-size: 40px;
-        line-height: 56px;
+    &--last {
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 56px;
 
-        @include g.media(sp) {
-          line-height: 1;
-          font-size: 28px;
-        }
+      @include g.media(sp) {
+        line-height: 1;
+        font-size: 28px;
       }
     }
 
@@ -37,22 +37,30 @@
       align-items: center;
       gap: 8px;
 
-      span {
-        &:first-child {
-          margin-bottom: 3px;
+      &--first {
+        margin-bottom: 3px;
 
-          @include g.media(sp) {
-            margin-bottom: 0;
-          }
+        @include g.media(sp) {
+          margin-bottom: 0;
         }
+      }
 
-        &:last-child {
-          margin-top: 3px;
+      &--last {
+        margin-top: 3px;
 
-          @include g.media(sp) {
-            margin-top: 2px;
-          }
+        @include g.media(sp) {
+          margin-top: 2px;
         }
+      }
+    }
+
+    &.type-03 {
+      display: flex;
+      gap: 8px;
+
+      @include g.media(sp) {
+        flex-direction: column;
+        gap: 0;
       }
     }
   }

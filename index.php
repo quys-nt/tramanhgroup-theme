@@ -125,6 +125,7 @@
       </div>
     </div>
   </section>
+
   <section class="p-home__our">
     <div class="l-container small">
       <div class="p-home__our--box01">
@@ -132,8 +133,8 @@
           Our Core Sectors
         </p>
         <h2 class="c-title__02 type-02">
-          <span>Business</span>
-          <span>Highlights</span>
+          <span class="c-title__02--first">Business</span>
+          <span class="c-title__02--last">Highlights</span>
         </h2>
       </div>
       <div class="p-home__our--box02">
@@ -230,6 +231,243 @@
       </div>
     </div>
   </section>
+
+  <section class="p-home__partners">
+    <div class="p-home__partners--box01">
+      <p class="c-text__intro01">
+        Flagship Brands & Partners
+      </p>
+      <h2 class="c-title__02 type-02">
+        <span class="c-title__02--first">Establish</span>
+        <span class="c-title__02--last">Credibility</span>
+      </h2>
+    </div>
+    <div class="p-home__partners--box02">
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+      </div>
+    </div>
+  </section>
+
+  <section class="p-home__posts">
+    <div class="l-container">
+      <div class="p-home__posts--box01">
+        <div>
+          <p class="c-text__intro01">
+            Latest Updates
+          </p>
+          <h2 class="c-title__02 type-03">
+            <span class="c-title__02--first">Stay Informed</span>
+            <span class="c-title__02--last">with Our News & Events</span>
+          </h2>
+        </div>
+        <div class="p-home__posts--box01--right">
+          <a href="#" class="c-btn__04">View All News</a>
+        </div>
+      </div>
+    </div>
+    <div class="l-container overflow-auto">
+      <div class="p-home__posts--box02">
+        <div class="p-home__posts--item">
+          <a href="#" class="thumbnail">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-01.png" alt="Audi Vietnam Partners with APEC & WEF">
+          </a>
+          <div class="contents">
+            <a href="#">
+              <h3 class="title">Audi Vietnam Partners with APEC & WEF</h3>
+            </a>
+            <p class="time">
+              21/09/2025
+            </p>
+          </div>
+          <a href="#" class="c-btn__05">
+            See details
+          </a>
+        </div>
+        <div class="p-home__posts--item">
+          <a href="#" class="thumbnail">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.png" alt="EV One Signs Strategic Deal with BYD & AION-GAC">
+          </a>
+          <div class="contents">
+            <a href="#">
+              <h3 class="title">EV One Signs Strategic Deal with BYD & AION-GAC</h3>
+            </a>
+            <p class="time">
+              21/09/2025
+            </p>
+          </div>
+          <a href="#" class="c-btn__05">
+            See details
+          </a>
+        </div>
+        <div class="p-home__posts--item">
+          <a href="#" class="thumbnail">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.png" alt="Thang Long Warriors Secure VBA Playoff Spot">
+          </a>
+          <div class="contents">
+            <a href="#">
+              <h3 class="title">Thang Long Warriors Secure VBA Playoff Spot</h3>
+            </a>
+            <p class="time">
+              21/09/2025
+            </p>
+          </div>
+          <a href="#" class="c-btn__05">
+            See details
+          </a>
+        </div>
+        <div class="p-home__posts--item">
+          <a href="#" class="thumbnail">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.png" alt="Grand Opening of Jacob & Co Flagship in HCMC">
+          </a>
+          <div class="contents">
+            <a href="#">
+              <h3 class="title">Grand Opening of Jacob & Co Flagship in HCMC</h3>
+            </a>
+            <p class="time">
+              21/09/2025
+            </p>
+          </div>
+          <a href="#" class="c-btn__05">
+            See details
+          </a>
+        </div>
+      </div>
+      <div class="p-home__posts--bottom">
+        <a href="#" class="c-btn__04">View All News</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-home__commitment">
+    <div class="l-container not-padding">
+      <div class="p-home__commitment--box01">
+        <div>
+          <p class="c-text__intro01">
+            Our Commitment
+          </p>
+          <h2 class="c-title__02 type-03">
+            <span class="c-title__02--last">Shaping a</span>
+            <span class="c-title__02--first">Sustainable & Inclusive Future</span>
+          </h2>
+        </div>
+        <div class="p-home__commitment--box01--right">
+          <a href="#" class="c-btn__06">Learn More About Our Impact</a>
+        </div>
+      </div>
+
+      <div class="p-home__commitment--box02">
+        <a href="#" class="p-home__commitment--item">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.png" alt="CSR programs">
+          <div class="contents">
+            <h3 class="title">
+              CSR programs
+            </h3>
+            <div class="desc">
+              Investing in a sustainable future for our community <br>and planet.
+            </div>
+          </div>
+        </a>
+        <a href="#" class="p-home__commitment--item">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-02.png" alt="Sports academy">
+          <div class="contents">
+            <h3 class="title">
+              Sports academy
+            </h3>
+            <div class="desc">
+              Investing in a sustainable future for our community <br>and planet.
+            </div>
+          </div>
+        </a>
+        <a href="#" class="p-home__commitment--item">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.png" alt="Green mobility initiatives">
+          <div class="contents">
+            <h3 class="title">
+              Green mobility initiatives
+            </h3>
+            <div class="desc">
+              Investing in a sustainable future for our community <br>and planet.
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="p-home__commitment--bottom">
+        <a href="#" class="c-btn__06">Learn More About Our Impact</a>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
 </main>
 
 <?php get_footer(); ?>
