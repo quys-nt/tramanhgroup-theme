@@ -16,7 +16,7 @@
     grid-template-columns: 1fr 720px;
     gap: 32px;
 
-    @include g.media(sp) {
+    @include g.media(tab) {
       grid-template-columns: 1fr;
     }
   }

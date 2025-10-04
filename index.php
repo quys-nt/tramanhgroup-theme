@@ -88,7 +88,7 @@
       <div class="swiper-pagination"></div>
     </div>
     <div class="p-home__mv--popup" data-aos="fade-up" >
-      <span class="p-home__mv--popup-icon"></span>
+      <p class="title">CORE VALUES</p>
       <ul>
         <li>Innovation</li>
         <li>Sustainability</li>
