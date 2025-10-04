@@ -464,7 +464,52 @@
         <a href="#" class="c-btn__06">Learn More About Our Impact</a>
       </div>
     </div>
+    </div>
+  </section>
 
+  <section class="p-home__contact">
+    <div class="p-home__contact--iframe js-home-iframe">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3400470522515!2d106.70100767691262!3d10.785246589364057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f00141466f9%3A0xa902091f1294005d!2zRVYgT05FIFRy4bqhbSBz4bqhYyDEkWnhu4du!5e0!3m2!1svi!2s!4v1759542869292!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="p-home__contact--form">
+      <div>
+        <p class="c-text__intro01">
+          Get in Touch
+        </p>
+        <h2 class="c-title__02">
+          <span class="c-title__02--first">Contact &</span>
+          <span class="c-title__02--last">Global Presence</span>
+        </h2>
+      </div>
+      <div>
+
+        <div class="form-contact">
+          <form action="#">
+            <div class="form-contact-body">
+              <div class="form-contact-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Placeholder">
+              </div>
+              <div class="form-contact-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" placeholder="Placeholder">
+              </div>
+              <div class="form-contact-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Placeholder">
+              </div>
+              <div class="form-contact-group">
+                <label for="note">Name</label>
+                <textarea name="note" id="note" placeholder="Placeholder"></textarea>
+              </div>
+
+              <div class="form-contact-btns">
+                <input type="button" value="Submit Form" class="c-btn__07">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 

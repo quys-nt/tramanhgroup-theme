@@ -121,4 +121,13 @@
     border-radius: 50px;
     border: 1px solid #1A1A1B;
   }
+
+  &__07 {
+    cursor: pointer;
+    display: inline-block;
+    background-color: g.$green01;
+    color: g.$white01;
+    padding: 12px 24px;
+    border-radius: 50px;
+  }
 }
