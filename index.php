@@ -101,7 +101,7 @@
   <section class="p-home__since">
     <div class="l-container">
       <div class="p-home__since--box01">
-        <div>
+        <div class="animate__animated animate__backInUp">
           <p class="c-text__intro01">
             Since 1996
           </p>
@@ -110,7 +110,7 @@
             <span>Multi-Sector Corporation</span>
           </h2>
         </div>
-        <div class="p-home__since--box01-right">
+        <div class="p-home__since--box01-right animate__animated animate__backInUp">
           <p class="c-text01">
             Founded in 1996, Tram Anh Group operates across 6 industries with 15+ subsidiaries, delivering sustainable growth and long-term value.
           </p>
@@ -119,7 +119,7 @@
           </a>
         </div>
       </div>
-      <div class="p-home__since--box02">
+      <div class="p-home__since--box02 animate__animated animate__backInUp">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-02.png" alt="img">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-03.png" alt="img">
       </div>
@@ -128,7 +128,7 @@
 
   <section class="p-home__our">
     <div class="l-container small">
-      <div class="p-home__our--box01">
+      <div class="p-home__our--box01 animate__animated animate__backInUp">
         <p class="c-text__intro01">
           Our Core Sectors
         </p>
@@ -138,7 +138,7 @@
         </h2>
       </div>
       <div class="p-home__our--box02">
-        <div class="p-home__our--box03">
+        <div class="p-home__our--box03 animate__animated animate__backInUp">
           <div class="p-home__our--item first">
             <div class="icons">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-our-01.svg" alt="icon-our-01">
@@ -184,7 +184,7 @@
             </div>
           </div>
         </div>
-        <div class="p-home__our--box04">
+        <div class="p-home__our--box04 animate__animated animate__backInUp">
           <div class="p-home__our--item">
             <div class="icons">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-our-03.svg" alt="icon-our-03">
@@ -484,7 +484,10 @@
       <div>
 
         <div class="form-contact">
-          <form action="#">
+          <?php
+          echo  do_shortcode('[contact-form-7 id="772b1e3" title="Form liên hệ 1"]');
+          ?>
+          <!-- <form action="#">
             <div class="form-contact-body">
               <div class="form-contact-group">
                 <label for="name">Name</label>
@@ -499,7 +502,7 @@
                 <input type="text" id="email" placeholder="Placeholder">
               </div>
               <div class="form-contact-group">
-                <label for="note">Name</label>
+                <label for="note">Message</label>
                 <textarea name="note" id="note" placeholder="Placeholder"></textarea>
               </div>
 
@@ -507,7 +510,7 @@
                 <input type="button" value="Submit Form" class="c-btn__07">
               </div>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>

@@ -790,6 +790,7 @@
 
     .form-contact {
       margin-top: 64px;
+      max-width: 576px;
 
       @include g.media(sp) {
         margin-top: 40px;
@@ -824,6 +825,7 @@
           padding: 12px;
           border: 1px solid g.$gray03;
           border-radius: 8px;
+          margin-top: 8px;
 
           &::placeholder {
             color: g.$gray02;
