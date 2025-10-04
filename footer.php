@@ -104,6 +104,7 @@
 </footer>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <?php wp_footer(); ?>
 </body>
 

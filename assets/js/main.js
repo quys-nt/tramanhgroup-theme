@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  AOS.init({
+    offset: 400,
+    duration: 1500,
+    easing: 'ease',
+    delay: 0,
+    once: true
+  });
+
   var swiper = new Swiper('.js-swiper-mv', {
     slidesPerView: 1,
     spaceBetween: 0,
