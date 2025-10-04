@@ -537,6 +537,13 @@
 
       @media screen and (max-width: 1673px) {
         overflow: auto;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
 
       @include g.media(sp) {
