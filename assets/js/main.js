@@ -1,6 +1,6 @@
 $(document).ready(function () {
   AOS.init({
-    offset: 300,
+    offset: 200,
     duration: 1500,
     easing: 'ease',
     delay: 0,
@@ -19,7 +19,7 @@ $(document).ready(function () {
       delay: 2500,
       disableOnInteraction: false,
     },
-    // navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, // Bỏ comment nếu cần sau này
+
     loop: true,
     speed: 600,
   });
@@ -28,12 +28,22 @@ $(document).ready(function () {
   let startX;
   let scrollLeft;
 
+  $(document).ready(function () {
+    $(window).on('scroll', function () {
+      let scrollPosition = $(window).scrollTop();
+
+      if (scrollPosition >= 700) {
+        $('.js-header').addClass('is-scrolled');
+      } else {
+        $('.js-header').removeClass('is-scrolled');
+      }
+    });
+  });
+
   $('.overflow-auto').each(function () {
     const $this = $(this);
 
-    // Kiểm tra nếu phần tử bị overflow (chỉ áp dụng khi cần)
     if ($this[0].scrollWidth > $this[0].clientWidth) {
-      // Thêm cursor pointer để hint có thể kéo
       $this.css('cursor', 'grab');
 
       $this.on('mousedown', function (e) {
@@ -41,7 +51,7 @@ $(document).ready(function () {
         $this.css('cursor', 'grabbing');
         startX = e.pageX - $this[0].offsetLeft;
         scrollLeft = $this.scrollLeft();
-        e.preventDefault(); // Ngăn select text khi kéo
+        e.preventDefault();
       });
 
       $this.on('mouseleave', function () {
@@ -58,7 +68,7 @@ $(document).ready(function () {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - $this[0].offsetLeft;
-        const walk = (x - startX) * 2; // Tốc độ kéo (có thể chỉnh số 2 để nhanh/chậm hơn)
+        const walk = (x - startX) * 2;
         $this.scrollLeft(scrollLeft - walk);
       });
     }
@@ -66,30 +76,25 @@ $(document).ready(function () {
   var $nav = $('.l-header__nav');
   if ($nav.length === 0) return;
 
-  // Lấy tất cả li có submenu
   var $dropdownLis = $nav.find('ul > li:has(ul)');
 
-  // Toggle submenu on click
   $dropdownLis.each(function () {
     var $li = $(this);
-    var $triggerA = $li.find('> a'); // Thẻ a chính
-    var $submenu = $li.find('> ul'); // ul con
+    var $triggerA = $li.find('> a');
+    var $submenu = $li.find('> ul');
 
     if ($triggerA.length && $submenu.length) {
       $triggerA.on('click', function (e) {
-        e.preventDefault(); // Ngăn link jump (remove nếu cần)
+        e.preventDefault();
 
-        // Toggle class .show trên submenu
         $submenu.toggleClass('show');
 
-        // Kiểm tra trạng thái sau toggle và update is-active
         if ($submenu.hasClass('show')) {
           $triggerA.addClass('is-active');
         } else {
           $triggerA.removeClass('is-active');
         }
 
-        // Đóng các submenu khác và remove active
         $dropdownLis.not($li).each(function () {
           var $otherSubmenu = $(this).find('> ul');
           var $otherTriggerA = $(this).find('> a');
@@ -100,10 +105,8 @@ $(document).ready(function () {
     }
   });
 
-  // Close all submenus on outside click
   $(document).on('click', function (e) {
     if (!$nav.is(e.target) && $nav.has(e.target).length === 0) {
-      // Click ngoài nav -> đóng tất cả
       $dropdownLis.each(function () {
         var $submenu = $(this).find('> ul');
         var $triggerA = $(this).find('> a');
@@ -113,7 +116,6 @@ $(document).ready(function () {
     }
   });
 
-  // Prevent close khi click inside submenu (stop propagation)
   $nav.on('click', function (e) {
     if ($(e.target).closest('ul ul').length > 0) {
       e.stopPropagation();
@@ -124,8 +126,21 @@ $(document).ready(function () {
     $(".l-header__menu").toggleClass("is-show");
     if ($(".l-header__menu").hasClass("is-show")) {
       $("body").css({ "overflow": "hidden" })
+      $(".l-header__logo--first").show()
+      $(".l-header__logo--last").hide()
+      $(".l-header__btn02--first").hide()
+      $(".l-header__btn02--last").hide()
+      $(".l-header__btn02--close").show()
     } else {
+      $(".l-header__btn02--close").hide()
       $("body").removeAttr("style")
+      $(".l-header__logo--close").hide()
+      if ($(".js-header:not(.is-scrolled)")) {
+        $(".l-header__logo--first").removeAttr("style")
+        $(".l-header__logo--last").removeAttr("style")
+        $(".l-header__btn02--first").removeAttr("style")
+        $(".l-header__btn02--last").removeAttr("style")
+      }
     }
   })
 

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <header class="l-header">
+  <header class="l-header js-header">
     <div class="l-container">
       <div class="l-header__inner">
         <div class="l-header__logo">
@@ -29,7 +29,8 @@
           $logo_url = wp_get_attachment_image_src($custom_logo_id, 'full');
           ?>
           <a href="<?php echo home_url(); ?>">
-            <img src="<?php echo $logo_url ? $logo_url[0] : get_template_directory_uri() . '/assets/images/logo-tramanhgroup01.png'; ?>" alt="logo tramanhgroup">
+            <img class="l-header__logo--first" src="<?php echo $logo_url ? $logo_url[0] : get_template_directory_uri() . '/assets/images/logo-tramanhgroup01.png'; ?>" alt="logo tramanhgroup">
+            <img class="l-header__logo--last" src="<?php echo $logo_url ? $logo_url[0] : get_template_directory_uri() . '/assets/images/logo-tramanhgroup03.png'; ?>" alt="logo tramanhgroup">
           </a>
         </div>
         <div class="l-header__menu">
@@ -89,7 +90,9 @@
           </nav>
         </div>
         <button class="l-header__btn02 js-show-menu">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-menu.svg" alt="en menu">
+          <img class="l-header__btn02--first" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-menu.svg" alt="en menu">
+          <img class="l-header__btn02--last" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-menu-02.svg" alt="en menu">
+          <img class="l-header__btn02--close" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-close.svg" alt="en menu">
         </button>
       </div>
     </div>

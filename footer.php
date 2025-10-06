@@ -13,7 +13,7 @@
             </a>
           </div>
           <p class="l-footer__text01">
-            CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ ĐẦU TƯ TRAM ANH GROUP
+            Công ty TNHH Sản xuất Công nghiệp Thương mại Trâm Anh
           </p>
         </div>
         <div class="l-footer__first--list01">

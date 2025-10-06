@@ -197,6 +197,43 @@
     }
   }
 
+  &__core-value {
+    overflow: hidden;
+    padding: 12px 10px;
+    background: g.$green01 url("../images/bg-core-value01.png") no-repeat center / contain;
+    color: g.$white01;
+
+    @include g.media(pc-tab) {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      gap: 36px;
+      animation: home-partners-row-top 15s linear infinite;
+    }
+
+    &-text {
+      position: relative;
+      font-weight: 700;
+      font-style: Italic;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: -0.03em;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        background: url("../images/icon-star.svg") no-repeat center / 20px;
+      }
+    }
+  }
+
   &__since {
     padding: 120px 0 80px;
 
@@ -554,6 +591,13 @@
 
       img {
         width: auto;
+        max-width: 174px;
+        max-height: 96px;
+
+        @include g.media(sp) {
+          max-width: 116px;
+          max-height: 63px;
+        }
       }
     }
   }

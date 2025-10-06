@@ -98,6 +98,51 @@
       </ul>
     </div>
   </section>
+  <div class="p-home__core-value">
+
+    <div class="p-home__core-value-list">
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+      <p class="p-home__core-value-text">Innovation</p>
+      <p class="p-home__core-value-text">Sustainability</p>
+      <p class="p-home__core-value-text">Agility</p>
+      <p class="p-home__core-value-text">Integrity</p>
+      <p class="p-home__core-value-text">Unity</p>
+    </div>
+  </div>
   <section class="p-home__since">
     <div class="l-container">
       <div class="p-home__since--box01">
@@ -244,76 +289,76 @@
     </div>
     <div class="p-home__partners--box02">
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-audi.png" alt="logo-audi">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-ducati.png" alt="logo-ducati">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-evone.png" alt="logo-evone">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-apsp.png" alt="logo-apsp">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-tam-son.png" alt="logo-tam-son">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
       </div>
       <div class="p-home__partners--item">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/logo-jacob-co.png" alt="logo-jacob-co">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
       </div>
     </div>
   </section>
@@ -338,66 +383,66 @@
     <div class="l-container overflow-auto">
       <div class="p-home__posts--box02">
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-          <a href="#" class="thumbnail">
+          <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html" target="_blank" class="thumbnail">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-01.jpg" alt="Audi Vietnam Partners with APEC & WEF">
           </a>
           <div class="contents">
-            <a href="#">
+            <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html">
               <h3 class="title">Audi Vietnam Partners with APEC & WEF</h3>
             </a>
             <p class="time">
               21/09/2025
             </p>
           </div>
-          <a href="#" class="c-btn__05">
+          <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html" class="c-btn__05">
             See details
           </a>
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-          <a href="#" class="thumbnail">
+          <a href="https://ev1.vn/tin-tuc/36" target="_blank" class="thumbnail">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.jpg" alt="EV One Signs Strategic Deal with BYD & AION-GAC">
           </a>
           <div class="contents">
-            <a href="#">
+            <a href="https://ev1.vn/tin-tuc/36">
               <h3 class="title">EV One Signs Strategic Deal with BYD & AION-GAC</h3>
             </a>
             <p class="time">
               21/09/2025
             </p>
           </div>
-          <a href="#" class="c-btn__05">
+          <a href="https://ev1.vn/tin-tuc/36" class="c-btn__05">
             See details
           </a>
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-          <a href="#" class="thumbnail">
+          <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future" target="_blank" class="thumbnail">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.jpg" alt="Thang Long Warriors Secure VBA Playoff Spot">
           </a>
           <div class="contents">
-            <a href="#">
+            <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future">
               <h3 class="title">Thang Long Warriors Secure VBA Playoff Spot</h3>
             </a>
             <p class="time">
               21/09/2025
             </p>
           </div>
-          <a href="#" class="c-btn__05">
+          <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future" class="c-btn__05">
             See details
           </a>
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-          <a href="#" class="thumbnail">
+          <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam" target="_blank" class="thumbnail">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.jpg" alt="Grand Opening of Jacob & Co Flagship in HCMC">
           </a>
           <div class="contents">
-            <a href="#">
+            <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam">
               <h3 class="title">Grand Opening of Jacob & Co Flagship in HCMC</h3>
             </a>
             <p class="time">
               21/09/2025
             </p>
           </div>
-          <a href="#" class="c-btn__05">
+          <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam" class="c-btn__05">
             See details
           </a>
         </div>
@@ -469,7 +514,7 @@
 
   <section class="p-home__contact">
     <div class="p-home__contact--iframe js-home-iframe" data-aos="fade-up">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3400470522515!2d106.70100767691262!3d10.785246589364057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f00141466f9%3A0xa902091f1294005d!2zRVYgT05FIFRy4bqhbSBz4bqhYyDEkWnhu4du!5e0!3m2!1svi!2s!4v1759542869292!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3424276156966!2d106.7036126!3d10.785063899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f08ec5b72dd%3A0xade3331f598c844e!2sAudi%20Ho%20Chi%20Minh%20City!5e0!3m2!1svi!2s!4v1759767323793!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="p-home__contact--form">
       <div data-aos="fade-up">
