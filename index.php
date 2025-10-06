@@ -7,7 +7,7 @@
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
             <div class="p-home__mv--contents">
@@ -27,7 +27,7 @@
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
             <div class="p-home__mv--contents">
@@ -47,7 +47,7 @@
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
             <div class="p-home__mv--contents">
@@ -67,7 +67,7 @@
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
             <div class="p-home__mv--contents">
@@ -87,7 +87,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <div class="p-home__mv--popup" data-aos="fade-up" >
+    <div class="p-home__mv--popup" data-aos="fade-up">
       <p class="title">CORE VALUES</p>
       <ul>
         <li>Innovation</li>
@@ -101,16 +101,16 @@
   <section class="p-home__since">
     <div class="l-container">
       <div class="p-home__since--box01">
-        <div data-aos="fade-up" >
+        <div data-aos="fade-up">
           <p class="c-text__intro01">
             Since 1996
           </p>
           <h2 class="c-title__02">
-            <span>A Trusted</span>
-            <span>Multi-Sector Corporation</span>
+            <span class="c-title__02--first">Trusted</span>
+            <span class="c-title__02--last">Multi-Sector Corporation</span>
           </h2>
         </div>
-        <div class="p-home__since--box01-right" data-aos="fade-up" >
+        <div class="p-home__since--box01-right" data-aos="fade-up">
           <p class="c-text01">
             Founded in 1996, Tram Anh Group operates across 6 industries with 15+ subsidiaries, delivering sustainable growth and long-term value.
           </p>
@@ -119,16 +119,16 @@
           </a>
         </div>
       </div>
-      <div class="p-home__since--box02" data-aos="fade-up" >
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-02.png" alt="img">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-03.png" alt="img">
+      <div class="p-home__since--box02" data-aos="fade-up">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-02.jpg" alt="img">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-03.jpg" alt="img">
       </div>
     </div>
   </section>
 
   <section class="p-home__our">
     <div class="l-container small">
-      <div class="p-home__our--box01" data-aos="fade-up" >
+      <div class="p-home__our--box01" data-aos="fade-up">
         <p class="c-text__intro01">
           Our Core Sectors
         </p>
@@ -138,7 +138,7 @@
         </h2>
       </div>
       <div class="p-home__our--box02">
-        <div class="p-home__our--box03" data-aos="fade-up" >
+        <div class="p-home__our--box03" data-aos="fade-up">
           <div class="p-home__our--item first">
             <div class="icons">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-our-01.svg" alt="icon-our-01">
@@ -184,7 +184,7 @@
             </div>
           </div>
         </div>
-        <div class="p-home__our--box04" data-aos="fade-up" >
+        <div class="p-home__our--box04" data-aos="fade-up">
           <div class="p-home__our--item">
             <div class="icons">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-our-03.svg" alt="icon-our-03">
@@ -233,7 +233,7 @@
   </section>
 
   <section class="p-home__partners">
-    <div class="p-home__partners--box01" data-aos="fade-up" >
+    <div class="p-home__partners--box01" data-aos="fade-up">
       <p class="c-text__intro01">
         Flagship Brands & Partners
       </p>
@@ -320,7 +320,7 @@
 
   <section class="p-home__posts">
     <div class="l-container">
-      <div class="p-home__posts--box01" data-aos="fade-up" >
+      <div class="p-home__posts--box01" data-aos="fade-up">
         <div>
           <p class="c-text__intro01">
             Latest Updates
@@ -339,7 +339,7 @@
       <div class="p-home__posts--box02">
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="#" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-01.png" alt="Audi Vietnam Partners with APEC & WEF">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-01.jpg" alt="Audi Vietnam Partners with APEC & WEF">
           </a>
           <div class="contents">
             <a href="#">
@@ -355,7 +355,7 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="#" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.png" alt="EV One Signs Strategic Deal with BYD & AION-GAC">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.jpg" alt="EV One Signs Strategic Deal with BYD & AION-GAC">
           </a>
           <div class="contents">
             <a href="#">
@@ -371,7 +371,7 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="#" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.png" alt="Thang Long Warriors Secure VBA Playoff Spot">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.jpg" alt="Thang Long Warriors Secure VBA Playoff Spot">
           </a>
           <div class="contents">
             <a href="#">
@@ -387,7 +387,7 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="#" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.png" alt="Grand Opening of Jacob & Co Flagship in HCMC">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.jpg" alt="Grand Opening of Jacob & Co Flagship in HCMC">
           </a>
           <div class="contents">
             <a href="#">
@@ -410,7 +410,7 @@
 
   <section class="p-home__commitment">
     <div class="l-container not-padding">
-      <div class="p-home__commitment--box01" data-aos="fade-up" >
+      <div class="p-home__commitment--box01" data-aos="fade-up">
         <div>
           <p class="c-text__intro01">
             Our Commitment
@@ -426,8 +426,8 @@
       </div>
 
       <div class="p-home__commitment--box02">
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up" >
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.png" alt="CSR programs">
+        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.jpeg" alt="CSR programs">
           <div class="contents">
             <h3 class="title">
               CSR programs
@@ -437,8 +437,8 @@
             </div>
           </div>
         </a>
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up" >
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-02.png" alt="Sports academy">
+        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-02.jpg" alt="Sports academy">
           <div class="contents">
             <h3 class="title">
               Sports academy
@@ -448,8 +448,8 @@
             </div>
           </div>
         </a>
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up" >
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.png" alt="Green mobility initiatives">
+        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.webp" alt="Green mobility initiatives">
           <div class="contents">
             <h3 class="title">
               Green mobility initiatives
@@ -468,11 +468,11 @@
   </section>
 
   <section class="p-home__contact">
-    <div class="p-home__contact--iframe js-home-iframe" data-aos="fade-up" >
+    <div class="p-home__contact--iframe js-home-iframe" data-aos="fade-up">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3400470522515!2d106.70100767691262!3d10.785246589364057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f00141466f9%3A0xa902091f1294005d!2zRVYgT05FIFRy4bqhbSBz4bqhYyDEkWnhu4du!5e0!3m2!1svi!2s!4v1759542869292!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="p-home__contact--form">
-      <div data-aos="fade-up" >
+      <div data-aos="fade-up">
         <p class="c-text__intro01">
           Get in Touch
         </p>
@@ -483,7 +483,7 @@
       </div>
       <div>
 
-        <div class="form-contact" data-aos="fade-up" >
+        <div class="form-contact" data-aos="fade-up">
           <?php
           echo  do_shortcode('[contact-form-7 id="772b1e3" title="Form liên hệ 1"]');
           ?>
