@@ -27,10 +27,10 @@
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-02.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
+            <!-- <div class="p-home__mv--contents">
               <div class="p-home__mv--title">
                 <p>Comprehensive Partnership, </p>
                 <p>Unwavering commitment</p>
@@ -41,16 +41,16 @@
               <div>
                 <a href="#" class="c-btn__01">Discover</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-03.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
+            <!-- <div class="p-home__mv--contents">
               <div class="p-home__mv--title">
                 <p>Comprehensive Partnership, </p>
                 <p>Unwavering commitment</p>
@@ -61,16 +61,16 @@
               <div>
                 <a href="#" class="c-btn__01">Discover</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="swiper-slide">
           <div class="p-home__mv--item">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-04.jpg"
               alt="img"
               class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
+            <!-- <div class="p-home__mv--contents">
               <div class="p-home__mv--title">
                 <p>Comprehensive Partnership, </p>
                 <p>Unwavering commitment</p>
@@ -81,7 +81,7 @@
               <div>
                 <a href="#" class="c-btn__01">Discover</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -98,6 +98,7 @@
       </ul>
     </div>
   </section>
+  
   <div class="p-home__core-value">
 
     <div class="p-home__core-value-list">
@@ -496,7 +497,7 @@
 
       <div class="p-home__commitment--box02">
         <a href="#" class="p-home__commitment--item" data-aos="fade-up">
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.jpeg" alt="CSR programs">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.jpg" alt="CSR programs">
           <div class="contents">
             <h3 class="title">
               CSR programs
@@ -518,7 +519,7 @@
           </div>
         </a>
         <a href="#" class="p-home__commitment--item" data-aos="fade-up">
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.webp" alt="Green mobility initiatives">
+          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.jpg" alt="Green mobility initiatives">
           <div class="contents">
             <h3 class="title">
               Green mobility initiatives
