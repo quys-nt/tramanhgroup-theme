@@ -360,6 +360,30 @@
       <div class="p-home__partners--item">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
       </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
+      </div>
+      <div class="p-home__partners--item">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
+      </div>
     </div>
   </section>
 
@@ -400,11 +424,11 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="https://ev1.vn/tin-tuc/36" target="_blank" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.jpg" alt="EV One Signs Strategic Deal with BYD & AION-GAC">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.jpg" alt="EV ONE launches a public EV charging station at the Deusteches House">
           </a>
           <div class="contents">
             <a href="https://ev1.vn/tin-tuc/36">
-              <h3 class="title">EV One Signs Strategic Deal with BYD & AION-GAC</h3>
+              <h3 class="title">EV ONE launches a public EV charging station at the Deusteches House</h3>
             </a>
             <p class="time">
               21/09/2025
@@ -416,11 +440,11 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future" target="_blank" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.jpg" alt="Thang Long Warriors Secure VBA Playoff Spot">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.jpg" alt="Thang Long Warriors crowned champions of Games of Future 2024">
           </a>
           <div class="contents">
             <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future">
-              <h3 class="title">Thang Long Warriors Secure VBA Playoff Spot</h3>
+              <h3 class="title">Thang Long Warriors crowned champions of Games of Future 2024</h3>
             </a>
             <p class="time">
               21/09/2025
@@ -432,11 +456,11 @@
         </div>
         <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
           <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam" target="_blank" class="thumbnail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.jpg" alt="Grand Opening of Jacob & Co Flagship in HCMC">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.jpg" alt="Jacob & Co. opens its first flagship store in Vietnam">
           </a>
           <div class="contents">
             <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam">
-              <h3 class="title">Grand Opening of Jacob & Co Flagship in HCMC</h3>
+              <h3 class="title">Jacob & Co. opens its first flagship store in Vietnam</h3>
             </a>
             <p class="time">
               21/09/2025

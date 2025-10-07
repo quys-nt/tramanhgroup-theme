@@ -569,7 +569,11 @@
 
       &02 {
         display: flex;
-        animation: home-partners-row-top 60s linear infinite;
+        animation: home-partners-row-top 15s linear infinite;
+
+        @include g.media(sp) {
+          animation-duration: 3s;
+        }
       }
     }
 
