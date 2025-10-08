@@ -24,6 +24,56 @@ $(document).ready(function () {
     speed: 600,
   });
 
+  var swiper = new Swiper('.swiper-partners', {
+    loop: true,
+    slidesPerView: 6,
+    spaceBetween: 0,
+    speed: 6000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2.5,
+      },
+      768: {
+        slidesPerView: 4.5,
+      },
+      1024: {
+        slidesPerView: 6,
+      },
+      1550: {
+        slidesPerView: 8,
+      }
+    },
+  });
+  var swiperPartners = new Swiper('.swiper-posts', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 32,
+    speed: 1000,
+    navigation: {
+      nextEl: '.js-swiper-button-prev',
+      prevEl: '.js-swiper-button-next',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2.5,
+        spaceBetween: 10,
+        speed: 4000,
+      },
+      768: {
+        slidesPerView: 2.5,
+        spaceBetween: 15,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+    },
+  });
+
   let isDown = false;
   let startX;
   let scrollLeft;
