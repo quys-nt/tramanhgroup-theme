@@ -23,7 +23,8 @@
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map.svg" alt="icon map">
               </span>
               <span>
-                6B Ton Duc Thang, Sai Gon Ward, Ho Chi Minh City
+                Floor 19, Room 1901 – Saigon Trade Center,<br>
+                No. 37 Ton Duc Thang Street, Saigon Ward, Ho Chi Minh City, Vietnam.
               </span>
             </li>
             <li>
