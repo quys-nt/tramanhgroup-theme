@@ -634,11 +634,15 @@
     padding: 120px 0 100px;
 
     @include g.media(sp) {
-      padding-block: 40px;
+      padding: 40px 20px 100px;
     }
 
     .l-container {
       overflow: hidden;
+
+      @include g.media(sp) {
+        padding-inline: 0;
+      }
     }
 
     .overflow-auto {
@@ -670,6 +674,8 @@
 
         @include g.media(sp) {
           margin-bottom: 32px;
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         &--right {
@@ -677,6 +683,11 @@
           //   display: none;
           // }
           display: flex;
+
+          @include g.media(sp) {
+            width: 100%;
+            justify-content: end;
+          }
 
           .c-button {
             cursor: pointer;

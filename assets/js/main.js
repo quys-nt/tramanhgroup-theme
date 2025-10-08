@@ -52,14 +52,14 @@ $(document).ready(function () {
     loop: true,
     slidesPerView: 3,
     spaceBetween: 32,
-    speed: 1000,
+    speed: 600,
     navigation: {
-      nextEl: '.js-swiper-button-prev',
-      prevEl: '.js-swiper-button-next',
+      nextEl: '.js-swiper-button-next',
+      prevEl: '.js-swiper-button-prev',
     },
     breakpoints: {
       320: {
-        slidesPerView: 2.5,
+        slidesPerView: 1.5,
         spaceBetween: 10,
         speed: 4000,
       },
