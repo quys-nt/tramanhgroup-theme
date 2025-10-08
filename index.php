@@ -462,7 +462,7 @@
           </h2>
         </div>
         <div class="p-home__commitment--box01--right">
-          <a href="#" class="c-btn__06">Learn More About Our Impact</a>
+          <a href="#" class="c-btn__06">Learn More</a>
         </div>
       </div>
 
@@ -502,7 +502,7 @@
         </a>
       </div>
       <div class="p-home__commitment--bottom">
-        <a href="#" class="c-btn__06">Learn More About Our Impact</a>
+        <a href="#" class="c-btn__06">Learn More</a>
       </div>
     </div>
     </div>
