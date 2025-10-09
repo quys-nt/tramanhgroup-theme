@@ -88,63 +88,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <div class="p-home__mv--popup" data-aos="fade-up">
-      <p class="title">CORE VALUES</p>
-      <ul>
-        <li>Innovation</li>
-        <li>Sustainability</li>
-        <li>Agility</li>
-        <li>Integrity</li>
-        <li>Unity</li>
-      </ul>
-    </div>
   </section>
-
-  <div class="p-home__core-value">
-
-    <div class="p-home__core-value-list">
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-      <p class="p-home__core-value-text">Innovation</p>
-      <p class="p-home__core-value-text">Sustainability</p>
-      <p class="p-home__core-value-text">Agility</p>
-      <p class="p-home__core-value-text">Integrity</p>
-      <p class="p-home__core-value-text">Unity</p>
-    </div>
-  </div>
 
   <section class="p-home__since">
     <div class="l-container">

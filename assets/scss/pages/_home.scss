@@ -120,118 +120,6 @@
         }
       }
     }
-
-    &--popup {
-      position: absolute;
-      bottom: 119px;
-      right: 56px;
-      z-index: 10;
-      padding: 16px;
-      border-radius: 16px;
-      background-color: g.$white01;
-
-      @include g.media(tab) {
-        right: 20px;
-        bottom: 40px;
-      }
-
-      @include g.media(sp) {
-        display: none;
-      }
-
-      .title {
-        position: relative;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: -0.03em;
-        color: g.$green01;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -16px;
-          width: 8px;
-          height: 16px;
-          background-color: g.$green01;
-        }
-      }
-
-      ul {
-        margin: 0;
-        list-style: none;
-        margin-top: 16px;
-
-        li {
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 24px;
-          letter-spacing: -0.03em;
-
-          &:not(:last-child) {
-            margin-bottom: 8px;
-          }
-
-          &:nth-child(2) {
-            opacity: 0.8;
-          }
-
-          &:nth-child(3) {
-            opacity: 0.7;
-          }
-
-          &:nth-child(4) {
-            opacity: 0.6;
-          }
-
-          &:nth-child(5) {
-            opacity: 0.5;
-          }
-
-          &:nth-child(6) {
-            opacity: 0.4;
-          }
-        }
-      }
-    }
-  }
-
-  &__core-value {
-    overflow: hidden;
-    padding: 12px 10px;
-    background: g.$green01 url("../images/bg-core-value01.png") no-repeat center / contain;
-    color: g.$white01;
-
-    @include g.media(pc-tab) {
-      display: none;
-    }
-
-    &-list {
-      display: flex;
-      gap: 36px;
-      animation: home-partners-row-top 15s linear infinite;
-    }
-
-    &-text {
-      position: relative;
-      font-weight: 700;
-      font-style: Italic;
-      font-size: 18px;
-      line-height: 24px;
-      letter-spacing: -0.03em;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: -30px;
-        width: 20px;
-        height: 20px;
-        transform: translateY(-50%);
-        background: url("../images/icon-star.svg") no-repeat center / 20px;
-      }
-    }
   }
 
   &__since {
@@ -622,7 +510,7 @@
     // }
     // }
 
-    .swiper-container {
+    .swiper-partners {
       .swiper-wrapper {
         transition-timing-function: linear !important;
       }
