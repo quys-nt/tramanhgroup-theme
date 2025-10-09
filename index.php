@@ -237,52 +237,43 @@
     <div class="swiper-partners">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.svg" alt="aprilia-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/apsp-logo.svg" alt="apsp-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.svg" alt="ducati-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.svg" alt="EVOne-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/jacob-co-logo.svg" alt="jacob-co-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.svg" alt="moto-guzzi-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ocenter-logo.svg" alt="ocenter-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.svg" alt="piaggio-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.png" alt="aprilia-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.svg" alt="royal-enfield-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/audi-logo.png" alt="audi-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/thien-nghia-logo.png" alt="thien-nghia-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.png" alt="ducati-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/tlw-logo.svg" alt="tlw-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.png" alt="EVOne-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ts-yachting-biack-logo.svg" alt="ts-yachting-biack-logo">
         </div>
         <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.png" alt="moto-guzzi-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.png" alt="piaggio-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.png" alt="royal-enfield-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-logo.png" alt="vespa-logo">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-Logo.svg" alt="vespa-Logo">
         </div>
       </div>
     </div>

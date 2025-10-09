@@ -38,3 +38,19 @@ function mytheme_setup()
   ));
 }
 add_action('after_setup_theme', 'mytheme_setup');
+
+function add_cache_busting_to_images($url) {
+    if (is_admin()) return $url; // Không áp dụng trong admin
+    $file_path = str_replace(get_site_url(), ABSPATH, $url);
+    if (file_exists($file_path)) {
+        $url = add_query_arg('v', filemtime($file_path), $url);
+    }
+    return $url;
+}
+add_filter('wp_get_attachment_url', 'add_cache_busting_to_images');
+add_filter('image_downsize', function($out, $id, $size) {
+    if (is_array($out)) {
+        $out[0] = add_cache_busting_to_images($out[0]);
+    }
+    return $out;
+}, 10, 3);
