@@ -1,122 +1,79 @@
 <?php get_header(); ?>
-
 <main>
   <section class="p-home__mv">
     <div class="js-swiper-mv">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="p-home__mv--item">
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-01.jpg"
-              alt="img"
-              class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
-              <h1 class="p-home__mv--title">
-                <p>Shaping the Future</p>
-                <p>of Premium Mobility</p>
-              </h1>
-              <p class="p-home__mv--text01">
-                Empowering sustainable growth through straegic<br>
-                partnerships and innovation.
-              </p>
-              <div>
-                <a href="#" class="c-btn__01">Discover</a>
+        <?php if (have_rows('main_visual', 'option')) : ?>
+          <?php while (have_rows('main_visual', 'option')) : the_row(); ?>
+            <?php $image = get_sub_field('mv_image'); ?>
+            <div class="swiper-slide">
+              <div class="p-home__mv--item">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="p-home__mv--thumbnail">
+                <div class="p-home__mv--contents">
+                  <h1 class="p-home__mv--title">
+                    <p><?php echo esc_attr(get_sub_field('title_first')) ?></p>
+                    <p><?php echo esc_attr(get_sub_field('title_last')) ?></p>
+                  </h1>
+                  <div class="p-home__mv--text01">
+                    <?php echo wp_kses_post(get_sub_field('mv_description')) ?>
+                  </div>
+                  <div>
+                    <a href="<?php echo esc_attr(get_sub_field('link_button')) ?>" class="c-btn__01">Discover</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="p-home__mv--item">
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-03.jpg"
-              alt="img"
-              class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
-              <div class="p-home__mv--title">
-                <p>Driven by Passion.</p>
-                <p>United by Purpose.</p>
-              </div>
-              <p class="p-home__mv--text01">
-                Empowering communities through global partnerships and local excellence.
-              </p>
-              <div>
-                <a href="#" class="c-btn__01">Discover</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="p-home__mv--item">
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-02.jpg"
-              alt="img"
-              class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
-              <div class="p-home__mv--title">
-                <p>Empowering</p>
-                <p>the Spirit of Champions.</p>
-              </div>
-              <p class="p-home__mv--text01">
-                Empowering communities through global partnerships and local excellence.
-              </p>
-              <div>
-                <a href="#" class="c-btn__01">Discover</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="swiper-slide">
-          <div class="p-home__mv--item">
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-mv-04.jpg"
-              alt="img"
-              class="p-home__mv--thumbnail">
-            <div class="p-home__mv--contents">
-              <div class="p-home__mv--title">
-                <p>Comprehensive Partnership, </p>
-                <p>Unwavering commitment</p>
-              </div>
-              <p class="p-home__mv--text01">
-                We merge Innovation and Agility in every solution, operating with Integrity and Unity towards Sustainability for all our partners
-              </p>
-              <div>
-                <a href="#" class="c-btn__01">Discover</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
+          <?php endwhile; ?>
+        <?php endif; ?>
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </section>
 
-  <section class="p-home__since">
-    <div class="l-container">
-      <div class="p-home__since--box01">
-        <div data-aos="fade-up">
-          <p class="c-text__intro01">
-            Since 1996
-          </p>
-          <h2 class="c-title__02">
-            <span class="c-title__02--first">Trusted</span>
-            <span class="c-title__02--last">Multi-Sector Corporation</span>
-          </h2>
+  <?php
+  $section_trusted = get_field('section_trusted', 'option');
+  if ($section_trusted):
+  ?>
+    <section class="p-home__since">
+      <div class="l-container">
+        <div class="p-home__since--box01">
+          <div data-aos="fade-up">
+            <?php if ($section_trusted['trusted_intro']): ?>
+              <p class="c-text__intro01">
+                <?php echo $section_trusted['trusted_intro']; ?>
+              </p>
+            <?php endif; ?>
+            <?php if ($section_trusted['trusted_title_last']): ?>
+              <h2 class="c-title__02">
+                <span class="c-title__02--first">
+                  <?php echo $section_trusted['trusted_title_first']; ?>
+                </span>
+                <span class="c-title__02--last">
+                  <?php echo $section_trusted['trusted_title_last']; ?>
+                </span>
+              </h2>
+            <?php endif; ?>
+          </div>
+          <div class="p-home__since--box01-right" data-aos="fade-up">
+            <?php if ($section_trusted['trusted_description']): ?>
+              <p class="c-text01">
+                <?php echo $section_trusted['trusted_description']; ?>
+              </p>
+            <?php endif; ?>
+            <?php if ($section_trusted['trusted_button_text']): ?>
+              <a href="<?php echo $section_trusted['trusted_button_link']; ?>" class="c-btn__02">
+                <?php echo $section_trusted['trusted_button_text']; ?>
+              </a>
+            <?php endif; ?>
+          </div>
         </div>
-        <div class="p-home__since--box01-right" data-aos="fade-up">
-          <p class="c-text01">
-            Founded in 1996, Tram Anh Group operates across 6 industries with 15+ subsidiaries, delivering sustainable growth and long-term value.
-          </p>
-          <a href="#" class="c-btn__02">
-            Discover Our Story
-          </a>
+        <div class="p-home__since--box02" data-aos="fade-up">
+          <img src="<?php echo esc_url($section_trusted['trusted_image_first']['url']) ?>" alt="<?php echo $section_trusted['trusted_image_first']['title'] ?>">
+          <img src="<?php echo esc_url($section_trusted['trusted_image_last']['url']) ?>" alt="<?php echo $section_trusted['trusted_image_last']['title'] ?>">
         </div>
       </div>
-      <div class="p-home__since--box02" data-aos="fade-up">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-02.jpg" alt="img">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/img-home-03.jpg" alt="img">
-      </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
   <section class="p-home__our">
     <div class="l-container small">
@@ -224,224 +181,163 @@
     </div>
   </section>
 
-  <section class="p-home__partners">
-    <div class="p-home__partners--box01" data-aos="fade-up">
-      <p class="c-text__intro01">
-        Flagship Brands & Partners
-      </p>
-      <h2 class="c-title__02 type-02">
-        <span class="c-title__02--first">Establish</span>
-        <span class="c-title__02--last">Credibility</span>
-      </h2>
-    </div>
-    <div class="swiper-partners">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/aprilia-logo.svg" alt="aprilia-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/apsp-logo.svg" alt="apsp-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ducati-logo.svg" alt="ducati-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/EVOne-logo.svg" alt="EVOne-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/jacob-co-logo.svg" alt="jacob-co-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/moto-guzzi-logo.svg" alt="moto-guzzi-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ocenter-logo.svg" alt="ocenter-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/piaggio-logo.svg" alt="piaggio-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/royal-enfield-logo.svg" alt="royal-enfield-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/thien-nghia-logo.png" alt="thien-nghia-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/tlw-logo.svg" alt="tlw-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/ts-yachting-biack-logo.svg" alt="ts-yachting-biack-logo">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/logos/vespa-Logo.svg" alt="vespa-Logo">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-home__posts">
-    <div class="l-container">
-      <div class="p-home__posts--box01" data-aos="fade-up">
-        <div>
+  <?php
+  $section_partners = get_field('section_partners', 'option');
+  if ($section_partners):
+  ?>
+    <section class="p-home__partners">
+      <div class="p-home__partners--box01" data-aos="fade-up">
+        <?php if ($section_partners['partners_intro']): ?>
           <p class="c-text__intro01">
-            Latest Updates
+            <?php echo $section_partners['partners_intro']; ?>
           </p>
-          <h2 class="c-title__02 type-03">
-            <span class="c-title__02--first">Stay Informed</span>
-            <span class="c-title__02--last">with Our News & Events</span>
-          </h2>
-        </div>
-        <div class="p-home__posts--box01--right">
-          <div class="c-button js-swiper-button-prev">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
-          </div>
-          <div class="c-button js-swiper-button-next">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-right.svg" alt="icon-arrow-right">
-          </div>
-        </div>
+        <?php endif; ?>
+        <h2 class="c-title__02 type-02">
+          <span class="c-title__02--first"><?php echo $section_partners['partners_title_first']; ?></span>
+          <span class="c-title__02--last"><?php echo $section_partners['partners_title_last']; ?></span>
+        </h2>
       </div>
-    </div>
-    <div class="l-container">
-      <div class="swiper-posts">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-              <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html" target="_blank" class="thumbnail">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-01.jpg" alt="Audi Vietnam Partners with APEC & WEF">
-              </a>
-              <div class="contents">
-                <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html">
-                  <h3 class="title">Audi Vietnam Partners with APEC & WEF</h3>
-                </a>
-                <p class="time">
-                  21/09/2025
-                </p>
+      <?php if ($section_partners['partners_list_images']) : ?>
+        <div class="swiper-partners">
+          <div class="swiper-wrapper">
+            <?php foreach ($section_partners['partners_list_images'] as $partner) :
+              $image = $partner['partners_image'];
+            ?>
+              <div class="swiper-slide">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>" class="p-home__partners--logo">
               </div>
-              <a href="https://vnexpress.net/55-xe-audi-duoc-su-dung-tai-dien-dan-wef-asean-2018-3807243.html" class="c-btn__05">
-                See details
-              </a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-              <a href="https://ev1.vn/tin-tuc/36" target="_blank" class="thumbnail">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-02.jpg" alt="EV ONE launches a public EV charging station at the Deusteches House">
-              </a>
-              <div class="contents">
-                <a href="https://ev1.vn/tin-tuc/36">
-                  <h3 class="title">EV ONE launches a public EV charging station at the Deusteches House</h3>
-                </a>
-                <p class="time">
-                  21/09/2025
-                </p>
-              </div>
-              <a href="https://ev1.vn/tin-tuc/36" class="c-btn__05">
-                See details
-              </a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-              <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future" target="_blank" class="thumbnail">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-03.jpg" alt="Thang Long Warriors crowned champions of Games of Future 2024">
-              </a>
-              <div class="contents">
-                <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future">
-                  <h3 class="title">Thang Long Warriors crowned champions of Games of Future 2024</h3>
-                </a>
-                <p class="time">
-                  21/09/2025
-                </p>
-              </div>
-              <a href="https://tdtt.gov.vn/the-thao-trong-nuoc/id/84380/clb-thang-long-warriors-vo-dich-giai-bong-ro-games-of-future" class="c-btn__05">
-                See details
-              </a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-              <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam" target="_blank" class="thumbnail">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/posts/img-post-04.jpg" alt="Jacob & Co. opens its first flagship store in Vietnam">
-              </a>
-              <div class="contents">
-                <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam">
-                  <h3 class="title">Jacob & Co. opens its first flagship store in Vietnam</h3>
-                </a>
-                <p class="time">
-                  21/09/2025
-                </p>
-              </div>
-              <a href="https://www.lofficielvietnam.com/watches-jewelry/jacob-co-khai-truong-cua-hang-flaghip-dau-tien-tai-viet-nam" class="c-btn__05">
-                See details
-              </a>
-            </div>
+            <?php endforeach; ?>
           </div>
         </div>
+      <?php endif; ?>
+    </section>
+  <?php endif; ?>
+  <?php
+  $section_latest = get_field('section_latest', 'option');
+  if ($section_latest):
+  ?>
+    <section class="p-home__posts">
+      <div class="l-container">
+        <div class="p-home__posts--box01" data-aos="fade-up">
+          <div>
+            <?php if ($section_latest['latest_intro']): ?>
+              <p class="c-text__intro01">
+                <?php echo $section_latest['latest_intro']; ?>
+              </p>
+            <?php endif; ?>
+            <h2 class="c-title__02 type-03">
+              <span class="c-title__02--first"><?php echo $section_latest['latest_title_first']; ?></span>
+              <span class="c-title__02--last"><?php echo $section_latest['latest_title_last']; ?></span>
+            </h2>
+          </div>
+          <?php if (isset($section_latest['latest_post']) && count($section_latest['latest_post']) > 3): ?>
+            <div class="p-home__posts--box01--right">
+              <div class="c-button js-swiper-button-prev">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
+              </div>
+              <div class="c-button js-swiper-button-next">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-right.svg" alt="icon-arrow-right">
+              </div>
+            </div>
+          <?php endif; ?>
+        </div>
       </div>
-      <div class="p-home__posts--bottom">
-        <a href="#" class="c-btn__04">View All News</a>
+      <div class="l-container">
+        <div class="swiper-posts">
+          <div class="swiper-wrapper">
+            <?php if ($section_latest['latest_post']) : ?>
+              <?php foreach ($section_latest['latest_post'] as $latest) :
+                $image = $latest['latest_post_thumbnail'];
+                $title = $latest['latest_post_title'];
+                $link = $latest['latest_post_link'];
+                $date = $latest['latest_post_date'];
+              ?>
+                <div class="swiper-slide">
+                  <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
+                    <a href="<?php echo $link; ?>" target="_blank" class="thumbnail">
+                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>">
+                    </a>
+                    <div class="contents">
+                      <a href="<?php echo $link; ?>">
+                        <h3 class=" title"><?php echo $title; ?></h3>
+                      </a>
+                      <p class="time">
+                        <?php echo $date; ?>
+                      </p>
+                    </div>
+                    <a href="<?php echo $link; ?>" class=" c-btn__05">
+                      See details
+                    </a>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+        </div>
+        <?php if ($section_latest['latest_button_link']): ?>
+          <div class="p-home__posts--bottom">
+            <a href="<?php echo $section_latest['latest_button_link']; ?>" class="c-btn__04">View All News</a>
+          </div>
+        <?php endif; ?>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
-  <section class="p-home__commitment">
-    <div class="l-container not-padding">
-      <div class="p-home__commitment--box01" data-aos="fade-up">
-        <div>
-          <p class="c-text__intro01">
-            Our Commitment
-          </p>
-          <h2 class="c-title__02 type-03">
-            <span class="c-title__02--last">Shaping a</span>
-            <span class="c-title__02--first">Sustainable & Inclusive Future</span>
-          </h2>
+  <?php
+  $section_commitment = get_field('section_commitment', 'option');
+  if ($section_commitment):
+  ?>
+    <section class="p-home__commitment">
+      <div class="l-container not-padding">
+        <div class="p-home__commitment--box01" data-aos="fade-up">
+          <div>
+            <?php if ($section_commitment['commitment_intro']): ?>
+              <p class="c-text__intro01">
+                <?php echo $section_commitment['commitment_intro']; ?>
+              </p>
+            <?php endif; ?>
+            <h2 class="c-title__02 type-03">
+              <span class="c-title__02--last"><?php echo $section_commitment['commitment_title_first']; ?></span>
+              <span class="c-title__02--first"><?php echo $section_commitment['commitment_title_last']; ?></span>
+            </h2>
+          </div>
+          <div class="p-home__commitment--box01--right">
+            <?php if ($section_commitment['commitment_button_link']): ?>
+              <a href="<?php echo $section_commitment['commitment_button_link']; ?>" class="c-btn__06">Learn More</a>
+            <?php endif; ?>
+          </div>
         </div>
-        <div class="p-home__commitment--box01--right">
-          <a href="#" class="c-btn__06">Learn More</a>
+        <div class="p-home__commitment--box02">
+          <?php if ($section_commitment['commitment_lists_post']) : ?>
+            <?php foreach ($section_commitment['commitment_lists_post'] as $partner) :
+              $image = $partner['post_thumbnail'];
+              $title = $partner['post_title'];
+              $desc = $partner['post_desc'];
+              $link = $partner['post_link'];
+            ?>
+              <a href="<?php echo $link; ?>" class="p-home__commitment--item" data-aos="fade-up">
+                <img class="thumbnail" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>">
+                <div class="contents">
+                  <h3 class="title">
+                    <?php echo $title; ?>
+                  </h3>
+                  <div class="desc">
+                    <?php echo $desc; ?>
+                  </div>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+        <div class="p-home__commitment--bottom">
+          <?php if ($section_commitment['commitment_button_link']): ?>
+            <a href="<?php echo $section_commitment['commitment_button_link']; ?>" class="c-btn__06">Learn More</a>
+          <?php endif; ?>
         </div>
       </div>
-
-      <div class="p-home__commitment--box02">
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-01.jpg" alt="CSR programs">
-          <div class="contents">
-            <h3 class="title">
-              CSR programs
-            </h3>
-            <div class="desc">
-              Our CSR drives education, environment, and well-being for lasting impact.
-            </div>
-          </div>
-        </a>
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-02.jpg" alt="Sports & Youth Development">
-          <div class="contents">
-            <h3 class="title">
-              Sports & Youth Development
-            </h3>
-            <div class="desc">
-              We empower youth through sports, building teamwork and resilience.
-            </div>
-          </div>
-        </a>
-        <a href="#" class="p-home__commitment--item" data-aos="fade-up">
-          <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/commitments/img-commitment-03.jpg" alt="Green Mobility & Innovation">
-          <div class="contents">
-            <h3 class="title">
-              Green Mobility & Innovation
-            </h3>
-            <div class="desc">
-              We invest in smart and premium mobility for cleaner, safer, sustainable journeys.
-            </div>
-          </div>
-        </a>
       </div>
-      <div class="p-home__commitment--bottom">
-        <a href="#" class="c-btn__06">Learn More</a>
-      </div>
-    </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
   <section class="p-home__contact">
     <div class="p-home__contact--iframe js-home-iframe" data-aos="fade-up">
@@ -462,30 +358,6 @@
           <?php
           echo  do_shortcode('[contact-form-7 id="772b1e3" title="Form liên hệ 1"]');
           ?>
-          <!-- <form action="#">
-            <div class="form-contact-body">
-              <div class="form-contact-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Placeholder">
-              </div>
-              <div class="form-contact-group">
-                <label for="company">Company</label>
-                <input type="text" id="company" placeholder="Placeholder">
-              </div>
-              <div class="form-contact-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" placeholder="Placeholder">
-              </div>
-              <div class="form-contact-group">
-                <label for="note">Message</label>
-                <textarea name="note" id="note" placeholder="Placeholder"></textarea>
-              </div>
-
-              <div class="form-contact-btns">
-                <input type="button" value="Submit Form" class="c-btn__07">
-              </div>
-            </div>
-          </form> -->
         </div>
       </div>
     </div>
