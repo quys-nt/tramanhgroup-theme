@@ -363,5 +363,47 @@
         }
       }
     }
+
+    &02 {
+      position: relative;
+
+      &--drop {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 120px;
+        min-height: 48px;
+        padding: 8px 16px;
+        background-color: g.$white01;
+        border-radius: 8px;
+        align-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+        border: 1px solid g.$gray03;
+
+        @include g.media(sp) {
+          top: auto;
+          bottom: calc(100% + 8px);
+        }
+
+        &.is-show {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+
+          color: g.$black01;
+        }
+      }
+    }
   }
 }

@@ -35,40 +35,59 @@
         </div>
         <div class="l-header__menu">
           <nav class="l-header__nav">
-            <ul>
-              <li>
-                <a href="#">About Tram Anh Group</a>
-                <ul>
-                  <li><a href="#">Overview</a></li>
-                  <li><a href="#">Leadership & Vision</a></li>
-                  <li><a href="#">Sustainability & Community</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Business Ecosystem</a>
-                <ul>
-                  <li><a href="#">Automotive & Mobility</a></li>
-                  <li><a href="">Lubricants & Chemicals</a></li>
-                  <li><a href="#">Yachting & Lifestyle</a></li>
-                  <li><a href="#">Retail & Luxury</a></li>
-                  <li><a href="#">Real Estate</a></li>
-                  <li><a href="#">Sports & Community</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">News & Contact</a>
-                <ul>
-                  <li><a href="#">Newsroom</a></li>
-                  <li><a href="">Gallery</a></li>
-                  <li><a href="#">Contact & Investor Relations</a></li>
-                </ul>
-              </li>
-            </ul>
+            <?php
+            // $lang = get_current_lang();
+            // $menu_id = ($lang === 'vi') ? 3 : 2; // VN menu ID 3, EN ID 2
+            wp_nav_menu(array(
+              'theme_location' => 'primary',
+              'container' => false,
+              'menu_class' => '',
+              'menu_id' => '',
+              'depth' => 2,
+              'fallback_cb' => false,
+              'link_before' => '',
+              'link_after' => ''
+            ));
+            ?>
             <div class="l-header__box01">
-              <button class="l-header__btn01">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-en-flag.svg" alt="en flag">
-                EN
-              </button>
+              <div class="l-header__box02">
+                <button class="l-header__btn01 js-show-drop-lang">
+                  <?php
+                  $current_lang = pll_current_language() ?: 'en'; // Current lang (en/vi)
+                  $flag_src = ($current_lang === 'en') ?
+                    get_template_directory_uri() . '/assets/images/icon-en-flag.svg' :
+                    get_template_directory_uri() . '/assets/images/icon-vi-flag.svg'; // Adjust icon-vi-flag.svg nếu có
+                  ?>
+                  <img src="<?php echo esc_url($flag_src); ?>" alt="<?php echo esc_attr($current_lang); ?> flag">
+                  <?php echo esc_html(strtoupper($current_lang)); ?>
+                </button>
+                <div class="l-header__box02--drop js-box-drop-lang">
+                  <?php
+                  // $translations = pll_the_languages(array('raw' => 1));
+                  // if (!empty($translations)) {
+                  //   foreach ($translations as $lang_item) {
+                  //     if ($lang_item['slug'] === $current_lang) continue; // Skip current lang
+                  //     // $flag = isset($lang_item['flag']) ?
+                  //     //   '<img src="' . esc_url($lang_item['flag']) . '" alt="' . esc_attr($lang_item['slug']) . '" style="width:24px;">' : '';
+                  //     $custom_flag_src = ($lang_item['slug'] === 'en') ?
+                  //       get_template_directory_uri() . '/assets/images/icon-en-flag.svg' :
+                  //       get_template_directory_uri() . '/assets/images/icon-vi-flag.svg';
+                  //     $flag = '<img src="' . esc_url($custom_flag_src) . '" alt="' . esc_attr($lang_item['slug']) . '" style="width:24px;">';
+                  //     echo '<a href="' . esc_url($lang_item['url']) . '" class="lang-' . esc_attr($lang_item['slug']) . '">' . $flag . esc_html(strtoupper($lang_item['slug'])) . '</a> ';
+                  //   }
+                  // }
+                  ?>
+
+                  <a href="http://localhost/tramanhgroup.local/en/">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-en-flag.svg'; ?>" alt="">
+                    EN
+                  </a>
+                  <a href="http://localhost/tramanhgroup.local/vi/">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-vi-flag.svg'; ?>" alt="">
+                    VI
+                  </a>
+                </div>
+              </div>
               <div class="l-header__box01--sp">
                 <div class="l-header__box01--list01">
                   <a href="#">Terms</a>

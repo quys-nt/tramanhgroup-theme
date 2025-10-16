@@ -194,4 +194,7 @@ $(document).ready(function () {
     }
   })
 
+  $(".js-show-drop-lang").on("click", function () {
+    $(".js-box-drop-lang").toggleClass("is-show");
+  })
 });
