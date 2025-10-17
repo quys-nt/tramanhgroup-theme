@@ -36,7 +36,7 @@
         <div class="l-header__menu">
           <nav class="l-header__nav">
             <?php
-            // $lang = get_current_lang();
+            $lang = get_current_lang();
             // $menu_id = ($lang === 'vi') ? 3 : 2; // VN menu ID 3, EN ID 2
             wp_nav_menu(array(
               'theme_location' => 'primary',
@@ -77,15 +77,17 @@
                   //   }
                   // }
                   ?>
-
-                  <a href="http://localhost/tramanhgroup.local/en/">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-en-flag.svg'; ?>" alt="">
-                    EN
-                  </a>
-                  <a href="http://localhost/tramanhgroup.local/vi/">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-vi-flag.svg'; ?>" alt="">
-                    VI
-                  </a>
+                  <?php if ($lang === "vi"): ?>
+                    <a href="http://localhost/tramanhgroup.local/en/">
+                      <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-en-flag.svg'; ?>" alt="">
+                      EN
+                    </a>
+                  <?php else : ?>
+                    <a href="http://localhost/tramanhgroup.local/vi/">
+                      <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-vi-flag.svg'; ?>" alt="">
+                      VI
+                    </a>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="l-header__box01--sp">

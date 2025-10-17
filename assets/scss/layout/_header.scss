@@ -137,13 +137,13 @@
       position: relative;
 
       &>a {
-        @include g.media(pc-only) {
-          padding: 8px 24px;
-        }
-
         @include g.media(pc-tab) {
           padding: 8px 12px;
           border-radius: 50px;
+        }
+
+        @include g.media(pc-only) {
+          padding: 8px 24px;
         }
 
         &.is-active {

@@ -32,7 +32,7 @@ function mytheme_setup()
   register_nav_menus(array(
     'primary'   => __('Primary Menu', 'mytheme'),
     'footer'    => __('Footer Menu', 'mytheme'),
-    'social'    => __('Social Menu', 'mytheme'),
+    'policy'    => __('Policy Menu', 'mytheme'),
   ));
 }
 add_action('after_setup_theme', 'mytheme_setup');

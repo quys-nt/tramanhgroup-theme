@@ -72,51 +72,66 @@
     }
   }
 
-  &__last {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-
-    @include g.media(sp) {
-      grid-template-columns: 1fr;
+  &__menu {
+    ul {
+      margin: 0;
+      list-style: none;
     }
-  }
 
-  &__list {
-    &01 {
-      .title {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0;
-        color: g.$gray04;
+    a {
+      text-decoration: none;
+    }
+
+    &>ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+
+      @include g.media(sp) {
+        grid-template-columns: 1fr;
       }
 
-      ul {
-        list-style-type: none;
-        margin: 16px 0 0;
+      &>li {
+        &>a {
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 0;
+          color: g.$gray04;
+          cursor: auto;
 
-        @include g.media(sp) {
-          margin-top: 12px;
-        }
-
-        li {
-          &:not(:last-child) {
-            margin-bottom: 12px;
-
-            @include g.media(sp) {
-              margin-bottom: 8px;
-            }
+          &:hover {
+            opacity: 1;
           }
         }
 
-        a {
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          letter-spacing: -0.02em;
+        ul {
+          list-style-type: none;
+          margin: 16px 0 0;
 
+          @include g.media(sp) {
+            margin-top: 12px;
+          }
+
+          li {
+            line-height: 1;
+
+            &:not(:last-child) {
+              margin-bottom: 12px;
+
+              @include g.media(sp) {
+                margin-bottom: 8px;
+              }
+            }
+
+            a {
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 20px;
+              letter-spacing: -0.02em;
+              color: g.$black01;
+            }
+          }
         }
       }
     }
@@ -129,7 +144,6 @@
       line-height: 16px;
       letter-spacing: 0;
       margin-top: 8px;
-      max-width: 300px;
     }
   }
 
@@ -146,19 +160,15 @@
 
     &--box {
       &01 {
-        display: flex;
-        align-items: center;
-        gap: 48px;
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 48px;
+          list-style: none;
+          margin: 0;
 
-        a {
+        li {
           position: relative;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          letter-spacing: -0.02em;
-
-          text-decoration: none;
-
           &:not(:last-child) {
             &::after {
               content: "";
@@ -171,6 +181,16 @@
               background-color: g.$gray02;
             }
           }
+        }
+
+        a {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+
+          text-decoration: none;
+        }
         }
       }
     }
