@@ -1,0 +1,390 @@
+@use '../global/' as g;
+
+
+.p-about {
+  &__sec {
+    &01 {
+      padding: 192px 0 64px;
+
+      @include g.media(tab) {
+        padding: 138px 0 64px;
+      }
+
+      &--box {
+        &01 {
+          display: grid;
+          grid-template-columns: 579px 1fr;
+          gap: 78px;
+          align-items: end;
+
+          @include g.media(tab) {
+            grid-template-columns: 45% calc(55% - 40px);
+            gap: 40px;
+          }
+
+          @include g.media(sp) {
+            grid-template-columns: 1fr;
+            gap: 64px;
+          }
+        }
+      }
+
+      &--title {
+        span {
+          display: block;
+          letter-spacing: -0.04em;
+
+          &:first-child {
+            font: 200 80px g.$font-family02;
+            font-style: Italic;
+            line-height: 64px;
+
+            @include g.media(sp) {
+              font-size: 56px;
+              line-height: 64px;
+            }
+          }
+
+          &:last-child {
+            font-weight: 600;
+            font-size: 56px;
+            line-height: 64px;
+            margin-top: 8px;
+
+            @include g.media(sp) {
+              font-size: 48px;
+              line-height: 64px;
+              max-width: 320px;
+            }
+          }
+        }
+      }
+
+      &--desc {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+
+        @include g.media(sp) {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+        }
+
+        &>*:not(:last-child) {
+          margin-bottom: 24px;
+
+          @include g.media(sp) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    &02 {
+      position: relative;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &--box01 {
+        position: relative;
+        min-height: 760px;
+        display: grid;
+        grid-template-columns: calc(50% + 80px) calc(50% - 80px);
+        align-items: flex-end;
+        color: g.$white01;
+        padding: 64px 0;
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+          gap: 80px;
+          min-height: auto;
+        }
+
+        &-first,
+        &-last {
+          @include g.media(sp) {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-start;
+          }
+        }
+
+        &-first {
+
+          .title,
+          .desc {
+            padding-right: 80px;
+
+            @include g.media(sp) {
+              padding: 0;
+            }
+          }
+
+          .title {
+            &::after {
+              right: 8px;
+              width: calc(100% - (var(--title-width-first, 127px) + 18px));
+            }
+          }
+        }
+
+        &-last {
+
+          .title {
+            &::after {
+              right: 0;
+              width: calc(100% - (var(--title-width-last, 130px) + 10px));
+            }
+          }
+
+        }
+
+        .desc {
+          font-weight: 500;
+          font-size: 32px;
+          line-height: 40px;
+          letter-spacing: -0.03em;
+          margin-bottom: 80px;
+
+          @include g.media(sp) {
+            font-size: 20px;
+            line-height: 28px;
+            margin: 32px 0 0;
+          }
+        }
+
+        .title {
+          position: relative;
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            background-color: g.$white01;
+          }
+
+          &::before {
+            bottom: calc(100% + 8px);
+            left: 20px;
+            width: 1px;
+            height: 64px;
+
+            @include g.media(sp) {
+              bottom: auto;
+              top: 100%;
+              height: 32px;
+            }
+          }
+
+          &::after {
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+
+            @include g.media(sp) {
+              content: unset;
+            }
+          }
+
+          span {
+            align-content: center;
+            display: inline-block;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: -0.03em;
+            padding: 8px 20px 8px 34px;
+            border-radius: 50px;
+            border: 1px solid g.$white01;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 12px;
+              transform: translateY(-50%);
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              background-color: g.$white01;
+              border-radius: 50%;
+
+              @include g.media(sp) {
+                left: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &03,
+    &04 {
+      padding: 80px 0;
+    }
+
+    &03 {
+
+      &--box {
+        &01 {
+          margin-top: 64px;
+
+          @include g.media(pc-only) {
+            transform: translateX(-35%);
+          }
+
+          .swiper {
+            @include g.media(pc-only) {
+              overflow: visible;
+            }
+          }
+
+          .swiper-slide {
+            border: 1px solid g.$gray03;
+            border-left: 0;
+
+            &:first-child {
+              border-left: 1px solid g.$gray03;
+            }
+
+            &.swiper-slide-active {
+              .swiper-item {
+                background-color: #FAFFF9;
+              }
+            }
+          }
+
+          .swiper-item {
+            min-height: 400px;
+            background-color: g.$white01;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+
+            .logos {
+              width: 120px;
+
+              img {
+                max-width: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .box01 {
+              margin-top: auto;
+            }
+
+            .year {
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 28px;
+              letter-spacing: -0.03em;
+            }
+
+            .desc {
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: -0.02em;
+              margin-top: 8px;
+              color: g.$gray01;
+            }
+          }
+        }
+      }
+
+      &--timelines {
+        &-list {
+          display: flex;
+
+          .item {
+            cursor: pointer;
+            padding: 8px 25px;
+          }
+        }
+      }
+    }
+
+    &04 {
+      &--box {
+        &01 {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 64px;
+          margin-top: 64px;
+
+          @include g.media(tab) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 360px;
+            margin-inline: auto;
+          }
+
+          .item {
+            position: relative;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 16px;
+
+            @include g.media(sp) {
+              grid-template-columns: 48px 1fr;
+            }
+          }
+
+          .group {
+            display: flex;
+            gap: 8px;
+            align-items: end;
+
+            .numbber {
+              font-weight: 600;
+              font-size: 44px;
+              line-height: 52px;
+              letter-spacing: -0.04em;
+              vertical-align: bottom;
+
+              @include g.media(sp) {
+                font-size: 32px;
+                line-height: 40px;
+                letter-spacing: -0.03em;
+              }
+            }
+
+            .text {
+              font-weight: 500;
+              font-size: 24px;
+              line-height: 1;
+              letter-spacing: -0.022em;
+              vertical-align: bottom;
+              color: g.$gray04;
+              margin-bottom: 11px;
+
+              @include g.media(sp) {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -0.02em;
+                margin-bottom: 5px;
+              }
+            }
+          }
+
+          .decs {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.5;
+            letter-spacing: -0.22rem;
+            margin-top: 16px;
+            color: g.$gray01;
+          }
+        }
+      }
+    }
+  }
+}

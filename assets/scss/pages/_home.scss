@@ -652,6 +652,10 @@
         margin-block: 16px;
         padding-bottom: 16px;
         border-bottom: 1px solid g.$gray03;
+
+        &.mb-0 {
+          margin-bottom: 0;
+        }
       }
 
       .title {
@@ -659,7 +663,6 @@
         font-size: 24px;
         line-height: 32px;
         letter-spacing: -0.03em;
-        margin-bottom: 8px;
         min-height: 64px;
 
         display: -webkit-box;
@@ -675,6 +678,7 @@
         line-height: 20px;
         letter-spacing: -0.02em;
         color: g.$gray04;
+        margin-top: 8px;
       }
     }
 

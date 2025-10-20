@@ -19,8 +19,15 @@
   <?php wp_head(); ?>
 </head>
 
+<?php
+$headerWhite = false;
+if (is_page('overview') || is_page('tong-quan')) {
+  $headerWhite = true;
+}
+?>
+
 <body>
-  <header class="l-header js-header">
+  <header class="l-header js-header<?php echo $headerWhite ? " is-white" : "" ?>">
     <div class="l-container">
       <div class="l-header__inner">
         <div class="l-header__logo">
