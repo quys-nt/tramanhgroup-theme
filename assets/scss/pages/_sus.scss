@@ -1,0 +1,322 @@
+@use '../global/' as g;
+
+
+.p-cus {
+  &__sec {
+    &01 {
+      padding-block: 160px;
+
+      @include g.media(sp) {
+        padding: 80px 0 40px;
+      }
+
+      &--box {
+        &01 {
+          display: grid;
+          grid-template-columns: 536px 1fr;
+          gap: 100px;
+          align-items: end;
+
+          @include g.media(tab) {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+          }
+
+          @include g.media(sp) {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        &02 {
+          margin-top: 48px;
+
+          @include g.media(sp) {
+            margin-top: 64px;
+          }
+        }
+      }
+
+      &--item {
+        &:first-child {
+          @include g.media(sp) {
+            text-align: center;
+          }
+        }
+
+        .text01 {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.02em;
+          color: g.$gray01;
+
+          @include g.media(sp) {
+            text-align: center;
+          }
+        }
+      }
+
+      &--list {
+        display: flex;
+        gap: 12px;
+
+        @include g.media(tab) {
+          display: grid;
+        }
+
+        .sec-item {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 400px;
+          background-color: #F6F6F6;
+          background-position: bottom right;
+          background-size: 160px;
+          transition: max-width 0.3s ease-in-out, max-width 0.3s ease-in-out, background-size 0.3s ease-in-out;
+          padding: 32px;
+
+          @include g.media(pc-only) {
+            min-width: 308px;
+            max-width: 308px;
+          }
+
+          @include g.media(tab) {
+            min-height: 360px;
+            background-color: g.$green02;
+          }
+
+          &:first-child {
+            background-image: url("../images/icon-leaf.png");
+
+            @include g.media(pc-only) {
+              background-size: 226px;
+            }
+
+            &.is-active {
+              @include g.media(pc-only) {
+                background-size: 306px;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            background-image: url("../images/icon-users.png");
+
+            @include g.media(pc-only) {
+              background-size: 199px;
+            }
+
+            &.is-active {
+              @include g.media(pc-only) {
+                background-size: 280px;
+              }
+            }
+          }
+
+          &:last-child {
+            background-image: url("../images/icon-shield.png");
+
+            @include g.media(pc-only) {
+              background-size: 199px;
+            }
+
+            &.is-active {
+              @include g.media(pc-only) {
+                background-size: 260px;
+              }
+            }
+          }
+
+          &.is-active {
+            background-color: g.$green02;
+
+            @include g.media(pc-only) {
+              max-width: calc(100% - (24px + (308px * 2)));
+            }
+
+            .text01 {
+              @include g.media(pc-only) {
+                opacity: 1;
+              }
+            }
+
+            .text02 {
+              @include g.media(pc-only) {
+                font-weight: 600;
+                font-size: 44px;
+                line-height: 52px;
+                letter-spacing: -0.04em;
+              }
+            }
+          }
+
+          .text {
+            &01 {
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 24px;
+              transition: all 0.6s ease-in-out;
+
+              @include g.media(pc-only) {
+                opacity: 0;
+              }
+
+              @include g.media(sp) {
+                letter-spacing: -0.02em;
+              }
+            }
+
+            &02 {
+              font-weight: 600;
+              font-size: 32px;
+              line-height: 40px;
+              letter-spacing: -0.03em;
+              transition: all 0.4s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+
+    &02 {
+      padding-block: 160px;
+      background: g.$gray05 url("../images/img-bg-03.png");
+
+      @include g.media(sp) {
+        padding: 80px 0;
+      }
+
+      .text {
+        &01 {
+          font-weight: 550;
+          font-size: 44px;
+          line-height: 60px;
+          letter-spacing: -0.04em;
+          text-align: center;
+          color: g.$gray04;
+          max-width: 1119px;
+          margin-inline: auto;
+
+          @include g.media(sp) {
+            font-size: 28px;
+            line-height: 40px;
+          }
+
+          span {
+            color: g.$black01;
+          }
+        }
+      }
+
+      .icon {
+        display: inline-block;
+        width: 108px;
+        height: 59px;
+        background-color: g.$gray01;
+        border-radius: 50px;
+        vertical-align: middle;
+        margin-inline: 6px;
+
+        @include g.media(sp) {
+          width: 73px;
+          height: 40px;
+        }
+
+        &01 {
+          background-image: url("../images/icon-text01.png");
+        }
+
+        &02 {
+          background-image: url("../images/icon-text02.png");
+        }
+      }
+
+      &--box {
+        &01 {
+          text-align: center;
+          margin-top: 40px;
+
+          @include g.media(sp) {
+            margin-top: 32px;
+          }
+        }
+      }
+    }
+
+    &03 {
+      padding-block: 80px;
+
+      @include g.media(sp) {
+        padding-block: 40px;
+      }
+
+      &--box {
+        &01 {
+          display: grid;
+          grid-template-columns: 1fr 390px;
+          gap: 32px;
+
+          @include g.media(sp) {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        &02 {
+          position: relative;
+          height: 700px;
+          margin-block: 48px;
+          background-color: #00000033;
+          background-position: center;
+          text-align: center;
+          align-content: center;
+
+          @include g.media(tab) {
+            height: 400px;
+            margin: 64px 0 40px;
+          }
+
+          .btn {
+            cursor: pointer;
+            width: 100px;
+
+            @include g.media(sp) {
+              display: none;
+            }
+          }
+        }
+
+        &03 {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 64px;
+
+          @include g.media(tab) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .text {
+            &01 {
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 20px;
+              color: g.$gray04;
+            }
+
+            &02 {
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: -0.02em;
+              margin-top: 8px;
+
+              @include g.media(sp) {
+                margin-top: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

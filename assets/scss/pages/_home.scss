@@ -44,6 +44,25 @@
       justify-content: center;
       flex-direction: column;
       z-index: 3;
+
+      &.type-02 {
+        .p-home__mv--title {
+          p {
+            &:last-child {
+              margin-top: 32px;
+
+              @include g.media(sp) {
+                margin-top: 24px;
+              }
+            }
+          }
+        }
+
+        .p-home__mv--text01 {
+          margin: 55px 0 47px;
+          max-width: 555px;
+        }
+      }
     }
 
     &--title {

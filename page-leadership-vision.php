@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Leadership & Vision
-Description: English Overview page with journey, core values, etc.
+Description: English Leadership & Vision page with journey, core values, etc.
 */
 ?>
 <?php get_header(); ?>

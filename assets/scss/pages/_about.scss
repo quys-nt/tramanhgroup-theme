@@ -447,6 +447,16 @@
             margin-inline: auto;
           }
 
+          &.type-02 {
+            grid-template-columns: 1fr 1fr;
+            max-width: 1024px;
+            margin-inline: auto;
+
+            @include g.media(sp) {
+              grid-template-columns: 1fr;
+            }
+          }
+
           .item {
             position: relative;
             padding: 24px;
@@ -456,6 +466,23 @@
 
             @include g.media(sp) {
               grid-template-columns: 48px 1fr;
+            }
+
+            &:not(:last-child) {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -32px;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 99px;
+                background-color: g.$gray03;
+
+                @include g.media(tab) {
+                  content: unset
+                }
+              }
             }
           }
 
@@ -513,6 +540,7 @@
       @include g.media(sp) {
         padding: 64px 0 26px;
       }
+
       &--box01 {
         display: grid;
         grid-template-columns: 1fr 1fr;

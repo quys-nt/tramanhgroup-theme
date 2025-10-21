@@ -136,4 +136,14 @@
     padding: 12px 24px;
     border-radius: 50px;
   }
+
+  &__08 {
+    @extend .c-btn__01;
+    background-color: g.$black01;
+    color: g.$white01;
+
+    &:after {
+      background-image: url("../images/icon-arrow-right-up-w.svg");
+    }
+  }
 }
