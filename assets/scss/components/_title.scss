@@ -35,6 +35,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
 
       &--first {
@@ -56,6 +57,7 @@
 
     &.type-03 {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
 
       @include g.media(sp) {
