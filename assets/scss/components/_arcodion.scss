@@ -1,0 +1,76 @@
+@use '../global/' as g;
+
+
+.c-arcodion {
+  &__list {
+    // Style container nếu cần
+  }
+
+  &__item {
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &.active {
+
+      .c-arcodion__header {
+        color: g.$black01;
+      }
+
+      .c-arcodion__body {
+        max-height: 500px;
+        opacity: 1;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        padding-block: 16px;
+      }
+    }
+  }
+
+  &__header {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.03em;
+    padding: 8px 0;
+    color: g.$gray01;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      background: url("../images/icon-arrow-down.svg") no-repeat center;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &.active {
+      border-bottom: 1px solid g.$gray03;
+
+      &::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__body {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    // padding: 0 16px 16px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: g.$gray01;
+  }
+}
