@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Leadership & Vision
+Description: English Overview page with journey, core values, etc.
+*/
+?>
 <?php get_header(); ?>
 <main>
 
@@ -19,7 +25,7 @@
                     <?php echo wp_kses_post(get_sub_field('mv_description')) ?>
                   </div>
                   <div>
-                    <a href=" <?php echo esc_attr(get_sub_field('link_button')) ?> " class="c-btn__01">
+                    <a href=" <?php echo esc_attr(get_sub_field('link_button')) ?> " class="c-btn__01 download">
                       <?php echo esc_attr(get_sub_field('text_button')) ?>
                     </a>
                   </div>

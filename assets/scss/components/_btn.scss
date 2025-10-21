@@ -30,6 +30,12 @@
       height: 24px;
       background: url("../images/icon-arrow-right-up.svg") no-repeat center / cover;
     }
+
+    &.download {
+      &:after {
+        background-image: url("../images/icon-download.svg");
+      }
+    }
   }
 
   &__02 {

@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Overview
+Description: English Overview page with journey, core values, etc.
+*/
+?>
 <?php get_header(); ?>
 <?php $section_1 = get_field('section_1'); ?>
 
