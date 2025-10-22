@@ -233,27 +233,21 @@ Description: English Sustainability & Community page with journey, core values, 
       $(this).addClass("is-active");
     });
 
-    // Typewriter effect for .js-animation-typewriter when in view
     if ($('.js-animation-typewriter').length) {
       var $typewriterEl = $('.js-animation-typewriter');
-      var fullText = $typewriterEl.html(); // Get the full HTML content
-      $typewriterEl.html(''); // Clear the content initially
-
-      // Regex to match either a full <span>...</span> block or plain text
+      var fullText = $typewriterEl.html();
+      $typewriterEl.html('');
       var spanRegex = /<span([^>]*)>(.*?)<\/span>/gs;
       var parts = [];
       var lastIndex = 0;
       var match;
-
       while ((match = spanRegex.exec(fullText)) !== null) {
-        // Add plain text before the match
         if (match.index > lastIndex) {
           parts.push({
             type: 'text',
             content: fullText.substring(lastIndex, match.index)
           });
         }
-        // Add the span block
         parts.push({
           type: 'span',
           openTag: '<span' + match[1] + '>',
@@ -262,27 +256,24 @@ Description: English Sustainability & Community page with journey, core values, 
         });
         lastIndex = spanRegex.lastIndex;
       }
-      // Add remaining text after last match
       if (lastIndex < fullText.length) {
         parts.push({
           type: 'text',
           content: fullText.substring(lastIndex)
         });
       }
-
       var currentPartIndex = 0;
-      var typingSpeed = 50; // Delay in ms between characters
-      var tagDelay = 100; // Delay after inserting tags
+      var typingSpeed = 50;
+      var tagDelay = 100;
 
       function typeNextPart() {
         if (currentPartIndex < parts.length) {
           var part = parts[currentPartIndex];
           if (part.type === 'span') {
-            // Create and append the span element
             var $tempSpan = $(part.openTag);
             $typewriterEl.append($tempSpan);
-            // Type inner content char by char inside the span
             var innerCharIndex = 0;
+
             function typeInnerChar() {
               if (innerCharIndex < part.innerContent.length) {
                 var charNode = document.createTextNode(part.innerContent.charAt(innerCharIndex));
@@ -290,15 +281,14 @@ Description: English Sustainability & Community page with journey, core values, 
                 innerCharIndex++;
                 setTimeout(typeInnerChar, typingSpeed);
               } else {
-                // Span is complete, move to next part
                 currentPartIndex++;
                 setTimeout(typeNextPart, tagDelay);
               }
             }
             typeInnerChar();
           } else {
-            // Plain text: type char by char
             var charIndex = 0;
+
             function typeChar() {
               if (charIndex < part.content.length) {
                 var charNode = document.createTextNode(part.content.charAt(charIndex));
@@ -314,24 +304,19 @@ Description: English Sustainability & Community page with journey, core values, 
           }
         }
       }
-
-      // Intersection Observer to start typewriter when element is visible
       var observerOptions = {
-        threshold: 0.5, // Trigger when 50% of element is visible
-        rootMargin: '0px 0px -100px 0px' // Trigger a bit before fully in view
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
       };
-
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting && !$typewriterEl.hasClass('typing-started')) {
             $typewriterEl.addClass('typing-started');
-            // Start the typewriter effect
-            setTimeout(typeNextPart, 500); // Initial delay before starting
-            observer.unobserve(entry.target); // Stop observing once started
+            setTimeout(typeNextPart, 500);
+            observer.unobserve(entry.target);
           }
         });
       }, observerOptions);
-
       observer.observe($typewriterEl[0]);
     }
   });
