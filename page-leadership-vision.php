@@ -55,7 +55,7 @@ Description: English Leadership & Vision page with journey, core values, etc.
           <div>
             <div class="users">
               <div class="users-avatar">
-                <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
+              <img src="<?php echo esc_url($sec1Staff['avatar']['url']);?>" alt="<?php esc_attr_e($sec1Staff['avatar']['alt'])?>">  
               </div>
               <div class="users-body">
                 <p class="text01">
