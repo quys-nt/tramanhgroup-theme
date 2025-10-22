@@ -95,13 +95,15 @@ Description: English Sustainability & Community page with journey, core values, 
 
   <section class="p-cus__sec02">
     <div class="l-container">
-      <div class="text01">
-        We also aim for <span>ESG</span>, which is our <span>defining strategy for Sustainable growth</span>. We prioritize <span class="icon icon01"></span> <span>Decarbonization</span> and <span class="icon icon02"></span> <span>Community Investment</span> while ensuring <span>Integrity</span> and transparent <span>Governance</span>, pioneering the Future for all stakeholders.
-      </div>
-      <div class="p-cus__sec02--box01">
-        <a href="#" class="c-btn__08">
-          See How We Did it
-        </a>
+      <div class="p-cus__sec02--inner">
+        <div class="text01 js-animation-typewriter">
+          We also aim for <span class="border">ESG</span>, which is our <span>defining strategy for Sustainable growth</span>. We prioritize <span class="icon icon01"></span> <span>Decarbonization</span> and <span class="icon icon02"></span> <span>Community Investment</span> while ensuring <span>Integrity</span> and transparent <span>Governance</span>, pioneering the Future for all stakeholders.
+        </div>
+        <div class="p-cus__sec02--box01">
+          <a href="#" class="c-btn__08">
+            See How We Did it
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -225,10 +227,112 @@ Description: English Sustainability & Community page with journey, core values, 
 </main>
 <?php get_footer(); ?>
 <script>
-  $(document).ready(function() {
+  jQuery(document).ready(function($) {
     $(".sec-item").hover(function() {
       $(".sec-item").removeClass("is-active");
       $(this).addClass("is-active");
-    })
+    });
+
+    // Typewriter effect for .js-animation-typewriter when in view
+    if ($('.js-animation-typewriter').length) {
+      var $typewriterEl = $('.js-animation-typewriter');
+      var fullText = $typewriterEl.html(); // Get the full HTML content
+      $typewriterEl.html(''); // Clear the content initially
+
+      // Regex to match either a full <span>...</span> block or plain text
+      var spanRegex = /<span([^>]*)>(.*?)<\/span>/gs;
+      var parts = [];
+      var lastIndex = 0;
+      var match;
+
+      while ((match = spanRegex.exec(fullText)) !== null) {
+        // Add plain text before the match
+        if (match.index > lastIndex) {
+          parts.push({
+            type: 'text',
+            content: fullText.substring(lastIndex, match.index)
+          });
+        }
+        // Add the span block
+        parts.push({
+          type: 'span',
+          openTag: '<span' + match[1] + '>',
+          innerContent: match[2],
+          closeTag: '</span>'
+        });
+        lastIndex = spanRegex.lastIndex;
+      }
+      // Add remaining text after last match
+      if (lastIndex < fullText.length) {
+        parts.push({
+          type: 'text',
+          content: fullText.substring(lastIndex)
+        });
+      }
+
+      var currentPartIndex = 0;
+      var typingSpeed = 50; // Delay in ms between characters
+      var tagDelay = 100; // Delay after inserting tags
+
+      function typeNextPart() {
+        if (currentPartIndex < parts.length) {
+          var part = parts[currentPartIndex];
+          if (part.type === 'span') {
+            // Create and append the span element
+            var $tempSpan = $(part.openTag);
+            $typewriterEl.append($tempSpan);
+            // Type inner content char by char inside the span
+            var innerCharIndex = 0;
+            function typeInnerChar() {
+              if (innerCharIndex < part.innerContent.length) {
+                var charNode = document.createTextNode(part.innerContent.charAt(innerCharIndex));
+                $tempSpan.append(charNode);
+                innerCharIndex++;
+                setTimeout(typeInnerChar, typingSpeed);
+              } else {
+                // Span is complete, move to next part
+                currentPartIndex++;
+                setTimeout(typeNextPart, tagDelay);
+              }
+            }
+            typeInnerChar();
+          } else {
+            // Plain text: type char by char
+            var charIndex = 0;
+            function typeChar() {
+              if (charIndex < part.content.length) {
+                var charNode = document.createTextNode(part.content.charAt(charIndex));
+                $typewriterEl.append(charNode);
+                charIndex++;
+                setTimeout(typeChar, typingSpeed);
+              } else {
+                currentPartIndex++;
+                setTimeout(typeNextPart, typingSpeed);
+              }
+            }
+            typeChar();
+          }
+        }
+      }
+
+      // Intersection Observer to start typewriter when element is visible
+      var observerOptions = {
+        threshold: 0.5, // Trigger when 50% of element is visible
+        rootMargin: '0px 0px -100px 0px' // Trigger a bit before fully in view
+      };
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !$typewriterEl.hasClass('typing-started')) {
+            $typewriterEl.addClass('typing-started');
+            // Start the typewriter effect
+            setTimeout(typeNextPart, 500); // Initial delay before starting
+            observer.unobserve(entry.target); // Stop observing once started
+          }
+        });
+      }, observerOptions);
+
+      observer.observe($typewriterEl[0]);
+    }
   });
 </script>

@@ -186,6 +186,16 @@
         padding: 80px 0;
       }
 
+      &--inner {
+        display: flex;
+        flex-direction: column;
+        min-height: 392px;
+
+        @include g.media(sp) {
+          min-height: 405px;
+        }
+      }
+
       .text {
         &01 {
           font-weight: 550;
@@ -195,15 +205,21 @@
           text-align: center;
           color: g.$gray04;
           max-width: 1119px;
-          margin-inline: auto;
+          margin: 0 auto 40px;
 
           @include g.media(sp) {
             font-size: 28px;
             line-height: 40px;
+            margin-bottom: 32px;
           }
 
           span {
             color: g.$black01;
+
+            &.border {
+              text-decoration: underline;
+              text-decoration-style: dotted;
+            }
           }
         }
       }
@@ -234,11 +250,7 @@
       &--box {
         &01 {
           text-align: center;
-          margin-top: 40px;
-
-          @include g.media(sp) {
-            margin-top: 32px;
-          }
+          margin-top: auto;
         }
       }
     }
