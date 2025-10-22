@@ -7,10 +7,10 @@ Description: English Leadership & Vision page with journey, core values, etc.
 <?php get_header(); ?>
 <main>
 
-  <section class="p-home__mv">
-    <div class="js-swiper-mv">
-      <div class="swiper-wrapper">
-        <?php if (have_rows('main_visual', '')) : ?>
+  <?php if (have_rows('main_visual', '')) : ?>
+    <section class="p-home__mv">
+      <div class="js-swiper-mv">
+        <div class="swiper-wrapper">
           <?php while (have_rows('main_visual', '')) : the_row(); ?>
             <?php $image = get_sub_field('mv_image'); ?>
             <div class="swiper-slide">
@@ -33,11 +33,11 @@ Description: English Leadership & Vision page with journey, core values, etc.
               </div>
             </div>
           <?php endwhile; ?>
-        <?php endif; ?>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
   <section class="p-vison__sec01">
     <div class="l-container">

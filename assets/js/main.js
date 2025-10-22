@@ -197,4 +197,61 @@ $(document).ready(function () {
   $(".js-show-drop-lang").on("click", function () {
     $(".js-box-drop-lang").toggleClass("is-show");
   })
+
+  function animateCounter($el, targetValue, suffix, hasDecimal) {
+    var current = 0;
+    var duration = 2000; 
+    var startTime = null;
+    function updateCounter(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      current = targetValue * (progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress);
+      var displayText;
+      if (hasDecimal) {
+        displayText = current.toFixed(1) + suffix;
+      } else {
+        displayText = Math.floor(current) + suffix;
+      }
+      $el.text(displayText);
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        var finalText;
+        if (hasDecimal) {
+          finalText = targetValue.toFixed(1) + suffix;
+        } else {
+          finalText = Math.floor(targetValue) + suffix;
+        }
+        $el.text(finalText);
+      }
+    }
+    requestAnimationFrame(updateCounter);
+  }
+  var observerOptions = {
+    threshold: 0.5, 
+    rootMargin: '0px 0px -50px 0px' 
+  };
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var $el = $(entry.target);
+        if (!$el.hasClass('counted')) { 
+          var originalText = $el.text().trim();
+          var numericPart = originalText.replace(/[^\d.]/g, '');
+          var targetValue = parseFloat(numericPart);
+          var suffix = originalText.replace(/[\d.]/g, '').trim();
+          var hasDecimal = numericPart.includes('.');
+          if (!isNaN(targetValue)) {
+            $el.data('original-text', originalText).addClass('counted');
+            animateCounter($el, targetValue, suffix, hasDecimal);
+          }
+        }
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  $('.js-count-number').each(function () {
+    observer.observe(this);
+  });
 });

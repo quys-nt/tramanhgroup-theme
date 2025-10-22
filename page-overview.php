@@ -8,27 +8,29 @@ Description: English Overview page with journey, core values, etc.
 <?php $section_1 = get_field('section_1'); ?>
 
 <main>
-  <section class="p-about__sec01">
-    <div class="l-container">
-      <div class="p-about__sec01--box01">
-        <div>
-          <h1 class="p-about__sec01--title">
-            <span>
-              <?php echo $section_1['title_first']; ?>
-            </span>
-            <span>
-              <?php echo $section_1['title_last']; ?>
-            </span>
-          </h1>
-        </div>
-        <div>
-          <div class="p-about__sec01--desc">
-            <?php the_content(); ?>
+  <?php if ($section_1): ?>
+    <section class="p-about__sec01">
+      <div class="l-container">
+        <div class="p-about__sec01--box01">
+          <div>
+            <h1 class="p-about__sec01--title">
+              <span>
+                <?php echo $section_1['title_first']; ?>
+              </span>
+              <span>
+                <?php echo $section_1['title_last']; ?>
+              </span>
+            </h1>
+          </div>
+          <div>
+            <div class="p-about__sec01--desc">
+              <?php the_content(); ?>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
   <?php
   $section_2 = get_field('section_2');
@@ -64,276 +66,171 @@ Description: English Overview page with journey, core values, etc.
     </div>
   <?php } ?>
 
-  <section class="p-about__sec03">
-    <div class="l-container">
-      <div class="c-text__center">
-
-        <p class="c-text__intro01">
-          Our Journey
-        </p>
-        <h2 class="c-title__02">
-          <span class="c-title__02--first">
-            Over 25 Years of
-          </span>
-          <span class="c-title__02--last">
-            Growth & Innovation
-          </span>
-        </h2>
-      </div>
-    </div>
-
-    <div class="p-about__sec03--inner">
-      <div class="p-about__sec03--box01">
-        <div thumbsSlider="" class="swiper js-about-history">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="box01">
-                  <p class="year">1993</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1994</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1995</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1996</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1997</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1998</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">1999</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swiper-item">
-                <div class="logos">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/10/thien-nghia-logo.png" alt="">
-                </div>
-                <div class="box01">
-                  <p class="year">2000</p>
-                  <p class="desc">
-                    Began Chevrolet retail business under Hoa Binh Company.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="c-button prev js-about-history-button-prev"></div>
-      <div class="c-button next js-about-history-button-next"></div>
-    </div>
-    <div class="p-about__sec03--timelines">
-      <div class="p-about__sec03--timelines-text">
-        Timeline
-      </div>
-      <div class="p-about__sec03--timelines-list">
-        <div class="item slide-1">
-          1993
-        </div>
-        <div class="item slide-2">
-          1994
-        </div>
-        <div class="item slide-3">
-          1995
-        </div>
-        <div class="item slide-4">
-          1996
-        </div>
-        <div class="item slide-5">
-          1997
-        </div>
-        <div class="item slide-6">
-          1998
-        </div>
-        <div class="item slide-7">
-          1999
-        </div>
-        <div class="item slide-8">
-          2000
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-about__sec05">
-    <div class="l-container">
-      <div class="p-about__sec05--box01">
-        <div>
+  <?php
+  $section_3 = get_field('section_3');
+  $sec3Intro = $section_3['intro'];
+  $sec3TitleFirst = $section_3['title_first'];
+  $sec3TitleLast = $section_3['title_last'];
+  $sec3item = $section_3['item'];
+  if ($section_3) {
+  ?>
+    <section class="p-about__sec03">
+      <div class="l-container">
+        <div class="c-text__center">
           <p class="c-text__intro01">
-            Our Values
+            <?php echo $sec3Intro; ?>
           </p>
           <h2 class="c-title__02">
             <span class="c-title__02--first">
-              Shaping the Future
+              <?php echo $sec3TitleFirst; ?>
             </span>
             <span class="c-title__02--last">
-              with Integrity & Innovation
+              <?php echo $sec3TitleLast; ?>
             </span>
           </h2>
         </div>
-        <div>
-          <div class="c-arcodion__list">
-            <div class="c-arcodion__item">
-              <div class="c-arcodion__header">
-                Innovation
-              </div>
-              <div class="c-arcodion__body">
-                We embrace change and challenge the status quo, constantly seeking inventive ways to deliver future-forward solutions and maintain market leadership.
-              </div>
+      </div>
+
+      <div class="p-about__sec03--inner">
+        <div class="p-about__sec03--box01">
+          <div thumbsSlider="" class="swiper js-about-history">
+            <div class="swiper-wrapper">
+              <?php foreach ($sec3item as $item): ?>
+                <?php
+                $year = $item["year"];
+                $desc = $item["desc"];
+                $logo = $item["logo"]['url'];
+                ?>
+                <div class="swiper-slide">
+                  <div class="swiper-item">
+                    <div class="logos">
+                      <?php if ($logo): ?>
+                        <img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($item["logo"]['alt']); ?>">
+                      <?php endif; ?>
+                    </div>
+                    <div class="box01">
+                      <p class="year">
+                        <?php echo $year; ?>
+                      </p>
+                      <p class="desc">
+                        <?php echo $desc; ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
             </div>
-            <div class="c-arcodion__item">
-              <div class="c-arcodion__header">
-                Sustainable
-              </div>
-              <div class="c-arcodion__body">
-                We are committed to long-term economic viability, environmental stewardship, and social well-being, ensuring our growth benefits future generations.
-              </div>
+          </div>
+        </div>
+
+        <div class="c-button prev js-about-history-button-prev"></div>
+        <div class="c-button next js-about-history-button-next"></div>
+      </div>
+      <div class="p-about__sec03--timelines">
+        <div class="p-about__sec03--timelines-text">
+          Timeline
+        </div>
+        <div class="p-about__sec03--timelines-list">
+          <?php foreach ($sec3item as $key => $item): ?>
+            <?php
+            $year = $item["year"];
+            ?>
+            <div class="item slide-<?php echo $key + 1; ?>">
+              <?php echo $year; ?>
             </div>
-            <div class="c-arcodion__item">
-              <div class="c-arcodion__header">
-                Agility
-              </div>
-              <div class="c-arcodion__body">
-                We maintain flexibility and responsiveness, allowing us to adapt quickly and effectively to dynamic market conditions and exceed client expectations.
-              </div>
-            </div>
-            <div class="c-arcodion__item">
-              <div class="c-arcodion__header">
-                Integrity
-              </div>
-              <div class="c-arcodion__body">
-                We operate with unwavering ethical standards, transparency, and honesty in all our relationships and business dealings.
-              </div>
-            </div>
-            <div class="c-arcodion__item">
-              <div class="c-arcodion__header">
-                Unity
-              </div>
-              <div class="c-arcodion__body">
-                We foster a culture of collaboration and mutual respect, working as one cohesive force across all member companies to achieve collective success.
-              </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+  <?php } ?>
+
+  <?php
+  $section_4 = get_field('section_4');
+  $sec4Intro = $section_4['intro'];
+  $sec4TitleFirst = $section_4['title_first'];
+  $sec4TitleLast = $section_4['title_last'];
+  $sec4item = $section_4['item'];
+  if ($section_4) {
+  ?>
+    <section class="p-about__sec05">
+      <div class="l-container">
+        <div class="p-about__sec05--box01">
+          <div>
+            <p class="c-text__intro01">
+              <?php echo $sec4Intro; ?>
+            </p>
+            <h2 class="c-title__02">
+              <span class="c-title__02--first">
+                <?php echo $sec4TitleFirst; ?>
+              </span>
+              <span class="c-title__02--last">
+                <?php echo $sec4TitleLast; ?>
+              </span>
+            </h2>
+          </div>
+          <div>
+            <div class="c-arcodion__list">
+              <?php foreach ($sec4item as $item): ?>
+                <div class="c-arcodion__item">
+                  <div class="c-arcodion__header">
+                    <?php echo $item['title']; ?>
+                  </div>
+                  <div class="c-arcodion__body">
+                    <?php echo $item['desc']; ?>
+                  </div>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php } ?>
 
   <?php
-  $section_latest = get_field('section_latest', 'option');
-  if ($section_latest):
+  $section_5 = get_field('section_5');
+  $sec5Intro = $section_5['intro'];
+  $sec5TitleFirst = $section_5['title_first'];
+  $sec5TitleLast = $section_5['title_last'];
+  $sec5item = $section_5['item'];
+  if ($section_5) {
   ?>
     <section class="p-home__posts">
       <div class="l-container">
         <div class="p-home__posts--box01">
           <div>
             <p class="c-text__intro01">
-              Subsidaries' Highlights
+              <?php echo $sec5Intro; ?>
             </p>
             <h2 class="c-title__02 type-03">
               <span class="c-title__02--first">
-                Remarkable Moments
+                <?php echo $sec5TitleFirst; ?>
               </span>
               <span class="c-title__02--last">
-                from Our Subsidiaries
+                <?php echo $sec5TitleLast; ?>
               </span>
             </h2>
           </div>
-          <?php if (isset($section_latest['latest_post']) && count($section_latest['latest_post']) > 3): ?>
+          <?php if (isset($sec5item) && count($sec5item) > 3): ?>
             <div class="p-home__posts--box01--right">
-              <div class="c-button js-js-about-history-button-prev">
+              <div class="c-button js-swiper-button-next">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
               </div>
-              <div class="c-button js-js-about-history-button-next">
+              <div class="c-button js-swiper-button-prev">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-right.svg" alt="icon-arrow-right">
               </div>
             </div>
           <?php endif; ?>
         </div>
       </div>
-      <div class="l-container">
-        <div class="swiper-posts">
-          <div class="swiper-wrapper">
-
-            <?php if ($section_latest['latest_post']) : ?>
-              <?php foreach ($section_latest['latest_post'] as $latest) :
-                $image = $latest['latest_post_thumbnail'];
-                $title = $lang === "en" ? $latest['latest_post_title']['en'] : $latest['latest_post_title']['vn'];
-                $textButton = $lang === "en" ? $latest['latest_post_text']['en'] : $latest['latest_post_text']['vn'];
-                $link = $latest['latest_post_link'];
-                $date = $latest['latest_post_date'];
+      <?php if ($sec5item) : ?>
+        <div class="l-container">
+          <div class="swiper-posts">
+            <div class="swiper-wrapper">
+              <?php foreach ($sec5item as $item) :
+                $image = $item['image'];
+                $title = $item['title'];
+                $link = $item['link'];
               ?>
                 <div class="swiper-slide">
                   <div class="p-home__posts--item">
@@ -348,85 +245,70 @@ Description: English Overview page with journey, core values, etc.
                   </div>
                 </div>
               <?php endforeach; ?>
-            <?php endif; ?>
+            </div>
           </div>
         </div>
-      </div>
+      <?php endif; ?>
     </section>
-  <?php endif; ?>
+  <?php } ?>
 
-  <section class="p-about__sec04">
-    <div class="l-container">
+  <?php
+  $section_6 = get_field('section_6');
+  $sec6Intro = $section_6['intro'];
+  $sec6TitleFirst = $section_6['title_first'];
+  $sec6TitleLast = $section_6['title_last'];
+  $sec6item = $section_6['item'];
+  if ($section_6) {
+  ?>
+    <section class="p-about__sec04">
       <div class="l-container">
         <div class="c-text__center">
           <p class="c-text__intro01">
-            Our Achievements
+            <?php echo $sec6Intro; ?>
           </p>
           <h2 class="c-title__02 type-02">
             <span class="c-title__02--first">
-              What we’ve got
+              <?php echo $sec6TitleFirst; ?>
             </span>
             <span class="c-title__02--last">
-              since founded
+              <?php echo $sec6TitleLast; ?>
             </span>
           </h2>
         </div>
+        <?php if ($sec6item) : ?>
+          <div class="p-about__sec04--box01">
+            <?php foreach ($sec6item as $item) :
+              $icon = $item['icon'];
+              $number = $item['number'];
+              $title = $item['title'];
+              $desc = $item['desc'];
+            ?>
+              <div class="item">
+                <div>
+                  <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt'] ?: $image['title']); ?>">
+                </div>
+                <div>
+                  <div class="group">
+                    <div class="numbber js-count-number">
+                      <?php echo $number; ?>
+                    </div>
+                    <?php if ($title): ?>
+                      <div class="text">
+                        <?php echo $title; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                  <div class="desc">
+                    <?php echo $desc; ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
       </div>
-      <div class="p-about__sec04--box01">
-        <div class="item">
-          <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-banknote.svg" alt="icon ">
-          </div>
-          <div>
-            <div class="group">
-              <div class="numbber">
-                800
-              </div>
-              <div class="text">
-                billion
-              </div>
-            </div>
-            <div class="desc">
-              Annual revenue
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-bill-check.svg" alt="icon ">
-          </div>
-          <div>
-            <div class="group">
-              <div class="numbber">
-                1000
-              </div>
-              <div class="text">
-                billion
-              </div>
-            </div>
-            <div class="desc">
-              Total investment capital
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-buildings.svg" alt="icon ">
-          </div>
-          <div>
-            <div class="group">
-              <div class="numbber">
-                15
-              </div>
-            </div>
-            <div class="desc">
-              Number of subsidiaries
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  <?php } ?>
 
   <?php get_template_part('template-parts/sections/contact'); ?>
 </main>
@@ -513,7 +395,7 @@ Description: English Overview page with journey, core values, etc.
 
     $('.c-arcodion__item:first-child').addClass('active');
     $('.c-arcodion__item:first-child .c-arcodion__header').addClass('active');
-    $('.c-arcodion__item:first-child .c-arcodion__body').show(); 
+    $('.c-arcodion__item:first-child .c-arcodion__body').show();
     $(document).on('click', '.c-arcodion__header', function(e) {
       e.preventDefault();
       var $header = $(this);
