@@ -39,244 +39,178 @@ Description: English Leadership & Vision page with journey, core values, etc.
     </section>
   <?php endif; ?>
 
-  <section class="p-vison__sec01">
-    <div class="l-container">
-      <div class="p-vison__sec01--box01">
-        <div>
-          <div class="users">
-            <div class="users-avatar">
-              <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
+  <?php
+  $section_1 = get_field('section_1');
+  $sec1Staff = $section_1['staff'];
+  $sec1Intro = $section_1['intro'];
+  $sec1TitleFirst = $section_1['title_first'];
+  $sec1TitleLast = $section_1['title_last'];
+  $sec1Desc1 = $section_1['desc_1'];
+  $sec1Desc2 = $section_1['desc_2'];
+  if ($section_1) {
+  ?>
+    <section class="p-vison__sec01">
+      <div class="l-container">
+        <div class="p-vison__sec01--box01">
+          <div>
+            <div class="users">
+              <div class="users-avatar">
+                <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
+              </div>
+              <div class="users-body">
+                <p class="text01">
+                  <span><?php esc_html_e($sec1Staff['gender']) ?></span> <?php esc_html_e($sec1Staff['full_name']) ?>
+                </p>
+                <p class="text02">
+                  <?php esc_html_e($sec1Staff['location']) ?>
+                </p>
+              </div>
             </div>
-            <div class="users-body">
-              <p class="text01">
-                <span>Madam</span> Nguyen Thi Kim Hai
+          </div>
+          <div>
+            <div>
+              <p class="c-text__intro01">
+                <?php esc_html_e($sec1Intro) ?>
               </p>
-              <p class="text02">
-                Chairwoman, General Direction
-              </p>
+              <h2 class="c-title__02 type-03">
+                <span class="c-title__02--last">
+                  <?php esc_html_e($sec1TitleFirst) ?>
+                </span>
+                <span class="c-title__02--first">
+                  <?php esc_html_e($sec1TitleLast) ?>
+                </span>
+              </h2>
+            </div>
+            <div class="quotes">
+              <div class="quotes-group01">
+                <div class="quotes-text01">
+                  <span>“</span>
+                </div>
+                <div class="quotes-text02">
+                  <?php echo wp_kses_post($sec1Desc1) ?>
+                </div>
+              </div>
+              <div class="quotes-text03">
+                <?php echo wp_kses_post($sec1Desc2) ?>
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <div>
+      </div>
+    </section>
+  <?php } ?>
+
+  <?php
+  $section_2 = get_field('section_2');
+  $sec2Intro = $section_2['intro'];
+  $sec2TitleFirst = $section_2['title_first'];
+  $sec2TitleLast = $section_2['title_last'];
+  $sec2Desc1 = $section_2['desc_1'];
+  $sec2Desc2 = $section_2['desc_2'];
+  $sec2Item1 = $section_2['item_1'];
+  $sec2Items = $section_2['items'];
+  if ($section_2) {
+  ?>
+    <section class="p-vison__sec02">
+      <div class="l-container">
+        <div class="p-vison__sec02--box01">
+          <div class="p-vison__sec02--item">
             <p class="c-text__intro01">
-              Chairman’s Message
+              <?php esc_html_e($sec2Intro) ?>
             </p>
             <h2 class="c-title__02 type-03">
               <span class="c-title__02--last">
-                Navigating a
+                <?php esc_html_e($sec2TitleFirst) ?>
               </span>
               <span class="c-title__02--first">
-                New Era of Growth
+                <?php esc_html_e($sec2TitleLast) ?>
               </span>
             </h2>
           </div>
-          <div class="quotes">
-            <div class="quotes-group01">
-              <div class="quotes-text01">
-                <span>“</span>
-              </div>
-              <div class="quotes-text02">
-                We understand that trust is earned through consistent performance and shared vision. Our commitment is to approach every partnership with <strong>Agility</strong>, ensuring we adapt quickly to your needs and market dynamics.
-              </div>
+          <div class="p-vison__sec02--item">
+            <div class="text01">
+              <?php echo wp_kses_post($sec2Desc1) ?>
             </div>
-            <div class="quotes-text03">
-              By fostering <strong>Unity</strong> across our six divisions and committing to <strong>Sustainability</strong>, we ensure that the value we create today is long-lasting and contributes positively to your future and the community we share.
+            <div class="text02">
+              <?php echo wp_kses_post($sec2Desc2) ?>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="p-vison__sec02--box02">
 
-  <section class="p-vison__sec02">
-    <div class="l-container">
-      <div class="p-vison__sec02--box01">
-        <div class="p-vison__sec02--item">
-          <p class="c-text__intro01">
-            Corporate’s philosophy
-          </p>
-          <h2 class="c-title__02 type-03">
-            <span class="c-title__02--last">
-              Cultures create
+          <div class="vison-item">
+            <span class="vison-title01">
+              <?php esc_html_e($sec2Item1['text_1']); ?>
             </span>
+            <span class="vison-title02">
+              <?php esc_html_e($sec2Item1['text_2']); ?>
+            </span>
+            <span class="vison-title03">
+              <?php esc_html_e($sec2Item1['text_3']); ?>
+            </span>
+          </div>
+          <?php foreach ($sec2Items as $item) : ?>
+            <div class="vison-item">
+              <div class="vison-text01">
+                <?php esc_html_e($item['intro']) ?>
+              </div>
+              <div class="vison-text02">
+                <?php esc_html_e($item['title']) ?>
+              </div>
+              <div class="vison-text03">
+                <?php esc_html_e($item['desc']) ?>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+  <?php } ?>
+
+  <?php
+  $section_3 = get_field('section_3');
+  $sec3Intro = $section_3['intro'];
+  $sec3TitleFirst = $section_3['title_first'];
+  $sec3TitleLast = $section_3['title_last'];
+  $sec3Items = $section_3['items'];
+  if ($section_3) {
+  ?>
+    <section class="p-vison__sec03">
+      <div class="l-container">
+        <div class="c-text__center">
+          <p class="c-text__intro01">
+            <?php esc_html_e($sec3Intro) ?>
+          </p>
+          <h2 class="c-title__02 type-02">
             <span class="c-title__02--first">
-              coherent views
+              <?php esc_html_e($sec3TitleFirst) ?>
+            </span>
+            <span class="c-title__02--last">
+              <?php esc_html_e($sec3TitleLast) ?>
             </span>
           </h2>
         </div>
-        <div class="p-vison__sec02--item">
-          <div class="text01">
-            Our operations across diverse sectors are unified by a steadfast commitment to ethical conduct, pioneering spirit, and collective advancement.
+        <?php if ($sec3Items): ?>
+          <div class="p-vison__sec03--box01">
+            <?php foreach ($sec3Items as $item): ?>
+              <div class="leader-item">
+                <div class="leader-avatar">
+                  <img src="<?php echo esc_url($item['avatar']['url']) ?>" alt="<?php esc_attr_e($item['avatar']['alt']) ?>">
+                </div>
+                <div class="leader-contents">
+                  <div class="leader-text01">
+                    <?php esc_html_e($item['full_name']) ?>
+                  </div>
+                  <div class="leader-text02">
+                    <?php esc_html_e($item['location']) ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="text02">
-            To ensure alignment across all our member companies and stakeholders, we strictly adhere to The 5 Guiding Principles, a framework that translates our core values (Innovation, Sustainability, Agility, Integrity, and Unity) into daily action and decision-making.
-          </div>
-        </div>
+        <?php endif; ?>
       </div>
-      <div class="p-vison__sec02--box02">
-        <div class="vison-item">
-          <span class="vison-title01">The</span>
-          <span class="vison-title02">5</span>
-          <span class="vison-title03">
-            Guiding Principles
-          </span>
-        </div>
-        <div class="vison-item">
-          <div class="vison-text01">
-            Innovation Mandate
-          </div>
-          <div class="vison-text02">
-            Never Stop Transforming
-          </div>
-          <div class="vison-text03">
-            We continuously challenge the status quo and invest in R&D to deliver future-proof solutions. We believe in the power of Innovation to drive change, not just react to it.
-          </div>
-        </div>
-        <div class="vison-item">
-          <div class="vison-text01">
-            Innovation Mandate
-          </div>
-          <div class="vison-text02">
-            Never Stop Transforming
-          </div>
-          <div class="vison-text03">
-            We continuously challenge the status quo and invest in R&D to deliver future-proof solutions. We believe in the power of Innovation to drive change, not just react to it.
-          </div>
-        </div>
-        <div class="vison-item">
-          <div class="vison-text01">
-            Innovation Mandate
-          </div>
-          <div class="vison-text02">
-            Never Stop Transforming
-          </div>
-          <div class="vison-text03">
-            We continuously challenge the status quo and invest in R&D to deliver future-proof solutions. We believe in the power of Innovation to drive change, not just react to it.
-          </div>
-        </div>
-        <div class="vison-item">
-          <div class="vison-text01">
-            Innovation Mandate
-          </div>
-          <div class="vison-text02">
-            Never Stop Transforming
-          </div>
-          <div class="vison-text03">
-            We continuously challenge the status quo and invest in R&D to deliver future-proof solutions. We believe in the power of Innovation to drive change, not just react to it.
-          </div>
-        </div>
-        <div class="vison-item">
-          <div class="vison-text01">
-            Innovation Mandate
-          </div>
-          <div class="vison-text02">
-            Never Stop Transforming
-          </div>
-          <div class="vison-text03">
-            We continuously challenge the status quo and invest in R&D to deliver future-proof solutions. We believe in the power of Innovation to drive change, not just react to it.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-vison__sec03">
-    <div class="l-container">
-      <div class="c-text__center">
-        <p class="c-text__intro01">
-          Leadership
-        </p>
-        <h2 class="c-title__02 type-02">
-          <span class="c-title__02--first">
-            The Leadership Team
-          </span>
-          <span class="c-title__02--last">
-            Board of Management
-          </span>
-        </h2>
-      </div>
-      <div class="p-vison__sec03--box01">
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=922" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=928" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://images.unsplash.com/photo-1663893364107-a6ecd06cf615?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-        <div class="leader-item">
-          <div class="leader-avatar">
-            <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="">
-          </div>
-          <div class="leader-contents">
-            <div class="leader-text01">
-              Nguyen Thi Kim Hai
-            </div>
-            <div class="leader-text02">
-              Chairwoman, General Director
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  <?php } ?>
 </main>
 <?php get_footer(); ?>

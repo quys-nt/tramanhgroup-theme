@@ -21,7 +21,12 @@
 
 <?php
 $headerWhite = false;
-if (is_page('overview') || is_page('tong-quan')) {
+if (
+  is_page('overview') ||
+  is_page('tong-quan') ||
+  is_page('portfolio') ||
+  is_page('ho-so') 
+  ) {
   $headerWhite = true;
 }
 ?>

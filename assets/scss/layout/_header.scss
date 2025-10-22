@@ -137,9 +137,16 @@
     li {
       position: relative;
 
+      &.current-menu-parent>a {
+        background-color: #F0F0F0;
+        color: g.$black01;
+      }
+
       &>a {
+
         &:hover {
           background-color: #F0F0F0;
+          color: g.$black01;
           opacity: 1;
         }
 
