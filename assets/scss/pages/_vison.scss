@@ -372,9 +372,16 @@
             &-item {
               padding-bottom: 16px;
               border-bottom: 1px solid g.$gray03;
+
+              &:hover {
+                .leader-avatar img {
+                  transform: scale(1.1);
+                }
+              }
             }
 
             &-avatar {
+              overflow: hidden;
               min-height: 400px;
               background-color: g.$gray02;
               display: flex;
@@ -383,6 +390,7 @@
                 width: 100%;
                 height: 400px;
                 object-fit: cover;
+                transition: transform 0.3s ease-in-out;
               }
             }
 
