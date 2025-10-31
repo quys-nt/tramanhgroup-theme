@@ -656,6 +656,8 @@
       .thumbnail {
         display: flex;
         overflow: hidden;
+        min-height: 240px;
+        background: g.$green03 url("../images/logo-tram-anh.png") no-repeat center / auto;
 
         &:hover {
           opacity: 1;
@@ -663,6 +665,7 @@
 
         img {
           width: 100%;
+          object-fit: cover;
           transition: transform 0.3s ease-in-out;
         }
       }

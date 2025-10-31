@@ -25,7 +25,8 @@ if (
   is_page('overview') ||
   is_page('tong-quan') ||
   is_page('portfolio') ||
-  is_page('ho-so') 
+  is_page('ho-so') ||
+  is_single()
   ) {
   $headerWhite = true;
 }
