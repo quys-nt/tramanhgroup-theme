@@ -30,3 +30,17 @@
     transform: translateX(-200%);
   }
 }
+
+.u-pc {
+  &-block {
+    @include g.media(sp) {
+      display: none;
+    }
+  }
+
+  &-none {
+    @include g.media(pc-tab) {
+      display: none;
+    }
+  }
+}

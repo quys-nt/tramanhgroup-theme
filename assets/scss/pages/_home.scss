@@ -659,6 +659,10 @@
         min-height: 240px;
         background: g.$green03 url("../images/logo-tram-anh.png") no-repeat center / auto;
 
+        @include g.media(sp) {
+          min-height: 160px;
+        }
+
         &:hover {
           opacity: 1;
         }
@@ -692,6 +696,11 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @include g.media(sp) {
+          font-size: 20px;
+          line-height: 28px;
+        }
       }
 
       .time {

@@ -18,17 +18,6 @@ $success-color: #43B149;
     gap: 10px;
     margin-top: 30px;
   }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: stretch;
-
-    .c-btn__09 {
-      width: 100%;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-  }
 }
 
 // Share button modifications

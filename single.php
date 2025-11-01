@@ -23,12 +23,12 @@ if (!empty($categories)) {
 			}
 		}
 	}
-	
+
 	// Nếu không có category con được gán
 	if (!$current_category) {
 		$current_category = $categories[0];
 	}
-	
+
 	// Nếu không có parent category, tìm parent của current_category
 	if (!$parent_category && $current_category->parent != 0) {
 		$parent_category = get_category($current_category->parent);
@@ -173,7 +173,7 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 								</span>
 							</h2>
 						</div>
-						<div>
+						<div class="u-pc-block">
 							<a href="<?php echo esc_url($newsroom_link); ?>" class="c-btn__04">
 								<?php echo ($lang === 'en') ? 'View All News' : 'Xem tất cả tin tức'; ?>
 							</a>
@@ -193,6 +193,11 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 							wp_reset_postdata();
 							?>
 						</div>
+					</div>
+					<div class="p-home__posts--bottom u-pc-none">
+						<a href="<?php echo esc_url($newsroom_link); ?>" class="c-btn__04">
+							<?php echo ($lang === 'en') ? 'View All News' : 'Xem tất cả tin tức'; ?>
+						</a>
 					</div>
 				</div>
 			</section>

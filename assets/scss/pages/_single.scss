@@ -60,6 +60,10 @@
     &02 {
       padding-block: 80px;
 
+      @include g.media(sp) {
+        padding-block: 40px;
+      }
+
       &--btns {
         display: flex;
         justify-content: end;
@@ -166,6 +170,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -185,13 +190,13 @@
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .tab-btn {
     white-space: nowrap;
     padding: 12px 20px;
     font-size: 14px;
   }
-  
+
   .posts-grid {
     grid-template-columns: 1fr;
     gap: 20px;
