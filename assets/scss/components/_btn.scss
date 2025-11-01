@@ -146,4 +146,46 @@
       background-image: url("../images/icon-arrow-right-up-w.svg");
     }
   }
+
+  &__09 {
+    cursor: pointer;
+    font-size: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: g.$gray06;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 50%;
+    text-decoration: unset;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    // &.icon-fb {
+    //   background-image: url('../images/logo-fb.png');
+    //   background-size: 24px;
+    // }
+
+    // &.icon-phone {
+    //   background-image: url('../images/icon-phone-02.png');
+    //   background-size: 24px;
+    // }
+
+    // &.icon-mail {
+    //   background-image: url('../images/icon-mail-02.svg');
+    //   background-size: 20px;
+    // }
+
+    // &.icon-link {
+    //   background-image: url('../images/icon-link.svg');
+    //   background-size: 20px;
+    // }
+  }
 }

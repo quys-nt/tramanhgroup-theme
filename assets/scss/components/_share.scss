@@ -1,0 +1,295 @@
+@use '../global/' as g;
+
+$facebook-color: #1877f2;
+$twitter-color: #4caf50;
+$email-color: #ea4335;
+$link-color: #333;
+$success-color: #43B149;
+
+// Container
+.p-single__sec02--btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include g.media(sp) {
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .c-btn__09 {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Share button modifications
+.c-btn__09 {
+  // Override specific styles for share buttons
+  &.icon-fb,
+  &.icon-twitter,
+  &.icon-mail,
+  &.icon-link {
+    position: relative;
+    overflow: hidden;
+
+    // Ripple effect
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.1);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    &:hover::before {
+      width: 100px;
+      height: 100px;
+    }
+
+    img {
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+  }
+
+  // Facebook hover
+  &.icon-fb {
+    &:hover {
+      background-color: $facebook-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($facebook-color, 0.3);
+
+      // img {
+      //   filter: brightness(0) invert(1);
+      // }
+    }
+  }
+
+  // Twitter hover
+  &.icon-twitter {
+    &:hover {
+      background-color: $twitter-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($twitter-color, 0.3);
+
+      // img {
+      //   filter: brightness(0) invert(1);
+      // }
+    }
+  }
+
+  // Email hover
+  &.icon-mail {
+    &:hover {
+      background-color: $email-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($email-color, 0.3);
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  // Copy link hover
+  &.icon-link {
+    &:hover {
+      background-color: $link-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($link-color, 0.2);
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    // Copied state
+    &.copied {
+      background-color: $success-color;
+      
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+  }
+
+  // Loading state
+  &.loading {
+    pointer-events: none;
+    opacity: 0.6;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: button-loading-spinner 0.8s linear infinite;
+    }
+  }
+}
+
+// ======================================
+// TOAST NOTIFICATION
+// ======================================
+.copy-toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $success-color;
+  color: g.$white01;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-weight: 500;
+  font-size: 15px;
+  min-width: 280px;
+  justify-content: center;
+
+  &.show {
+    bottom: 30px;
+    animation: toast-slide-up 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 16px;
+    flex-shrink: 0;
+    animation: toast-icon-pop 0.3s ease 0.2s both;
+  }
+
+  .toast-text {
+    white-space: nowrap;
+    opacity: 0;
+    animation: toast-text-fade 0.3s ease 0.3s forwards;
+  }
+
+  @include g.media(sp) {
+    font-size: 14px;
+    padding: 14px 20px;
+    min-width: 240px;
+    max-width: calc(100% - 40px);
+    
+    &.show {
+      bottom: 20px;
+    }
+
+    .toast-text {
+      white-space: normal;
+      text-align: center;
+    }
+  }
+}
+
+// ======================================
+// KEYFRAMES
+// ======================================
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes toast-slide-up {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes toast-icon-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toast-text-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ======================================
+// UTILITY CLASSES
+// ======================================
+
+// Hidden text for screen readers
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Share button group spacing variations
+.share-buttons {
+  &--compact {
+    gap: 8px;
+  }
+
+  &--spacious {
+    gap: 16px;
+  }
+
+  &--inline {
+    display: inline-flex;
+  }
+
+  &--centered {
+    justify-content: center;
+  }
+}

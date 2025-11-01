@@ -79,3 +79,28 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('polylang', 'https://polylang.pro/css/polylang.css', array(), '3.0');
   }
 });
+
+/**
+ * Enqueue share scripts cho single post
+ */
+function enqueue_share_scripts()
+{
+  // Chỉ load trên trang single post
+  if (is_single()) {
+    wp_enqueue_script(
+      'share-functions',
+      get_template_directory_uri() . '/assets/js/share.js',
+      array('jquery'),
+      '1.0.0',
+      true
+    );
+
+    // Pass data to JavaScript (optional)
+    wp_localize_script('share-functions', 'shareData', array(
+      'ajaxurl' => admin_url('admin-ajax.php'),
+      'postId' => get_the_ID(),
+      'lang' => function_exists('get_current_lang') ? get_current_lang() : 'en'
+    ));
+  }
+}
+add_action('wp_enqueue_scripts', 'enqueue_share_scripts');
