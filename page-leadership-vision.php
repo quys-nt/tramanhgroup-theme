@@ -18,15 +18,15 @@ Description: English Leadership & Vision page with journey, core values, etc.
                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="p-home__mv--thumbnail">
                 <div class="p-home__mv--contents">
                   <h1 class="p-home__mv--title">
-                    <p><?php echo esc_attr(get_sub_field('title_first')) ?></p>
-                    <p><?php echo esc_attr(get_sub_field('title_last')) ?></p>
+                    <p><?php echo esc_html_e(get_sub_field('title_first')) ?></p>
+                    <p><?php echo esc_html_e(get_sub_field('title_last')) ?></p>
                   </h1>
                   <div class="p-home__mv--text01">
                     <?php echo wp_kses_post(get_sub_field('mv_description')) ?>
                   </div>
                   <div>
-                    <a href=" <?php echo esc_attr(get_sub_field('link_button')) ?> " class="c-btn__01 download">
-                      <?php echo esc_attr(get_sub_field('text_button')) ?>
+                    <a href=" <?php echo esc_html_e(get_sub_field('link_button')) ?> " class="c-btn__01 download">
+                      <?php echo esc_html_e(get_sub_field('text_button')) ?>
                     </a>
                   </div>
                 </div>

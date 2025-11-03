@@ -27,7 +27,7 @@
         <div>
           <div class="form-contact" data-aos="fade-up">
             <?php
-            echo  do_shortcode($form);
+            echo do_shortcode($form);
             ?>
           </div>
         </div>
