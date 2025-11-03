@@ -1,0 +1,155 @@
+@use '../global/' as g;
+
+
+.p-gallery {
+  &__sec {
+    &01 {
+      padding-block: 80px;
+
+      @include g.media(sp) {
+        padding: 80px 0 40px;
+      }
+
+      &--title {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 64px;
+        letter-spacing: -0.04em;
+        max-width: 884px;
+        margin-inline: auto;
+
+        @include g.media(sp) {
+          font-size: 32px;
+          line-height: 40px;
+        }
+
+        span {
+          font-family: g.$font-family02;
+          font-weight: 300;
+          font-style: Italic;
+          color: g.$green01;
+
+          @include g.media(sp) {
+            font-size: 40px;
+          }
+        }
+      }
+
+      &--gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 64px;
+
+        @include g.media(tab) {
+          flex-wrap: nowrap;
+        }
+
+        @include g.media(sp) {
+          gap: 15px;
+        }
+      }
+
+      .sec01-gallery {
+        &-item {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          flex: 1;
+
+          @include g.media(sp) {
+            gap: 16px;
+          }
+
+          &:first-child {
+            @include g.media(tab) {
+              display: none;
+            }
+          }
+
+          &:nth-child(2),
+          &:nth-child(3) {
+            @include g.media(tab) {
+              width: 50%;
+            }
+          }
+
+          &:nth-last-child(2) {
+            justify-content: center;
+          }
+
+          &:last-child {
+            justify-content: space-between;
+
+            @media screen and (max-width: 1280px) {
+              display: none;
+            }
+          }
+        }
+
+        &-img {
+          &1 {
+            img {
+              max-width: 128px;
+            }
+          }
+
+          &2 {
+            width: 100%;
+            text-align: right;
+
+            img {
+              max-width: 228px;
+            }
+          }
+
+          &3,
+          &4 {
+
+            @include g.media(tab) {
+              width: 100%;
+            }
+
+            img {
+              max-width: 320px;
+
+              @include g.media(tab) {
+                max-width: 100%;
+                width: 100%;
+              }
+            }
+          }
+
+          &5 {
+
+            @include g.media(tab) {
+              width: 100%;
+            }
+
+            img {
+              max-width: 331px;
+
+              @include g.media(tab) {
+                max-width: 100%;
+                width: 100%;
+              }
+            }
+          }
+
+          &6 {
+            img {
+              max-width: 251px;
+            }
+          }
+
+          &7 {
+            img {
+              max-width: 195px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

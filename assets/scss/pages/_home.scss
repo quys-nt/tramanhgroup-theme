@@ -656,11 +656,11 @@
       .thumbnail {
         display: flex;
         overflow: hidden;
-        min-height: 240px;
+        height: 240px;
         background: g.$green03 url("../images/logo-tram-anh.png") no-repeat center / auto;
 
         @include g.media(sp) {
-          min-height: 160px;
+          height: 160px;
         }
 
         &:hover {

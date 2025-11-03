@@ -74,7 +74,7 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 						$is_image = strpos($mime_type, 'image/') !== false;
 						$is_video = strpos($mime_type, 'video/') !== false;
 					?>
-						<div class="gallery-item" data-modal-src="<?php echo esc_url($full_url); ?>" data-modal-type="<?php echo esc_attr($mime_type); ?>">
+						<div class="gallery-item <?php echo $is_video ? "is-video" : "" ?>" data-modal-src="<?php echo esc_url($full_url); ?>" data-modal-type="<?php echo esc_attr($mime_type); ?>">
 							<?php if ($is_image) : ?>
 								<img
 									src="<?php echo esc_url($item['sizes']['large'] ?? $item['url']); ?>"
@@ -91,7 +91,6 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 									loading="lazy"
 									width="100%"
 									height="auto">
-									Trình duyệt của bạn không hỗ trợ video HTML5.
 								</video>
 							<?php endif; ?>
 						</div>

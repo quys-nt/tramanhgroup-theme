@@ -47,6 +47,17 @@ if (function_exists('acf_add_options_page')) {
   ));
 }
 
+if (function_exists('acf_add_options_page')) {
+  acf_add_options_page(array(
+    'page_title'    => 'Gallery Settings',
+    'menu_title'    => 'Gallery',
+    'menu_slug'     => 'gallery-settings',
+    'capability'    => 'edit_posts',
+    'redirect'      => false,
+    'parent_slug'   => 'theme-settings'
+  ));
+}
+
 if (function_exists('pll_current_language')) {
   function get_current_lang()
   {

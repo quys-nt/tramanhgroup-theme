@@ -136,6 +136,17 @@
         &-item {
           cursor: pointer;
 
+          &.is-video {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: #00000066 url("../images/icon-play-02.svg") no-repeat center / auto;
+            }
+
+          }
+
           video,
           img {
             height: 400px;
