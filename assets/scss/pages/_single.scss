@@ -118,6 +118,51 @@
       }
     }
   }
+
+  &__gallery {
+    padding-block: 40px;
+
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+
+      @include g.media(sp) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .gallery {
+        &-item {
+          cursor: pointer;
+
+          video,
+          img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+
+            @include g.media(sp) {
+              height: 240px;
+            }
+          }
+        }
+      }
+    }
+
+    &--list {
+      &01 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+      }
+    }
+  }
 }
 
 /* Newsroom Tabs Styles */
@@ -200,4 +245,36 @@
     gap: 24px;
     margin-top: 24px;
   }
+}
+
+
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.pagination a,
+.pagination span {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.pagination .current {
+  background: #000;
+  color: #fff;
+  border-color: #000;
 }

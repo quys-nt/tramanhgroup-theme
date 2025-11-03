@@ -129,12 +129,12 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 
 			<!-- Tab navigation -->
 			<div class="tabs-nav">
-				<button class="tab-btn <?php echo ($active_tab === 'all') ? 'active' : ''; ?>"
+				<button class="tab-btn active"
 					data-tab="all">
 					<?php echo ($lang === 'en') ? 'All News' : 'Tất cả tin tức'; ?>
 				</button>
 				<?php foreach ($child_categories as $child_cat): ?>
-					<button class="tab-btn <?php echo ($active_tab === $child_cat->slug) ? 'active' : ''; ?>"
+					<button class="tab-btn"
 						data-tab="<?php echo esc_attr($child_cat->slug); ?>">
 						<?php echo esc_html($child_cat->name); ?>
 					</button>
@@ -143,7 +143,7 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 
 			<!-- Tab content -->
 			<div class="tabs-content">
-				<div class="tab-content <?php echo ($active_tab === 'all') ? 'active' : ''; ?>"
+				<div class="tab-content active"
 					id="tab-all">
 					<?php
 					$all_posts = new WP_Query(array(
@@ -168,8 +168,8 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 				</div>
 
 				<!-- Child category tabs -->
-				<?php foreach ($child_categories as $child_cat): ?>
-					<div class="tab-content <?php echo ($active_tab === $child_cat->slug) ? 'active' : ''; ?>"
+				<?php foreach ($child_categories as $key => $child_cat): ?>
+					<div class="tab-content"
 						id="tab-<?php echo esc_attr($child_cat->slug); ?>">
 						<?php
 						$cat_posts = new WP_Query(array(
