@@ -85,7 +85,6 @@ add_action('wp_enqueue_scripts', function () {
  */
 function enqueue_share_scripts()
 {
-  // Chỉ load trên trang single post
   if (is_single()) {
     wp_enqueue_script(
       'share-functions',
@@ -95,7 +94,6 @@ function enqueue_share_scripts()
       true
     );
 
-    // Pass data to JavaScript (optional)
     wp_localize_script('share-functions', 'shareData', array(
       'ajaxurl' => admin_url('admin-ajax.php'),
       'postId' => get_the_ID(),
@@ -104,3 +102,156 @@ function enqueue_share_scripts()
   }
 }
 add_action('wp_enqueue_scripts', 'enqueue_share_scripts');
+
+/**
+ * Get child category của bài viết (bỏ qua category cha)
+ * 
+ * @param int $post_id Post ID (optional)
+ * @return object|null Category object hoặc null
+ */
+function get_post_child_category($post_id = null)
+{
+  if (!$post_id) {
+    $post_id = get_the_ID();
+  }
+
+  $categories = get_the_category($post_id);
+
+  if (empty($categories)) {
+    return null;
+  }
+
+  foreach ($categories as $cat) {
+    if ($cat->parent != 0) {
+      return $cat;
+    }
+  }
+
+  return $categories[0];
+}
+
+/**
+ * Get tất cả child categories của bài viết
+ * 
+ * @param int $post_id Post ID (optional)
+ * @return array Mảng các category objects
+ */
+function get_post_child_categories($post_id = null)
+{
+  if (!$post_id) {
+    $post_id = get_the_ID();
+  }
+
+  $categories = get_the_category($post_id);
+  $child_categories = array();
+
+  if (empty($categories)) {
+    return $child_categories;
+  }
+
+  foreach ($categories as $cat) {
+    if ($cat->parent != 0) {
+      $child_categories[] = $cat;
+    }
+  }
+
+  if (empty($child_categories)) {
+    return $categories;
+  }
+
+  return $child_categories;
+}
+
+/**
+ * Get parent category của bài viết hiện tại
+ * 
+ * @param int $post_id Post ID (optional, default = current post)
+ * @return object|null Category object hoặc null
+ */
+function get_post_parent_category($post_id = null)
+{
+  if (!$post_id) {
+    $post_id = get_the_ID();
+  }
+
+  $categories = get_the_category($post_id);
+
+  if (empty($categories)) {
+    return null;
+  }
+
+  foreach ($categories as $cat) {
+    if ($cat->parent == 0) {
+      return $cat;
+    }
+  }
+
+  $first_cat = $categories[0];
+  if ($first_cat->parent != 0) {
+    return get_category($first_cat->parent);
+  }
+
+  return null;
+}
+
+/**
+ * Get parent category link của bài viết hiện tại
+ * 
+ * @param int $post_id Post ID (optional)
+ * @param string $fallback_url URL fallback nếu không tìm thấy (default = home_url)
+ * @return string Category link URL
+ */
+function get_post_parent_category_link($post_id = null, $fallback_url = null)
+{
+  if (!$fallback_url) {
+    $fallback_url = home_url('/');
+  }
+
+  $parent_cat = get_post_parent_category($post_id);
+
+  if ($parent_cat) {
+    return get_category_link($parent_cat->term_id);
+  }
+
+  return $fallback_url;
+}
+
+/**
+ * Check xem category có phải là parent category không
+ * 
+ * @param int $cat_id Category ID
+ * @return bool
+ */
+function is_parent_category($cat_id)
+{
+  $category = get_category($cat_id);
+
+  if (!$category) {
+    return false;
+  }
+
+  return ($category->parent == 0);
+}
+
+/**
+ * Get breadcrumb categories cho bài viết
+ * Trả về mảng [parent_category, child_category]
+ * 
+ * @param int $post_id Post ID (optional)
+ * @return array
+ */
+function get_post_category_breadcrumb($post_id = null)
+{
+  $breadcrumb = array(
+    'parent' => null,
+    'child' => null
+  );
+
+  $parent_cat = get_post_parent_category($post_id);
+  $child_cat = get_post_child_category($post_id);
+
+  $breadcrumb['parent'] = $parent_cat;
+  $breadcrumb['child'] = $child_cat;
+
+  return $breadcrumb;
+}

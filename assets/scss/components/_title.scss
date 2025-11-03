@@ -58,12 +58,8 @@
     &.type-03 {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
-
-      @include g.media(sp) {
-        flex-direction: column;
-        gap: 0;
-      }
     }
   }
 }

@@ -1,5 +1,155 @@
 @use '../global/' as g;
 
 .p-archive {
+  &__sec {
 
+    &01,
+    &02 {
+      padding-block: 80px;
+
+      @include g.media(sp) {
+        padding-block: 40px;
+      }
+
+    }
+
+    &01 {
+
+      &--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+          margin-top: 64px;
+        }
+
+      }
+
+      &--card {
+        text-decoration: none;
+        padding: 24px;
+        background-color: g.$gray06;
+
+        &:hover {
+          opacity: 1;
+
+          // img {
+          //   transform: scale(1.1);
+          // }
+
+          .icon {
+            &::before {
+              opacity: 1;
+            }
+
+            img {
+              filter: brightness(0) invert(1);
+              transform: scale(1);
+            }
+          }
+        }
+
+        &__image {
+          position: relative;
+          overflow: hidden;
+          min-height: 240px;
+          background: #fafff9 url('../images/logo-tram-anh.png') no-repeat center / auto;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+          }
+        }
+
+        &__content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          align-content: end;
+          padding: 24px;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        &__title {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 32px;
+          letter-spacing: -0.03em;
+          color: g.$white01;
+        }
+
+        &__excerpt {
+          display: grid;
+          grid-template-columns: 1fr 36px;
+          gap: 32px;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+          color: g.$gray04;
+          margin-top: 24px;
+
+          .text {
+            &01 {
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              line-clamp: 2;
+            }
+          }
+
+          .icon {
+            position: relative;
+            overflow: hidden;
+            width: 36px;
+            height: 36px;
+            border: 1px solid g.$black01;
+            border-radius: 50%;
+            text-align: center;
+            align-content: center;
+
+            &::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background-color: g.$black01;
+              opacity: 0;
+              transition: opacity 0.3s ease-in-out;
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+              position: relative;
+              z-index: 2;
+            }
+          }
+        }
+      }
+    }
+
+    &02 {
+
+      &--group01 {
+        @include g.media(sp) {
+          text-align: center;
+
+          .c-title__02 {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
 }

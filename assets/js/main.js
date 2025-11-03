@@ -48,6 +48,7 @@ $(document).ready(function () {
       }
     },
   });
+
   var swiperPartners = new Swiper('.swiper-posts', {
     loop: true,
     slidesPerView: 3,
@@ -78,16 +79,14 @@ $(document).ready(function () {
   let startX;
   let scrollLeft;
 
-  $(document).ready(function () {
-    $(window).on('scroll', function () {
-      let scrollPosition = $(window).scrollTop();
+  $(window).on('scroll', function () {
+    let scrollPosition = $(window).scrollTop();
 
-      if (scrollPosition >= 700) {
-        $('.js-header').addClass('is-scrolled');
-      } else {
-        $('.js-header').removeClass('is-scrolled');
-      }
-    });
+    if (scrollPosition >= 700) {
+      $('.js-header').addClass('is-scrolled');
+    } else {
+      $('.js-header').removeClass('is-scrolled');
+    }
   });
 
   $('.overflow-auto').each(function () {
@@ -200,7 +199,7 @@ $(document).ready(function () {
 
   function animateCounter($el, targetValue, suffix, hasDecimal) {
     var current = 0;
-    var duration = 2000; 
+    var duration = 2000;
     var startTime = null;
     function updateCounter(timestamp) {
       if (!startTime) startTime = timestamp;
@@ -228,14 +227,14 @@ $(document).ready(function () {
     requestAnimationFrame(updateCounter);
   }
   var observerOptions = {
-    threshold: 0.5, 
-    rootMargin: '0px 0px -50px 0px' 
+    threshold: 0.5,
+    rootMargin: '0px 0px -50px 0px'
   };
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         var $el = $(entry.target);
-        if (!$el.hasClass('counted')) { 
+        if (!$el.hasClass('counted')) {
           var originalText = $el.text().trim();
           var numericPart = originalText.replace(/[^\d.]/g, '');
           var targetValue = parseFloat(numericPart);
@@ -246,12 +245,31 @@ $(document).ready(function () {
             animateCounter($el, targetValue, suffix, hasDecimal);
           }
         }
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
   $('.js-count-number').each(function () {
     observer.observe(this);
+  });
+
+
+  $('.tab-btn').on('click', function () {
+    var tabId = $(this).data('tab');
+
+    // Remove active class from all tabs
+    $('.tab-btn').removeClass('active');
+    $('.tab-content').removeClass('active');
+
+    // Add active class to clicked tab
+    $(this).addClass('active');
+    $('#tab-' + tabId).addClass('active');
+
+    // Update URL without reload
+    var newUrl = window.location.pathname + '?tab=' + tabId;
+    window.history.pushState({
+      path: newUrl
+    }, '', newUrl);
   });
 });
