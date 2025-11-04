@@ -26,7 +26,7 @@
         span {
           font-family: g.$font-family02;
           font-weight: 300;
-          font-style: Italic;
+          font-style: italic;
           color: g.$green01;
 
           @include g.media(sp) {

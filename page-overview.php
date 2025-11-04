@@ -289,7 +289,7 @@ Description: English Overview page with journey, core values, etc.
                 </div>
                 <div>
                   <div class="group">
-                    <div class="numbber js-count-number">
+                    <div class="number js-count-number">
                       <?php echo $number; ?>
                     </div>
                     <?php if ($title): ?>

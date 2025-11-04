@@ -175,7 +175,6 @@
 
       &02 {
         display: grid;
-        // grid-template-columns: 61.8% calc(38.2% - 40px);
         grid-template-columns: 1fr 480px;
         gap: 40px;
 
@@ -514,23 +513,6 @@
         }
       }
     }
-
-    // &--item {
-    // display: inline-flex;
-    // justify-content: center;
-    // align-items: center;
-    // width: 240px;
-    // height: 240px;
-    // flex: none;
-    // border: 1px solid g.$gray02;
-    // border-width: 1px 1px 1px 0;
-
-    // @include g.media(sp) {
-    // width: 160px;
-    // height: 160px;
-    // padding: 30px;
-    // }
-    // }
 
     .swiper-partners {
       .swiper-wrapper {

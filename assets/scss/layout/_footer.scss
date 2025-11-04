@@ -167,30 +167,30 @@
           list-style: none;
           margin: 0;
 
-        li {
-          position: relative;
-          &:not(:last-child) {
-            &::after {
-              content: "";
-              position: absolute;
-              top: 50%;
-              right: -24px;
-              transform: translateY(-50%);
-              width: 1px;
-              height: 12px;
-              background-color: g.$gray02;
+          li {
+            position: relative;
+
+            &:not(:last-child) {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -24px;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 12px;
+                background-color: g.$gray02;
+              }
             }
           }
-        }
 
-        a {
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          letter-spacing: -0.02em;
-
-          text-decoration: none;
-        }
+          a {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+          }
         }
       }
     }

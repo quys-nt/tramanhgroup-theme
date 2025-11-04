@@ -219,7 +219,7 @@ Description: English Sustainability & Community page with journey, core values, 
                 </div>
                 <div>
                   <div class="group">
-                    <div class="numbber js-count-number">
+                    <div class="number js-count-number">
                       <?php esc_html_e($number); ?>
                     </div>
                     <div class="text">

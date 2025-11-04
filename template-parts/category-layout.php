@@ -45,8 +45,8 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 									<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="p-home__mv--thumbnail">
 									<div class="p-home__mv--contents type-02">
 										<h1 class="p-home__mv--title">
-											<p><?php echo esc_html_e(get_sub_field('title_first')) ?></p>
-											<p><?php echo esc_html_e(get_sub_field('title_last')) ?></p>
+											<p><?php echo esc_html(get_sub_field('title_first')) ?></p>
+											<p><?php echo esc_html(get_sub_field('title_last')) ?></p>
 										</h1>
 										<div class="p-home__mv--text01">
 											<?php echo wp_kses_post(get_sub_field('mv_description')) ?>

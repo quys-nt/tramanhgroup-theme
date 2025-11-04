@@ -32,6 +32,7 @@
         text-decoration: none;
         padding: 24px;
         background-color: g.$gray06;
+        position: relative;
 
         &:hover {
           opacity: 1;
@@ -70,6 +71,7 @@
         }
 
         &__content {
+          position: absolute;
           position: absolute;
           top: 0;
           left: 0;

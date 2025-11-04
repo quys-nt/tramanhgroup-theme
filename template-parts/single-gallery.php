@@ -214,6 +214,7 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 		window.addEventListener('click', function(event) {
 			if (event.target === modal) {
 				modal.style.display = 'none';
+				$("html body").removeAttr("style");
 			}
 		});
 

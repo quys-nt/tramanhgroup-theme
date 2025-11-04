@@ -14,7 +14,7 @@
 
         &-first {
           font: 200 90px g.$font-family02;
-          font-style: Italic;
+          font-style: italic;
           line-height: 64px;
 
           @include g.media(sp) {

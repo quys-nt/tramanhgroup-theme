@@ -9,8 +9,8 @@
             $custom_logo_id = get_theme_mod('custom_logo');
             $logo_url = wp_get_attachment_image_src($custom_logo_id, 'full');
             ?>
-            <a href="<?php echo home_url(); ?>">
-              <img src="<?php echo $logo_url ? $logo_url[0] : get_template_directory_uri() . '/assets/images/logo-tramanhgroup02.png'; ?>" alt="logo tramanhgroup">
+            <a href="<?php echo esc_url(home_url()); ?>">
+              <img src="<?php echo esc_url($logo_url ? $logo_url[0] : get_template_directory_uri() . '/assets/images/logo-tramanhgroup02.png'); ?>" alt="logo tramanhgroup">
             </a>
           </div>
           <p class="l-footer__text01">
@@ -115,7 +115,6 @@
   </div>
 </footer>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <?php wp_footer(); ?>
 </body>
 

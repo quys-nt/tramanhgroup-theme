@@ -13,14 +13,14 @@
       <div class="p-home__contact--form">
         <div data-aos="fade-up">
           <p class="c-text__intro01">
-            <?php echo $contactIntro; ?>
+            <?php echo esc_html($contactIntro); ?>
           </p>
           <h2 class="c-title__02">
             <span class="c-title__02--first">
-              <?php echo $contactTitleFirst; ?>
+              <?php echo esc_html($contactTitleFirst); ?>
             </span>
             <span class="c-title__02--last">
-              <?php echo $contactTitleLast; ?>
+              <?php echo esc_html($contactTitleLast); ?>
             </span>
           </h2>
         </div>

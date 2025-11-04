@@ -8,10 +8,10 @@ Description: English Portfolio page with journey, core values, etc.
 <main>
   <?php
   $section_1 = get_field('section_1');
-  $box01TitleFirst = $section_1['title_first'];
-  $box01TitleLast = $section_1['title_last'];
-  $box01TextScroll = $section_1['text_scroll'];
   if ($section_1) {
+  $box01TitleFirst = $section_1['title_first'] ?? '';
+  $box01TitleLast = $section_1['title_last'] ?? '';
+  $box01TextScroll = $section_1['text_scroll'] ?? '';
   ?>
     <section class="p-portfolio__sec01">
       <div class="l-container">
@@ -50,7 +50,7 @@ Description: English Portfolio page with journey, core values, etc.
         <div class="p-portfolio__sec02--list">
           <?php foreach ($listLogo as $item): ?>
             <div class="item-logo">
-              <img src="<?php echo esc_url($item['logo']['url']); ?>" alt="<?php esc_attr_e($item['logo']['alt']); ?>">
+              <img src="<?php echo esc_url($item['logo']['url'] ?? ''); ?>" alt="<?php echo esc_attr($item['logo']['alt'] ?? ''); ?>">
             </div>
           <?php endforeach; ?>
         </div>
