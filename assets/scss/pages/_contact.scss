@@ -246,6 +246,11 @@
             &-content {
               margin: 16px 0 32px;
 
+            a {
+              text-decoration: none;
+              color: g.$black01;
+            }
+
               .title {
                 font-weight: 600;
                 font-size: 18px;

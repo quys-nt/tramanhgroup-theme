@@ -219,9 +219,11 @@ function get_file_extension($filename)
               <div class="file-item">
                 <img src="<?php echo get_template_directory_uri() . '/assets/images/' . $icon ?>" alt="<?php echo esc_attr($extension); ?> file icon">
                 <div class="file-content">
-                  <h3 class="title">
-                    <?php esc_html_e($item['title']) ?>
-                  </h3>
+                  <a href="<?php echo esc_attr($item['url']) ?>" target="_blank">
+                    <h3 class="title">
+                      <?php esc_html_e($item['title']) ?>
+                    </h3>
+                  </a>
                   <p class="text01">
                     <?php echo format_file_size($item['filesize']); // Sử dụng hàm để format size 
                     ?>
