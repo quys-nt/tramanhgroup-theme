@@ -114,6 +114,34 @@
     </div>
   </div>
 </footer>
+
+<div class="c-modal__coming" id="modal-coming-soon">
+  <div class="c-modal__coming--bg"></div>
+  <div class="c-modal__coming--main">
+    <button class="btn-close js-close-modal-coming-soon">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-close-black.svg" alt="close">
+    </button>
+    <div>
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-coming-soon-01.png" alt="Under Construction">
+      <p class="text01">Under Construction</p>
+      <p class="text02">
+        Thank you for your interest in Trâm Anh Group. Our website is in its final phase of deployment, and a few dedicated pages are currently being built to ensure the information meets our standard of Integrity and completeness.
+      </p>
+    </div>
+    <div>
+      <button class="c-btn__04 js-close-modal-coming-soon">
+        Okay, I understand
+      </button>
+    </div>
+    <div>
+      <p class="text03">
+        If you need urgent assistance, feel free to contact us and we’ll be right at you shortly.
+      </p>
+      <a href="mailto:info@tramanhgroup.com.vn" class="text04">info@tramanhgroup.com.vn</a>
+    </div>
+  </div>
+</div>
+
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <?php wp_footer(); ?>
 </body>

@@ -82,6 +82,7 @@
   }
 
   &__04 {
+    cursor: pointer;
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
@@ -92,6 +93,11 @@
     color: g.$white01;
     padding: 12px 24px;
     border-radius: 50px;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &__05 {

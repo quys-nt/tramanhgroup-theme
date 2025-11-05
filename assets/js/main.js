@@ -272,4 +272,8 @@ $(document).ready(function () {
       path: newUrl
     }, '', newUrl);
   });
+
+  $('.js-close-modal-coming-soon').on('click', function () {
+    $('#modal-coming-soon').hide();
+  })
 });
