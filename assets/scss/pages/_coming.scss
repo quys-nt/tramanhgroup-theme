@@ -1,0 +1,97 @@
+@use '../global/' as g;
+
+.p-coming {
+  &__head {
+    height: 80px;
+
+    @include g.media(sp) {
+      height: 74px;
+    }
+  }
+
+  &__sec {
+    &01 {
+      text-align: center;
+      padding-block: 142px;
+      background: g.$gray07 url('../images/img-bg-04.png') repeat-x bottom / auto;
+
+      @include g.media(sp) {
+        padding-block: 186px;
+      }
+
+      &-box {
+        &02 {
+          margin-top: 80px;
+        }
+      }
+
+      .title {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        span {
+          line-height: 1;
+          letter-spacing: -0.04em;
+
+          &:first-child {
+            font-family: g.$font-family02;
+            font-weight: 200;
+            font-style: italic;
+            font-size: 64px;
+
+            @include g.media(sp) {
+              font-weight: 200;
+              font-size: 56px;
+            }
+          }
+
+          &:last-child {
+            font-weight: 600;
+            font-size: 56px;
+
+            @include g.media(sp) {
+              font-size: 48px;
+            }
+          }
+        }
+      }
+
+      .text {
+        &01 {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.02em;
+          max-width: 475px;
+          margin: 32px auto;
+
+          @include g.media(sp) {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+
+        &02 {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 0;
+          color: g.$gray01;
+          max-width: 286px;
+          margin: 0 auto 8px;
+        }
+
+        &03 {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.02em;
+          text-decoration: underline;
+          text-decoration-color: g.$green01;
+        }
+      }
+    }
+  }
+}

@@ -23,9 +23,12 @@
 $headerWhite = false;
 if (
   is_page('overview') ||
+  is_page('ho-so') ||
   is_page('tong-quan') ||
   is_page('portfolio') ||
-  is_page('ho-so') ||
+  is_page('du-an') ||
+  is_page('coming-soon') ||
+  is_page('sap-ra-mat') ||
   is_single()
   ) {
   $headerWhite = true;
