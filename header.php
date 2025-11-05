@@ -29,7 +29,9 @@ if (
   is_page('du-an') ||
   is_page('coming-soon') ||
   is_page('sap-ra-mat') ||
-  is_single()
+  is_page('sap-ra-mat') ||
+  is_single() ||
+  is_404()
   ) {
   $headerWhite = true;
 }

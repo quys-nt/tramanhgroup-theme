@@ -115,7 +115,7 @@
   </div>
 </footer>
 
-<div class="c-modal__coming" id="modal-coming-soon">
+<!-- <div class="c-modal__coming" id="modal-coming-soon">
   <div class="c-modal__coming--bg"></div>
   <div class="c-modal__coming--main">
     <button class="btn-close js-close-modal-coming-soon">
@@ -140,7 +140,7 @@
       <a href="mailto:info@tramanhgroup.com.vn" class="text04">info@tramanhgroup.com.vn</a>
     </div>
   </div>
-</div>
+</div> -->
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <?php wp_footer(); ?>
