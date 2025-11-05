@@ -99,14 +99,19 @@ Description: English Overview page with journey, core values, etc.
                 <?php
                 $year = $item["year"];
                 $desc = $item["desc"];
-                $logo = $item["logo"]['url'];
+                $logo = $item["logo"];
+                $contlogo = count($logo);
                 ?>
                 <div class="swiper-slide">
                   <div class="swiper-item">
-                    <div class="logos">
-                      <?php if ($logo): ?>
-                        <img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($item["logo"]['alt']); ?>">
-                      <?php endif; ?>
+                    <div class="logos <?php echo $contlogo > 1 ? ($contlogo > 3 ? "is-multiple" : "is-two") : ""; ?>">
+                      <?php if ($logo):
+                        foreach ($logo as $item) :
+                      ?>
+                          <img src="<?php echo esc_url($item['logo']['url']); ?>" alt="<?php echo esc_attr($item['logo']['alt']); ?>">
+                      <?php
+                        endforeach;
+                      endif; ?>
                     </div>
                     <div class="box01">
                       <p class="year">
@@ -193,6 +198,12 @@ Description: English Overview page with journey, core values, etc.
   $sec5TitleFirst = $section_5['title_first'];
   $sec5TitleLast = $section_5['title_last'];
   $sec5item = $section_5['item'];
+  if (function_exists('qhp_get_highlight_posts_by_category')) {
+    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 3);
+  } else {
+    // Fallback nếu plugin chưa active
+    $highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng
+  }
   if ($section_5) {
   ?>
     <section class="p-home__posts">
@@ -211,7 +222,7 @@ Description: English Overview page with journey, core values, etc.
               </span>
             </h2>
           </div>
-          <?php if (isset($sec5item) && count($sec5item) > 3): ?>
+          <?php if ($highlight_posts->found_posts > 3): ?>
             <div class="p-home__posts--box01--right">
               <div class="c-button js-swiper-button-next">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
@@ -223,28 +234,17 @@ Description: English Overview page with journey, core values, etc.
           <?php endif; ?>
         </div>
       </div>
-      <?php if ($sec5item) : ?>
+      <?php if ($highlight_posts->have_posts()): ?>
         <div class="l-container">
           <div class="swiper-posts">
             <div class="swiper-wrapper">
-              <?php foreach ($sec5item as $item) :
-                $image = $item['image'];
-                $title = $item['title'];
-                $link = $item['link'];
-              ?>
+              <?php while ($highlight_posts->have_posts()): $highlight_posts->the_post(); ?>
                 <div class="swiper-slide">
-                  <div class="p-home__posts--item">
-                    <a href="<?php echo $link; ?>" target="_blank" class="thumbnail">
-                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>">
-                    </a>
-                    <div class="contents mb-0">
-                      <a href="<?php echo $link; ?>">
-                        <h3 class=" title"><?php echo $title; ?></h3>
-                      </a>
-                    </div>
-                  </div>
+                  <?php get_template_part('template-parts/content-02'); ?>
                 </div>
-              <?php endforeach; ?>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); // Reset query sau loop 
+              ?>
             </div>
           </div>
         </div>

@@ -523,10 +523,10 @@
 
   &__posts {
     overflow: hidden;
-    padding: 120px 0 100px;
+    padding: 80px 0;
 
     @include g.media(sp) {
-      padding: 40px 20px 100px;
+      padding: 40px 20px;
     }
 
     .l-container {

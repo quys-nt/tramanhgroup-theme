@@ -359,19 +359,22 @@
 
       &--box {
         &01 {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
           gap: 40px;
           margin-top: 64px;
 
-          @include g.media(sp) {
-            grid-template-columns: 1fr;
-          }
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
 
           .leader {
             &-item {
+              width: calc(100% / 3 - 27px);
               padding-bottom: 16px;
               border-bottom: 1px solid g.$gray03;
+
+              @include g.media(sp) {
+                width: 100%;
+              }
 
               &:hover {
                 .leader-avatar img {

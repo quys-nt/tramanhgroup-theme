@@ -245,6 +245,12 @@
   <?php endif; ?>
   <?php
   $section_latest = get_field('section_latest', 'option');
+  if (function_exists('qhp_get_highlight_posts_by_category')) {
+    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 3);
+  } else {
+    // Fallback nếu plugin chưa active
+    $highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng
+  }
   if ($section_latest):
   ?>
     <section class="p-home__posts">
@@ -265,7 +271,7 @@
               </span>
             </h2>
           </div>
-          <?php if (isset($section_latest['latest_post']) && count($section_latest['latest_post']) > 3): ?>
+          <?php if ($highlight_posts->found_posts > 3): ?>
             <div class="p-home__posts--box01--right">
               <div class="c-button js-swiper-button-prev">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
@@ -277,48 +283,27 @@
           <?php endif; ?>
         </div>
       </div>
-      <div class="l-container">
-        <div class="swiper-posts">
-          <div class="swiper-wrapper">
-
-            <?php if ($section_latest['latest_post']) : ?>
-              <?php foreach ($section_latest['latest_post'] as $latest) :
-                $image = $latest['latest_post_thumbnail'];
-                $title = $lang === "en" ? $latest['latest_post_title']['en'] : $latest['latest_post_title']['vn'];
-                $textButton = $lang === "en" ? $latest['latest_post_text']['en'] : $latest['latest_post_text']['vn'];
-                $link = $latest['latest_post_link'];
-                $date = $latest['latest_post_date'];
-              ?>
+      <?php if ($highlight_posts->have_posts()): ?>
+        <div class="l-container">
+          <div class="swiper-posts">
+            <div class="swiper-wrapper">
+              <?php while ($highlight_posts->have_posts()): $highlight_posts->the_post(); ?>
                 <div class="swiper-slide">
-                  <div class="p-home__posts--item" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
-                    <a href="<?php echo $link; ?>" target="_blank" class="thumbnail">
-                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>">
-                    </a>
-                    <div class="contents">
-                      <a href="<?php echo $link; ?>">
-                        <h3 class=" title"><?php echo $title; ?></h3>
-                      </a>
-                      <p class="time">
-                        <?php echo $date; ?>
-                      </p>
-                    </div>
-                    <a href="<?php echo $link; ?>" class=" c-btn__05">
-                      <?php echo $textButton; ?>
-                    </a>
-                  </div>
+                  <?php get_template_part('template-parts/content-02'); ?>
                 </div>
-              <?php endforeach; ?>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); // Reset query sau loop 
+              ?>
+            </div>
+            <?php if ($section_latest['latest_button_link']): ?>
+              <div class="p-home__posts--bottom">
+                <a href="<?php echo $lang === "en" ? $section_latest['latest_button_link']['en'] : $section_latest['latest_button_link']['vn']; ?>  " class="c-btn__04">
+                  <?php echo $lang === "en" ? $section_latest['latest_button_text']['en'] : $section_latest['latest_button_text']['vn']; ?>
+                </a>
+              </div>
             <?php endif; ?>
           </div>
-        </div>
-        <?php if ($section_latest['latest_button_link']): ?>
-          <div class="p-home__posts--bottom">
-            <a href="<?php echo $lang === "en" ? $section_latest['latest_button_link']['en'] : $section_latest['latest_button_link']['vn']; ?>  " class="c-btn__04">
-              <?php echo $lang === "en" ? $section_latest['latest_button_text']['en'] : $section_latest['latest_button_text']['vn']; ?>
-            </a>
-          </div>
         <?php endif; ?>
-      </div>
     </section>
   <?php endif; ?>
 
