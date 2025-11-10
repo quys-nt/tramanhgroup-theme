@@ -47,7 +47,7 @@
               <span>
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="icon mail">
               </span>
-              <a href="mailto:info@tramanhgroup.com.vn">info@tramanhgroup.com.vn</a>
+              <a href="mailto:info@tramanh.com.vn">info@tramanh.com.vn</a>
             </li>
           </ul>
         </div>
@@ -137,7 +137,7 @@
       <p class="text03">
         If you need urgent assistance, feel free to contact us and we’ll be right at you shortly.
       </p>
-      <a href="mailto:info@tramanhgroup.com.vn" class="text04">info@tramanhgroup.com.vn</a>
+      <a href="mailto:info@tramanh.com.vn" class="text04">info@tramanh.com.vn</a>
     </div>
   </div>
 </div> -->

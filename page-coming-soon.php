@@ -25,7 +25,7 @@ Description: English Coming Soon page with journey, core values, etc.
         <div class="text02">
           If you need urgent assistance, feel free to contact us and we’ll be right at you shortly.
         </div>
-        <a href="mailto:info@tramanhgroup.com.vn" class="text03">info@tramanhgroup.com.vn</a>
+        <a href="mailto:info@tramanh.com.vn" class="text03">info@tramanh.com.vn</a>
       </div>
     </div>
   </section>
