@@ -2,6 +2,88 @@
 
 .p-audio {
   &__sec {
+
+    &01 {
+      padding: 120px 0 153px;
+
+      @include g.media(sp) {
+        padding-block: 80px;
+      }
+
+      &--box {
+        &01 {
+          display: grid;
+          grid-template-columns: 1fr 490px;
+          gap: 40px;
+          align-items: end;
+          margin-bottom: 138px;
+
+          @include g.media(tab) {
+            grid-template-columns: 1fr;
+            margin-bottom: 104px;
+          }
+        }
+
+        &02 {
+
+          .sec01 {
+            &__card {
+              display: grid;
+              grid-template-columns: 1fr 500px;
+              align-items: end;
+              height: 600px;
+              background-color: g.$black01;
+              background-position: center;
+              color: g.$white01;
+              padding: 40px;
+
+
+              @include g.media(sp) {
+                display: block;
+                align-content: end;
+                padding: 20px;
+              }
+
+              &:not(:last-child) {
+                margin-bottom: 120px;
+
+                @include g.media(sp) {
+                  margin-bottom: 80px;
+                }
+              }
+            }
+
+            &__title {
+              font-weight: 600;
+              font-size: 44px;
+              line-height: 52px;
+              letter-spacing: -0.04em;
+
+              @include g.media(sp) {
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 40px;
+                letter-spacing: -0.03em;
+                margin-bottom: 16px;
+              }
+            }
+
+            &__contents {
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: -0.02em;
+
+              @include g.media(sp) {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
     &03 {
       &--map {
         &__container {
