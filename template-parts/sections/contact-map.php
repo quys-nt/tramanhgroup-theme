@@ -11,65 +11,66 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
 <!-- Map Container -->
 <div class="p-audio__sec03--map__container">
   <div id="leaflet-map" class="p-audio__sec03--map__wrapper"></div>
-</div>
-<!-- Location Cards -->
-<?php if ($locations && is_array($locations)): ?>
-  <div class="p-contact-map__location">
-    <div class="p-contact-map__location-grid">
-      <?php foreach ($locations as $index => $location): ?>
-        <div class="p-contact-map__location-card" data-location-index="<?php echo $index; ?>">
-          <div class="location-card__thumbnail">
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map-pin.svg"
-              alt="Location pin"
-              class="location-card__icon">
-          </div>
-          <div>
-            <h3 class="location-card__title">
-              <?php echo esc_html($location['location_name']); ?>
-            </h3>
-            <?php if ($location['address']): ?>
-              <p class="location-card__address">
-                <?php echo esc_html($location['address']); ?>
-              </p>
-            <?php endif; ?>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
+  <!-- Thông báo zoom -->
+  <div id="map-zoom-notice" class="map-zoom-notice">
+    <span class="map-zoom-notice__text">
+      <span class="map-zoom-notice__mac">⌘ + cuộn để zoom</span>
+      <span class="map-zoom-notice__windows">Ctrl + cuộn để zoom</span>
+    </span>
   </div>
-<?php endif; ?>
+</div>
 
 <!-- Leaflet CSS & JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<!-- Swiper CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
   jQuery(document).ready(function($) {
+    // Detect OS
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    $('body').addClass(isMac ? 'is-mac' : 'is-windows');
+
     // Locations data from PHP
     const locations = [
       <?php if ($locations && is_array($locations)): ?>
-        <?php foreach ($locations as $location): ?> {
+        <?php foreach ($locations as $location):
+          $gallery = $location['location_gallery'];
+          $gallery_json = array();
+          if ($gallery && is_array($gallery)) {
+            foreach ($gallery as $img) {
+              $gallery_json[] = array(
+                'url' => esc_url($img['url']),
+                'alt' => esc_attr($img['alt'])
+              );
+            }
+          }
+        ?> {
             name: "<?php echo esc_js($location['location_name']); ?>",
             lat: <?php echo floatval($location['latitude']); ?>,
             lng: <?php echo floatval($location['longitude']); ?>,
             address: "<?php echo esc_js($location['address']); ?>",
             phone: "<?php echo esc_js($location['phone']); ?>",
-            email: "<?php echo esc_js($location['email']); ?>",
-            type: "<?php echo esc_js($location['location_type'] ?: 'Showroom'); ?>"
+            mapUrl: "<?php echo esc_js($location['location_map']); ?>",
+            gallery: <?php echo json_encode($gallery_json); ?>
           },
         <?php endforeach; ?>
       <?php endif; ?>
     ];
 
-    // Default center (Saigon Trade Center if not set)
+    // Default center
     const defaultCenter = {
       lat: <?php echo $default_center && $default_center['latitude'] ? floatval($default_center['latitude']) : 10.784167; ?>,
       lng: <?php echo $default_center && $default_center['longitude'] ? floatval($default_center['longitude']) : 106.701036; ?>
     };
 
     // Initialize map
-    const map = L.map('leaflet-map').setView([defaultCenter.lat, defaultCenter.lng], <?php echo $default_zoom ? intval($default_zoom) : 16; ?>);
+    const map = L.map('leaflet-map', {
+      scrollWheelZoom: false
+    }).setView([defaultCenter.lat, defaultCenter.lng], <?php echo $default_zoom ? intval($default_zoom) : 16; ?>);
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -85,55 +86,119 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
       popupAnchor: [0, -40]
     });
 
-    // Fallback to default marker if custom icon doesn't exist
     const markerIcon = customIcon;
 
     // Add markers
     const markers = [];
+    const swiperInstances = {};
+
     locations.forEach((location, index) => {
       const marker = L.marker([location.lat, location.lng], {
         icon: markerIcon
       }).addTo(map);
 
-      // Custom popup content
-      const popupContent = `
-          <div class="custom-popup">
-            <div class="custom-popup__header">
-              <h3 class="custom-popup__title">${location.name}</h3>
-              <div class="custom-popup__type">${location.type}</div>
-            </div>
-            <div class="custom-popup__body">
-              ${location.address ? `
-                <div class="custom-popup__item">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map.svg" alt="Address" class="custom-popup__icon">
-                  <span>${location.address}</span>
-                </div>
-              ` : ''}
-              ${location.phone ? `
-                <div class="custom-popup__item">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-phone.svg" alt="Phone" class="custom-popup__icon">
-                  <a href="tel:${location.phone.replace(/[^0-9+]/g, '')}" class="custom-popup__link">${location.phone}</a>
-                </div>
-              ` : ''}
-              ${location.email ? `
-                <div class="custom-popup__item">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="Email" class="custom-popup__icon">
-                  <a href="mailto:${location.email}" class="custom-popup__link">${location.email}</a>
-                </div>
+      // Build gallery HTML
+      let galleryHtml = '';
+      if (location.gallery && location.gallery.length > 0) {
+        galleryHtml = `
+          <div class="custom-popup__gallery">
+            <div class="swiper custom-popup__gallery-swiper" id="popup-swiper-${index}">
+              <div class="swiper-wrapper">
+                ${location.gallery.map(img => `
+                  <div class="swiper-slide">
+                    <img src="${img.url}" alt="${img.alt || location.name}">
+                  </div>
+                `).join('')}
+              </div>
+              ${location.gallery.length > 1 ? `
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
               ` : ''}
             </div>
           </div>
         `;
+      }
 
-      marker.bindPopup(popupContent);
+      // Custom popup content
+      const popupContent = `
+        <div class="custom-popup">
+          ${galleryHtml}
+          <div class="custom-popup__contents">
+            <div class="custom-popup__header">
+              <h3 class="custom-popup__title">${location.name}</h3>
+            </div>
+            
+            <div class="custom-popup__body">
+              ${location.address ? `
+                <div class="custom-popup__item">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map-green.svg" alt="Address" class="custom-popup__icon">
+                  <span>${location.address}</span>
+                </div>
+              ` : ''}
+              
+              ${location.phone ? `
+                <div class="custom-popup__item">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-phone-green.svg" alt="Phone" class="custom-popup__icon">
+                  <a href="tel:${location.phone.replace(/[^0-9+]/g, '')}" class="custom-popup__link">${location.phone}</a>
+                </div>
+              ` : ''}
+            </div>
+
+            ${location.mapUrl ? `
+              <a href="${location.mapUrl}" target="_blank" rel="noopener noreferrer" class="custom-popup__google-maps-btn">
+                Xem trên Google Maps
+              </a>
+            ` : ''}
+          </div>
+        </div>
+      `;
+
+      marker.bindPopup(popupContent, {
+        maxWidth: 400,
+        className: 'custom-leaflet-popup'
+      });
+
+      // Initialize Swiper when popup opens
+      marker.on('popupopen', function() {
+        if (location.gallery && location.gallery.length > 0) {
+          // Delay to ensure DOM is ready
+          setTimeout(() => {
+            if (!swiperInstances[index]) {
+              swiperInstances[index] = new Swiper(`#popup-swiper-${index}`, {
+                loop: location.gallery.length > 1,
+                navigation: {
+                  nextEl: `#popup-swiper-${index} .swiper-button-next`,
+                  prevEl: `#popup-swiper-${index} .swiper-button-prev`,
+                },
+                pagination: {
+                  el: `#popup-swiper-${index} .swiper-pagination`,
+                  clickable: true,
+                },
+                autoplay: location.gallery.length > 1 ? {
+                  delay: 3000,
+                  disableOnInteraction: false,
+                } : false
+              });
+            }
+          }, 100);
+        }
+      });
+
+      // Destroy Swiper when popup closes
+      marker.on('popupclose', function() {
+        if (swiperInstances[index]) {
+          swiperInstances[index].destroy(true, true);
+          delete swiperInstances[index];
+        }
+      });
+
       markers.push(marker);
 
-      // Click marker to highlight card
       marker.on('click', function() {
         $('.p-contact-map__location-card').removeClass('active');
         $(`.p-contact-map__location-card[data-location-index="${index}"]`).addClass('active');
 
-        // Scroll to card on mobile
         if ($(window).width() < 768) {
           $('html, body').animate({
             scrollTop: $(`.p-contact-map__location-card[data-location-index="${index}"]`).offset().top - 100
@@ -148,6 +213,59 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
       map.fitBounds(group.getBounds().pad(0.1));
     }
 
+    // ===== CTRL/CMD + SCROLL ZOOM FUNCTIONALITY =====
+    const $mapContainer = $('#leaflet-map');
+    const $zoomNotice = $('#map-zoom-notice');
+    let noticeTimeout;
+
+    // Detect mobile/tablet
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+    // Hiển thị thông báo zoom
+    function showZoomNotice() {
+      clearTimeout(noticeTimeout);
+      $zoomNotice.addClass('show');
+
+      noticeTimeout = setTimeout(() => {
+        $zoomNotice.removeClass('show');
+      }, 2000);
+    }
+
+    // Xử lý cho MOBILE: cho phép zoom bằng pinch và tap
+    if (isMobile) {
+      map.scrollWheelZoom.enable();
+      map.touchZoom.enable();
+      map.doubleClickZoom.enable();
+      $zoomNotice.hide();
+
+    } else {
+      // Xử lý cho DESKTOP
+      $mapContainer.on('mouseenter', function() {
+        map.scrollWheelZoom.enable();
+        $mapContainer.addClass('scroll-zoom-disabled');
+      });
+
+      $mapContainer.on('mouseleave', function() {
+        $mapContainer.removeClass('scroll-zoom-disabled');
+        $zoomNotice.removeClass('show');
+        clearTimeout(noticeTimeout);
+      });
+
+      // Override scroll wheel zoom để chỉ hoạt động với Ctrl/Cmd
+      const originalScrollWheelZoom = L.Map.ScrollWheelZoom.prototype._onWheelScroll;
+      L.Map.ScrollWheelZoom.prototype._onWheelScroll = function(e) {
+        const ctrlKey = isMac ? e.metaKey : e.ctrlKey;
+
+        if (!ctrlKey) {
+          showZoomNotice();
+          return;
+        }
+
+        e.preventDefault();
+        originalScrollWheelZoom.call(this, e);
+      };
+    }
+
     // Click card to view on map
     $('.js-view-on-map').on('click', function(e) {
       e.preventDefault();
@@ -155,20 +273,16 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
       const lng = parseFloat($(this).data('lng'));
       const index = $(this).data('index');
 
-      // Pan to location
       map.setView([lat, lng], 16, {
         animate: true,
         duration: 1
       });
 
-      // Open popup
       markers[index].openPopup();
 
-      // Highlight card
       $('.p-contact-map__location-card').removeClass('active');
       $(this).closest('.p-contact-map__location-card').addClass('active');
 
-      // Scroll to map
       $('html, body').animate({
         scrollTop: $('#leaflet-map').offset().top - 100
       }, 500);
