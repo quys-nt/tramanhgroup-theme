@@ -173,25 +173,18 @@
       height: 24px;
       object-fit: contain;
     }
+  }
 
-    // &.icon-fb {
-    //   background-image: url('../images/logo-fb.png');
-    //   background-size: 24px;
-    // }
+  &__10 {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    background-color: g.$white01;
+    padding: 8px 16px;
+    border-radius: 50px;
 
-    // &.icon-phone {
-    //   background-image: url('../images/icon-phone-02.png');
-    //   background-size: 24px;
-    // }
-
-    // &.icon-mail {
-    //   background-image: url('../images/icon-mail-02.svg');
-    //   background-size: 20px;
-    // }
-
-    // &.icon-link {
-    //   background-image: url('../images/icon-link.svg');
-    //   background-size: 20px;
-    // }
   }
 }
