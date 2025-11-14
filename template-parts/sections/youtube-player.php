@@ -72,6 +72,7 @@ if ($youtube_url):
           alt="<?php echo esc_attr($image['alt'] ?: $video_title); ?>" 
           class="p-business__secVideo--img js-youtube-thumbnail"
         >
+        <div class="p-business__secVideo--bg js-youtube-thumbnail"></div>
       <?php endif; ?>
       
       <button class="p-business__secVideo--btn js-youtube-play" aria-label="Play video">

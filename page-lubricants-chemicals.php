@@ -209,20 +209,6 @@ Description: English Lubricants & Chemicals Relations page with journey, core va
                 </div>
               </div>
             <?php endforeach; ?>
-
-            <!-- <div class="sec05__card">
-              <div class="sec05__card--header">
-                A total space of
-              </div>
-              <div class="sec05__card--body img">
-                <div class="sec05__card--img">
-                  <img src="http://localhost/tramanhgroup.local/wp-content/uploads/2025/11/img-iso.png" alt="">
-                </div>
-                <div class="sec05__card--content">
-                  certification in quality management
-                </div>
-              </div>
-            </div> -->
           </div>
         <?php endif; ?>
       </div>
