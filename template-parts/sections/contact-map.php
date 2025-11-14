@@ -9,9 +9,9 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
 ?>
 
 <!-- Map Container -->
-<section class="p-audio__sec03">
-  <div class="p-audio__sec03--map__container">
-    <div id="leaflet-map" class="p-audio__sec03--map__wrapper"></div>
+<section class="p-business__sec03">
+  <div class="p-business__sec03--map__container">
+    <div id="leaflet-map" class="p-business__sec03--map__wrapper"></div>
     <!-- Thông báo zoom -->
     <div id="map-zoom-notice" class="map-zoom-notice">
       <span class="map-zoom-notice__text">

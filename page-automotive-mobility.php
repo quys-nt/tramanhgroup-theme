@@ -44,9 +44,9 @@ Description: English Automotive & Mobility Relations page with journey, core val
   $sec1Desc = $sec_1['desc'];
   $sec1Items = $sec_1['items'];
   if ($sec_1): ?>
-    <section class="p-audio__sec01">
+    <section class="p-business__sec01">
       <div class="l-container">
-        <div class="p-audio__sec01--box01">
+        <div class="p-business__sec01--box01">
           <div>
             <p class="c-text__intro01">
               <?php echo esc_html($sec1Intro); ?>
@@ -70,7 +70,7 @@ Description: English Automotive & Mobility Relations page with journey, core val
         $list_count = count($sec1Items);
         if ($list_count > 0):
         ?>
-          <div class="p-audio__sec01--box02">
+          <div class="p-business__sec01--box02">
             <?php foreach ($sec1Items as $item) : ?>
 
               <div class="sec01__card"
@@ -98,9 +98,9 @@ Description: English Automotive & Mobility Relations page with journey, core val
   $sec2ItemsFirst = $sec_2['item_first'];
   $sec2Items = $sec_2['items'];
   if ($sec_2): ?>
-    <section class="p-audio__sec02">
+    <section class="p-business__sec02">
       <div class="l-container">
-        <div class="p-audio__sec02--box01">
+        <div class="p-business__sec02--box01">
           <p class="c-text__intro01">
             <?php echo esc_html($sec1Intro); ?>
           </p>
@@ -118,7 +118,7 @@ Description: English Automotive & Mobility Relations page with journey, core val
         $list_count = count($sec1Items);
         if ($list_count > 0):
         ?>
-          <div class="p-audio__sec02--box02">
+          <div class="p-business__sec02--box02">
 
             <div class="sec02__card">
               <p class="sec02__card-first-text01"><?php echo esc_html($sec2ItemsFirst["text_1"]); ?></p>
@@ -153,9 +153,9 @@ Description: English Automotive & Mobility Relations page with journey, core val
   $sec4Intro = $sec_4['intro'];
   $sec4Button = $sec_4['button'];
   if ($sec_4): ?>
-    <section class="p-audio__sec04">
-      <img src="<?php echo esc_attr($sec4Image['url']); ?>" alt="<?php echo esc_attr($sec4Image['alt']); ?>" class="p-audio__sec04--bg">
-      <div class="p-audio__sec04--contents">
+    <section class="p-business__sec04">
+      <img src="<?php echo esc_attr($sec4Image['url']); ?>" alt="<?php echo esc_attr($sec4Image['alt']); ?>" class="p-business__sec04--bg">
+      <div class="p-business__sec04--contents">
         <p class="text01">
           <?php echo esc_html($sec4Intro); ?>
         </p>
@@ -167,108 +167,19 @@ Description: English Automotive & Mobility Relations page with journey, core val
   <?php endif; ?>
 
   <?php
-  $sec_5 = get_field('sec_5'); // Group field
-  $youtube_url = $sec_5['youtube_url']; // URL field
-  $sec5Image = $sec_5['image']; // URL field
-
-  // Function to convert YouTube URL to embed URL
-  function get_youtube_embed_url($url)
-  {
-    if (empty($url)) {
-      return '';
-    }
-    // Extract video ID from various YouTube URL formats
-    $video_id = '';
-
-    // Format: https://youtu.be/VIDEO_ID
-    if (preg_match('/youtu\.be\/([^\?&]+)/', $url, $matches)) {
-      $video_id = $matches[1];
-    }
-    // Format: https://www.youtube.com/watch?v=VIDEO_ID
-    elseif (preg_match('/youtube\.com\/watch\?v=([^\?&]+)/', $url, $matches)) {
-      $video_id = $matches[1];
-    }
-    // Format: https://www.youtube.com/embed/VIDEO_ID
-    elseif (preg_match('/youtube\.com\/embed\/([^\?&]+)/', $url, $matches)) {
-      $video_id = $matches[1];
-    }
-    if ($video_id) {
-      return 'https://www.youtube.com/embed/' . $video_id . '?enablejsapi=1&autoplay=1';
-    }
-    return '';
-  }
-
-  if ($sec_5 && $youtube_url):
-    $embed_url = get_youtube_embed_url($youtube_url);
-    if ($embed_url):
-  ?>
-      <div class="p-audio__sec05">
-        <iframe
-          id="player"
-          width="2545"
-          height="810"
-          src="<?php echo esc_url($embed_url); ?>"
-          title="<?php echo esc_attr($sec_5['video_title'] ?: 'YouTube video'); ?>"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-        <img src="<?php echo esc_attr($sec5Image['url']); ?>" alt="<?php echo esc_attr($sec5Image['akt']); ?>" class="p-audio__sec05--img js-thumbnail-youtube">
-        <button class="p-audio__sec05--btn js-show-youtube">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-play-circle.png" alt="icon-play-circle">
-        </button>
-      </div>
-  <?php
-    endif;
+  $sec_5 = get_field('sec_5');
+  
+  if ($sec_5):
+    get_template_part('template-parts/sections/youtube-player', null, array(
+      'youtube_url' => $sec_5['youtube_url'],
+      'image' => $sec_5['image'],
+      'video_title' => $sec_5['video_title'] ?: 'YouTube video',
+      'section_class' => 'p-audio__sec05'
+    ));
   endif;
-  ?>
 
-  <?php get_template_part('template-parts/sections/contact'); ?>
+  get_template_part('template-parts/sections/contact');
+  ?>
 
 </main>
 <?php get_footer(); ?>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  var playerReady = false;
-
-  // This function is called when the YouTube Iframe API is ready
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-  // This function is called when the player is ready
-  function onPlayerReady(event) {
-    playerReady = true;
-  }
-
-  // Make the onYouTubeIframeAPIReady function globally accessible
-  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-
-  // Handle play button click
-  jQuery(document).ready(function($) {
-    $('.js-show-youtube').on('click', function() {
-      // Hide thumbnail and button
-      $(this).hide();
-      $('.js-thumbnail-youtube').hide();
-
-      // Play video if player is ready
-      if (playerReady && player && typeof player.playVideo === 'function') {
-        player.playVideo();
-      } else {
-        // If player not ready, wait and try again
-        setTimeout(function() {
-          if (player && typeof player.playVideo === 'function') {
-            player.playVideo();
-          }
-        }, 500);
-      }
-    });
-  });
-</script>

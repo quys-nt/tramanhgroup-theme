@@ -14,6 +14,17 @@ function add_cache_busting_to_styles()
 }
 add_action('wp_enqueue_scripts', 'add_cache_busting_to_styles');
 
+function enqueue_youtube_player_script() {
+  wp_enqueue_script(
+    'youtube-player',
+    get_template_directory_uri() . '/assets/js/youtube-player.js',
+    array('jquery'),
+    '1.0.0',
+    true
+  );
+}
+add_action('wp_enqueue_scripts', 'enqueue_youtube_player_script');
+
 /**
  * Theme Setup
  */

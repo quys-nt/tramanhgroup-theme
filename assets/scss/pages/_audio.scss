@@ -1,6 +1,6 @@
 @use '../global/' as g;
 
-.p-audio {
+.p-business {
   &__sec {
 
     &01 {
@@ -8,6 +8,16 @@
 
       @include g.media(sp) {
         padding-block: 80px;
+      }
+
+      &.type {
+        &-02 {
+          padding-bottom: 64px;
+
+          @include g.media(sp) {
+            padding-bottom: 40px;
+          }
+        }
       }
 
       &--box {
@@ -21,6 +31,25 @@
           @include g.media(tab) {
             grid-template-columns: 1fr;
             margin-bottom: 104px;
+          }
+
+          &.type {
+            &-02 {
+              margin-bottom: 48px;
+
+              @include g.media(sp) {
+                margin-bottom: 64px;
+              }
+            }
+
+            &-03 {
+              align-items: center;
+              margin-bottom: 0;
+
+              .c-text02 {
+                max-width: 467px;
+              }
+            }
           }
         }
 
@@ -253,6 +282,7 @@
       }
 
       &--bg {
+        width: 100%;
         object-fit: cover;
       }
 
@@ -288,6 +318,128 @@
     }
 
     &05 {
+      padding-block: 80px;
+
+      @include g.media(sp) {
+        padding-block: 40px;
+      }
+
+      &--text {
+        &01 {
+          max-width: 512px;
+          margin: 64px auto 40px;
+
+          @include g.media(sp) {
+            margin-top: 40px;
+          }
+        }
+      }
+
+      &--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-width: 1096px;
+        margin-inline: auto;
+
+        @include g.media(sp) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sec05 {
+        &__card {
+          display: flex;
+          flex-direction: column;
+          padding: 6px;
+          border-radius: 16px;
+          background-color: g.$gray05;
+
+          &--header {
+            position: relative;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 150%;
+            letter-spacing: -0.022em;
+            color: g.$gray01;
+            padding: 8px 42px 8px 16px;
+            margin-bottom: auto;
+
+            @include g.media(sp) {
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: -0.02em;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 16px;
+              width: 10px;
+              height: 10px;
+              background-color: g.$green01;
+              border-radius: 50%;
+            }
+          }
+
+          &--body {
+            display: flex;
+            align-items: end;
+            gap: 24px;
+            background-color: g.$white01;
+            padding: 24px 16px;
+            border-radius: 12px;
+
+            @include g.media(sp) {
+              gap: 16px;
+            }
+
+            &.img {
+              align-items: center;
+
+              .sec05__card--content {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          &--title {
+            font-weight: 600;
+            font-size: 44px;
+            line-height: 52px;
+            letter-spacing: -0.04em;
+            vertical-align: bottom;
+
+            @include g.media(sp) {
+              font-size: 32px;
+              line-height: 40px;
+              letter-spacing: -0.03em;
+            }
+          }
+
+          &--content {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -0.03em;
+            vertical-align: bottom;
+            margin-bottom: 5px;
+            color: g.$gray04;
+
+            @include g.media(sp) {
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 20px;
+              letter-spacing: -0.02em;
+            }
+          }
+        }
+      }
+    }
+
+    &Video {
       position: relative;
       display: flex;
       padding-top: 56.2%;
@@ -324,6 +476,32 @@
         @include g.media(sp) {
           width: 32px;
           height: 32px;
+        }
+      }
+    }
+  }
+
+  &__gallery {
+    &01 {
+      padding-block: 80px;
+
+      @include g.media(tab) {
+        padding-left: 20px;
+      }
+
+      @include g.media(sp) {
+        padding-block: 40px;
+      }
+
+      &--container {
+        max-width: 1440px;
+        margin-inline: auto;
+        overflow: hidden;
+
+        .swiper-business-gallery .swiper-wrapper {
+          @include g.media(pc-only) {
+            transform: translateX(-140px);
+          }
         }
       }
     }
