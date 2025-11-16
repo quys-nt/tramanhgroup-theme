@@ -1,7 +1,7 @@
 <?php
 /*
-Template Name: Sports & Community Relations
-Description: English Sports & Community Relations page with journey, core values, etc.
+Template Name: Real Estate
+Description: English Real Estate page with journey, core values, etc.
 */
 ?>
 <?php get_header(); ?>
@@ -44,24 +44,17 @@ Description: English Sports & Community Relations page with journey, core values
   if ($sec_1): ?>
     <section class="p-business__sec06">
       <div class="l-container">
-        <div class="p-business__sec06--grid">
-          <?php if ($sec1Image): ?>
-            <div class="p-business__sec06--grid-first">
-              <div>
-                <img src="<?php echo esc_attr($sec1Image['url']); ?>" alt="<?php echo esc_attr($sec1Image['alts']); ?>">
-              </div>
-            </div>
-          <?php endif; ?>
+        <div class="p-business__sec06--grid type-02">
           <div class="p-business__sec06--grid-last">
             <div>
               <p class="c-text__intro01">
                 <?php echo esc_html($sec1Intro); ?>
               </p>
               <h2 class="c-title__02">
-                <span class="c-title__02--last">
+                <span class="c-title__02--first">
                   <?php echo esc_html($sec1TitleFirst); ?>
                 </span>
-                <span class="c-title__02--first">
+                <span class="c-title__02--last">
                   <?php echo esc_html($sec1TitleLast); ?>
                 </span>
               </h2>
@@ -73,6 +66,13 @@ Description: English Sports & Community Relations page with journey, core values
               <?php echo nl2br(esc_html($sec1Desc2)); ?>
             </p>
           </div>
+          <?php if ($sec1Image): ?>
+            <div class="p-business__sec06--grid-first">
+              <div>
+                <img src="<?php echo esc_attr($sec1Image['url']); ?>" alt="<?php echo esc_attr($sec1Image['alts']); ?>">
+              </div>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </section>
@@ -139,10 +139,10 @@ Description: English Sports & Community Relations page with journey, core values
             <?php echo esc_html($sec3Intro); ?>
           </p>
           <h2 class="c-title__02 type-02">
-            <span class="c-title__02--first">
+            <span class="c-title__02--last">
               <?php echo esc_html($sec3TitleFirst); ?>
             </span>
-            <span class="c-title__02--last">
+            <span class="c-title__02--first">
               <?php echo esc_html($sec3TitleLast); ?>
             </span>
           </h2>
@@ -156,24 +156,17 @@ Description: English Sports & Community Relations page with journey, core values
         $list_sec3count = count($sec3Items);
         if ($list_sec3count):
         ?>
-          <div class="p-about__sec04--box01">
+          <div class="p-business__sec07--grid">
             <?php foreach ($sec3Items as $item): ?>
               <div class="item">
-                <div>
+                <div class="thumbnail">
                   <img src="<?php echo esc_attr($item['image']['url']); ?>" alt="<?php echo esc_attr($item['image']['url']); ?>">
                 </div>
-                <div>
-                  <div class="group">
-                    <div class="number js-count-number">
-                      <?php echo esc_html($item['title']) ?>
-                    </div>
-                    <div class="text">
-                      <?php echo esc_html($item['intro']) ?>
-                    </div>
-                  </div>
-                  <div class="desc">
-                    <?php echo esc_html($item['contents']) ?>
-                  </div>
+                <div class="title">
+                  <?php echo esc_html($item['title']) ?>
+                </div>
+                <div class="desc">
+                  <?php echo esc_html($item['contents']) ?>
                 </div>
               </div>
             <?php endforeach; ?>

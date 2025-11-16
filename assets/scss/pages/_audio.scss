@@ -464,6 +464,12 @@
         grid-template-columns: 594px 1fr;
         gap: 64px;
 
+        &.type-02 {
+          @include g.media(pc-only) {
+            grid-template-columns: 1fr 594px;
+          }
+        }
+
         @include g.media(tab) {
           grid-template-columns: 1fr 1fr;
         }
@@ -506,6 +512,59 @@
               margin-top: 40px;
             }
           }
+        }
+      }
+
+      &--grid {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .item {
+          text-align: center;
+          width: 100%;
+          max-width: 368px;
+
+          &>*:not(:last-child) {
+            margin-bottom: 16px;
+
+            @include g.media(sp) {
+              margin-bottom: 12px;
+            }
+          }
+        }
+
+        .thumbnail {
+          background: url('../images/img-real-estate-bg-01.png') no-repeat bottom 2px center;
+
+          img {
+            width: 159px;
+            height: 159px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .title {
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 32px;
+          letter-spacing: -0.03em;
+          vertical-align: bottom;
+
+          @include g.media(sp) {
+            font-size: 20px;
+            line-height: 28px;
+          }
+        }
+
+        .desc {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 0;
+          color: g.$gray01;
         }
       }
     }
