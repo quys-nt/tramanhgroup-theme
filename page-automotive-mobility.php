@@ -6,7 +6,6 @@ Description: English Automotive & Mobility Relations page with journey, core val
 ?>
 <?php get_header(); ?>
 
-
 <main>
 
   <?php if (have_rows('main_visual', '')) : ?>

@@ -24,6 +24,21 @@
     }
   }
 
+  &03 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+  }
+
+  &04 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: g.$gray01;
+  }
+
   &__intro {
 
     &01 {

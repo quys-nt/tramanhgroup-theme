@@ -201,26 +201,30 @@ $(document).ready(function () {
     var current = 0;
     var duration = 2000;
     var startTime = null;
+
+    function formatNumber(num, hasDecimal) {
+      var formatted;
+      if (hasDecimal) {
+        formatted = num.toFixed(1);
+      } else {
+        formatted = Math.floor(num).toString();
+      }
+      // Thêm dấu phân cách hàng nghìn
+      return formatted.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     function updateCounter(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
       current = targetValue * (progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress);
-      var displayText;
-      if (hasDecimal) {
-        displayText = current.toFixed(1) + suffix;
-      } else {
-        displayText = Math.floor(current) + suffix;
-      }
+
+      var displayText = formatNumber(current, hasDecimal) + suffix;
       $el.text(displayText);
+
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
-        var finalText;
-        if (hasDecimal) {
-          finalText = targetValue.toFixed(1) + suffix;
-        } else {
-          finalText = Math.floor(targetValue) + suffix;
-        }
+        var finalText = formatNumber(targetValue, hasDecimal) + suffix;
         $el.text(finalText);
       }
     }
