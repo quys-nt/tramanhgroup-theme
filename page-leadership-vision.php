@@ -25,7 +25,7 @@ Description: English Leadership & Vision page with journey, core values, etc.
                     <?php echo wp_kses_post(get_sub_field('mv_description')) ?>
                   </div>
                   <div>
-                    <a href=" <?php echo esc_html_e(get_sub_field('link_button')) ?> " class="c-btn__01 download">
+                    <a href=" <?php echo esc_html_e(get_sub_field('link_button')) ?> " class="c-btn__01 download" download>
                       <?php echo esc_html_e(get_sub_field('text_button')) ?>
                     </a>
                   </div>

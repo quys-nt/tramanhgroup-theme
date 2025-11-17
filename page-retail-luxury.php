@@ -17,7 +17,7 @@ Description: English Retail & Luxury page with journey, core values, etc.
             <div class="swiper-slide">
               <div class="p-home__mv--item">
                 <picture>
-                  
+
                   <source media="(min-width: 768px)" srcset="<?php echo esc_url($image['url']); ?>">
                   <img src="<?php echo esc_url($imageSP['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="p-home__mv--thumbnail type-02">
                 </picture>
@@ -35,6 +35,36 @@ Description: English Retail & Luxury page with journey, core values, etc.
           <?php endwhile; ?>
         </div>
         <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <?php
+  $sec_1 = get_field('sec_1');
+  $sec1TitleFirst = $sec_1['title_first'];
+  $sec1TitleLast = $sec_1['title_last'];
+  $sec1Desc1 = $sec_1['desc_1'];
+  $sec1Desc2 = $sec_1['desc_2'];
+  if ($sec_1): ?>
+    <section class="p-retail__sec01">
+      <div class="p-retail__sec01--container">
+        <div class="p-retail__sec01--card">
+          <div class="card-header">
+            <div class="card-icon"></div>
+            <p class="card-text01">
+              <?php echo esc_html($sec1TitleFirst); ?>
+            </p>
+            <h2 class="card-title01">
+              <?php echo esc_html($sec1TitleLast); ?>
+            </h2>
+          </div>
+          <div class="card-text02">
+            <?php echo esc_html($sec1Desc1); ?>
+          </div>
+          <div class="card-text03">
+            <?php echo esc_html($sec1Desc2); ?>
+          </div>
+        </div>
       </div>
     </section>
   <?php endif; ?>
@@ -95,6 +125,57 @@ Description: English Retail & Luxury page with journey, core values, etc.
   <?php endif; ?>
 
   <?php
+  $sec_3 = get_field('sec_3');
+  $sec3Intro = $sec_3['intro'];
+  $sec3TitleFirst = $sec_3['title_first'];
+  $sec3TitleLast = $sec_3['title_last'];
+  $sec3Items = $sec_3['items'];
+  if ($sec_3): ?>
+    <section class="p-retail__sec02">
+      <div class="l-container">
+        <div class="c-text__center">
+          <p class="c-text__intro01">
+            <?php echo esc_html($sec3Intro); ?>
+          </p>
+          <h2 class="c-title__02">
+            <span class="c-title__02--first">
+              <?php echo esc_html($sec3TitleFirst); ?>
+            </span>
+            <span class="c-title__02--last">
+              <?php echo esc_html($sec3TitleLast); ?>
+            </span>
+          </h2>
+        </div>
+      </div>
+      <?php
+      $list_countsec3 = count($sec3Items);
+      if ($list_countsec3 > 0):
+      ?>
+        <div class="p-retail__sec02--grid">
+          <?php foreach ($sec3Items as $item): ?>
+            <div class="card-item">
+              <div class="card-img">
+                <img src="<?php echo esc_attr($item['image']['url']); ?>" alt="<?php echo esc_attr($item['image']['alt']); ?>">
+              </div>
+              <div class="card-body">
+                <div class="card-number">
+                  <?php echo esc_html($item['number']); ?>
+                </div>
+                <h3 class="card-title">
+                  <?php echo nl2br(esc_html($item['title'])); ?>
+                </h3>
+                <div class="card-content">
+                  <?php echo nl2br(esc_html($item['content'])); ?>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+    </section>
+  <?php endif; ?>
+
+  <?php
   $sec_gallery = get_field('sec_gallery');
   if ($sec_gallery): ?>
     <section class="p-business__gallery01">
@@ -148,10 +229,10 @@ Description: English Retail & Luxury page with journey, core values, etc.
             <?php foreach ($sec5Items as $item): ?>
               <div class="item type-02">
                 <div class="title">
-                  <?php echo esc_html($item['title']) ?>
+                  <?php echo esc_html($item['title']); ?>
                 </div>
                 <div class="c-text05">
-                  <?php echo esc_html($item['content']) ?>
+                  <?php echo esc_html($item['content']); ?>
                 </div>
               </div>
             <?php endforeach; ?>

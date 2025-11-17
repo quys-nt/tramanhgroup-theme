@@ -3,4 +3,287 @@
 .p-retail {
   background-color: #000;
   color: #fff;
+
+  &__sec {
+    &01 {
+      position: relative;
+      overflow: hidden;
+      padding-block: 80px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        width: 990px;
+        max-width: 100%;
+        height: 193px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) rotate(-11deg);
+        background-color: #D9D9D91A;
+
+        @include g.media(sp) {
+          top: 60%;
+          max-width: unset;
+          width: 534px;
+          height: 104px;
+        }
+      }
+
+      &--container {
+        position: relative;
+        max-width: 896px;
+        padding-inline: 20px;
+        margin-inline: auto;
+      }
+
+      &--card {
+        text-align: center;
+
+        &>*:not(:last-child) {
+          margin-bottom: 64px;
+        }
+
+        .card {
+
+          &-icon {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 160px;
+            height: 15px;
+            margin-bottom: 24px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: g.$white01;
+              transform: translateY(-50%);
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 36px;
+              height: 100%;
+              background: #000 url("../images/icon-star-01.svg") no-repeat center;
+            }
+          }
+
+          &-title01 {
+            font: 300 64px g.$font-family02;
+            font-style: italic;
+            line-height: 1;
+            letter-spacing: -0.04em;
+
+            @include g.media(sp) {
+              font-size: 48px;
+            }
+          }
+
+          &-text {
+
+            &01 {
+              font: 300 32px g.$font-family02;
+              font-style: italic;
+              line-height: 1;
+              letter-spacing: -0.04em;
+              color: #FFFFFFA3;
+
+              @include g.media(sp) {
+                font-size: 28px;
+              }
+            }
+
+            &02 {
+              font: 200 36px g.$font-family02;
+              font-style: ExtraLight;
+              line-height: 1;
+              letter-spacing: -0.05em;
+              color: #FFFFFFCC;
+
+              @include g.media(sp) {
+                font-size: 28px;
+              }
+            }
+
+            &03 {
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 20px;
+              letter-spacing: -0.02em;
+              text-transform: uppercase;
+              color: #FFFFFF7A;
+
+              @include g.media(sp) {
+                font-size: 12px;
+                letter-spacing: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &02 {
+      padding: 120px 0 64px;
+
+      @include g.media(sp) {
+        padding-block: 80px;
+      }
+
+      &--grid {
+        position: relative;
+        max-width: 1440px;
+        margin: 64px auto 0;
+
+        @include g.media(sp) {
+          padding-inline: 20px;
+        }
+
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -17px;
+          left: 720px;
+          width: 1px;
+          height: calc(100% + 34px);
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 25%, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
+
+          @include g.media(tab) {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          @include g.media(sp) {
+            content: unset;
+          }
+        }
+
+        .card {
+          &-item {
+            display: grid;
+            grid-template-columns: 680px 1fr;
+            gap: 80px;
+
+            @include g.media(tab) {
+              grid-template-columns: 1fr 1fr;
+            }
+
+            @include g.media(sp) {
+              grid-template-columns: 1fr;
+              gap: 40px;
+            }
+
+            &:not(:last-child) {
+              @include g.media(sp) {
+                margin-bottom: 40px;
+              }
+            }
+          }
+
+          &-img {
+            position: relative;
+            display: flex;
+
+            &::after {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(270deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.25) 100%);
+            }
+
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+
+          &-body {
+            position: relative;
+            align-content: center;
+            padding: 48px;
+
+            @include g.media(tab) {
+              padding: 20px;
+            }
+
+            @include g.media(sp) {
+              padding: 0;
+            }
+          }
+
+          &-number {
+            font-family: g.$font-family02;
+            font-weight: 200;
+            font-style: italic;
+            font-size: 32px;
+            line-height: 100%;
+            letter-spacing: -0.04em;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            background-color: #000;
+            border: 1px solid g.$white01;
+            border-radius: 50%;
+
+            @include g.media(pc-tab) {
+              position: absolute;
+              top: 50%;
+              left: -64px;
+              transform: translateY(-50%);
+              margin-bottom: 0;
+            }
+          }
+
+          &-title {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 40px;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+
+            @include g.media(tab) {
+              font-size: 24px;
+              line-height: 32px;
+            }
+          }
+
+          &-content {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.02em;
+            color: #FFFFFFCC;
+
+            @include g.media(tab) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .c-text__intro01 {
+    background-color:
+      #C0C0C026;
+  }
+
+  .p-home__contact {
+    color: g.$black01;
+  }
 }
