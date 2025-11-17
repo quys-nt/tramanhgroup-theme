@@ -470,6 +470,12 @@
           }
         }
 
+        &.type-03 {
+          @include g.media(pc-only) {
+            grid-template-columns: 500px 1fr;
+          }
+        }
+
         @include g.media(tab) {
           grid-template-columns: 1fr 1fr;
         }
@@ -492,6 +498,18 @@
           }
         }
       }
+
+      &--group {
+        &01 {
+          display: grid;
+          grid-template-columns: minmax(auto, 480px) 1fr;
+
+          @media screen and (max-width: 1200px) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+        }
+      }
     }
 
     &07 {
@@ -511,6 +529,10 @@
             @include g.media(sp) {
               margin-top: 40px;
             }
+
+            &.type-02 {
+              max-width: 570px;
+            }
           }
         }
       }
@@ -525,13 +547,49 @@
           text-align: center;
           width: 100%;
           max-width: 368px;
+        }
 
-          &>*:not(:last-child) {
-            margin-bottom: 16px;
+        &02 {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px 16px;
 
-            @include g.media(sp) {
-              margin-bottom: 12px;
-            }
+          @include g.media(tab) {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+
+      .item {
+
+        &>*:not(:last-child) {
+          margin-bottom: 16px;
+
+          @include g.media(sp) {
+            margin-bottom: 12px;
+          }
+        }
+
+        &.type-02 {
+          position: relative;
+          text-align: center;
+          padding: 32px 24px 40px;
+          background-color: #FFFFFF14;
+          min-height: 190px;
+
+          @include g.media(sp) {
+            min-height: 180px;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background: url('../images/icon-star-03.svg') no-repeat center;
           }
         }
 

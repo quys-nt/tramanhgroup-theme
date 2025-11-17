@@ -39,6 +39,14 @@
     color: g.$gray01;
   }
 
+  &05 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: g.$gray01;
+  }
+
   &__intro {
 
     &01 {
@@ -56,5 +64,13 @@
 
   &__center {
     text-align: center;
+  }
+
+  &__right {
+    &.pc {
+      @include g.media(pc-only) {
+        text-align: right;
+      }
+    }
   }
 }

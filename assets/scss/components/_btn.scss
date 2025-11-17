@@ -132,6 +132,10 @@
     padding: 12px 24px;
     border-radius: 50px;
     border: 1px solid #1A1A1B;
+
+    &.type-02 {
+      border-color: #fff;
+    }
   }
 
   &__07 {
