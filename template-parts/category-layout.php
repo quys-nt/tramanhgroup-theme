@@ -20,7 +20,7 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'all';
 
 // Lấy highlight posts của category hiện tại (từ plugin Quick Highlight Posts)
 if (function_exists('qhp_get_highlight_posts_by_category')) {
-	$highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 4);
+	$highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 6);
 } else {
 	// Fallback nếu plugin chưa active
 	$highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng

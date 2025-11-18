@@ -280,4 +280,26 @@ $(document).ready(function () {
   $('.js-close-modal-coming-soon').on('click', function () {
     $('#modal-coming-soon').hide();
   })
+
+  $(document).on('click', 'a[href^="#"]', function (event) {
+    var href = $.attr(this, 'href');
+    if (href === '#' || href === '#!' || href.length <= 1) {
+      return;
+    }
+    event.preventDefault();
+    var targetId = href.substring(1);
+    var escapedId;
+
+    try {
+      escapedId = CSS.escape(targetId);
+    } catch (e) {
+      escapedId = targetId.replace(/([!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~])/g, '\\$1');
+    }
+    var target = $('#' + escapedId);
+    if (target.length && target.offset()) {
+      $('html, body').animate({
+        scrollTop: target.offset().top - 100
+      }, 1000);
+    }
+  });
 });
