@@ -9,7 +9,7 @@
             <?php $image = get_sub_field('mv_image'); ?>
             <div class="swiper-slide">
               <div class="p-home__mv--item">
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="p-home__mv--thumbnail">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title'] ?: 'Banner image'); ?>" class="p-home__mv--thumbnail" loading="lazy">
                 <div class="p-home__mv--contents">
                   <h1 class="p-home__mv--title">
                     <p><?php echo esc_attr($lang === "en" ? get_sub_field('title_first')['en'] : get_sub_field('title_first')['vn']) ?></p>
