@@ -246,7 +246,7 @@
   <?php
   $section_latest = get_field('section_latest', 'option');
   if (function_exists('qhp_get_highlight_posts_by_category')) {
-    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 3);
+    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 8);
   } else {
     // Fallback nếu plugin chưa active
     $highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng

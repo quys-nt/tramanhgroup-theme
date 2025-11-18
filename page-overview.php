@@ -199,7 +199,7 @@ Description: English Overview page with journey, core values, etc.
   $sec5TitleLast = $section_5['title_last'];
   $sec5item = $section_5['item'];
   if (function_exists('qhp_get_highlight_posts_by_category')) {
-    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 3);
+    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 8);
   } else {
     // Fallback nếu plugin chưa active
     $highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng
