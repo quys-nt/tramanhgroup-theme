@@ -289,3 +289,30 @@
   color: #fff;
   border-color: #000;
 }
+
+/* Căn giữa hình ảnh trong content */
+.p-single__article img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hoặc nếu cần xử lý cả thẻ p bọc ngoài */
+.p-single__article p:has(img.aligncenter) {
+    text-align: center;
+}
+
+/* Đảm bảo các alignment classes khác cũng hoạt động */
+.p-single__article img.alignleft {
+    float: left;
+    margin: 0 1.5em 1em 0;
+}
+
+.p-single__article img.alignright {
+    float: right;
+    margin: 0 0 1em 1.5em;
+}
+
+.p-single__article img.alignnone {
+    margin: 1em 0;
+}

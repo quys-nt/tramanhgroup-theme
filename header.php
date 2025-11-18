@@ -37,7 +37,7 @@ if (
 }
 ?>
 
-<body>
+<body <?php body_class(); ?>>
   <header class="l-header js-header<?php echo $headerWhite ? " is-white" : "" ?>">
     <div class="l-container">
       <div class="l-header__inner">
