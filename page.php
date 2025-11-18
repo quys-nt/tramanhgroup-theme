@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php $lang = get_current_lang(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -25,7 +26,7 @@
 						<div class="p-page__sec01--toc">
 							<div class="toc-body">
 								<h3 class="title">
-									In this article
+									<?php echo $lang === "en" ? "In this article" : "Trong bài viết này"; ?>
 								</h3>
 								<ul class="toc-list" id="table-of-contents"></ul>
 							</div>
@@ -63,7 +64,7 @@ endif;
 			headings: 'h1,h2,h3'
 		});
 	});
-	
+
 	$(document).ready(function() {
 		const tocLinks = $('#table-of-contents a');
 		const observerOptions = {
