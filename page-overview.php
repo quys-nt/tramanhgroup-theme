@@ -100,20 +100,13 @@ Description: English Overview page with journey, core values, etc.
                 $year = $item["year"];
                 $desc = $item["desc"];
                 $logo = $item["logo"];
-                $contlogo = count($logo);
                 ?>
                 <div class="swiper-slide">
                   <div class="swiper-item">
-                    <div class="logos <?php echo $contlogo > 1 ? ($contlogo > 3 ? "is-multiple" : "is-two") : ""; ?>">
-                      <?php if ($logo):
-                        foreach ($logo as $item) :
-                      ?>
-                          <img src="<?php echo esc_url($item['logo']['url']); ?>" alt="<?php echo esc_attr($item['logo']['alt']); ?>">
-                      <?php
-                        endforeach;
-                      endif; ?>
+                    <div class="logos">
+                      <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($item['logo']['alt']); ?>">
                     </div>
-                    <div class="box01">
+                    <div class=" box01">
                       <p class="year">
                         <?php echo $year; ?>
                       </p>
