@@ -364,6 +364,18 @@
         @include g.media(sp) {
           grid-template-columns: 1fr;
         }
+
+        &02 {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 64px;
+          justify-content: center;
+          margin-block: 64px;
+
+          @include g.media(tab) {
+            gap: 24px;
+          }
+        }
       }
 
       .sec05 {
@@ -414,14 +426,6 @@
             @include g.media(sp) {
               gap: 16px;
             }
-
-            &.img {
-              align-items: center;
-
-              .sec05__card--content {
-                margin-bottom: 0;
-              }
-            }
           }
 
           &--title {
@@ -452,6 +456,34 @@
               font-size: 14px;
               line-height: 20px;
               letter-spacing: -0.02em;
+            }
+          }
+        }
+
+        &__card {
+          &02 {
+            display: flex;
+            flex-direction: column;
+            max-width: 378px;
+            padding: 16px;
+            border-radius: 16px;
+            background-color: g.$gray05;
+
+            &--content {
+              background-color: g.$white01;
+              padding: 16px;
+              border-radius: 8px;
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 20px;
+              letter-spacing: -0.02em;
+              text-align: center;
+              color: g.$gray04;
+              margin-top: 16px;
+
+              strong {
+                color: g.$black01;
+              }
             }
           }
         }
@@ -752,25 +784,25 @@
               }
             }
 
-          &-title {
-            position: relative;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 28px;
-            letter-spacing: -0.03em;
-            vertical-align: bottom;
-            margin-bottom: 16px;
-          }
+            &-title {
+              position: relative;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 28px;
+              letter-spacing: -0.03em;
+              vertical-align: bottom;
+              margin-bottom: 16px;
+            }
 
-          &-content {
-            position: relative;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 16px;
-            letter-spacing: 0;
-            text-align: center;
-            color: g.$gray01;
-          }
+            &-content {
+              position: relative;
+              font-weight: 500;
+              font-size: 12px;
+              line-height: 16px;
+              letter-spacing: 0;
+              text-align: center;
+              color: g.$gray01;
+            }
           }
         }
       }

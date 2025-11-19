@@ -158,6 +158,7 @@ Description: English Lubricants & Chemicals Relations page with journey, core va
   $sec4TitleFirst = $sec_4['title_first'];
   $sec4TitleLast = $sec_4['title_last'];
   $sec4Desc = $sec_4['desc'];
+  $sec4IOS = $sec_4['ios'];
   $sec4Items = $sec_4['items'];
   if ($sec_4): ?>
     <section class="p-business__sec05">
@@ -182,6 +183,26 @@ Description: English Lubricants & Chemicals Relations page with journey, core va
         </div>
 
         <?php
+        $listSec04_count_ios = count($sec4IOS);
+        if ($listSec04_count_ios > 0):
+        ?>
+          <div class="p-business__sec05--grid02">
+            <?php foreach ($sec4IOS as $item) : ?>
+              <div class="sec05__card02">
+                <div class="sec05__card02--body">
+                  <div class="sec05__card02--img">
+                    <img src="<?php echo esc_attr($item['image']['url']); ?>" alt="<?php echo esc_attr($item['image']['alt']); ?>">
+                  </div>
+                  <div class="sec05__card02--content">
+                    <?php echo  wp_kses_post($item['text']); ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
+        <?php
         $listSec04_count = count($sec4Items);
         if ($listSec04_count > 0):
         ?>
@@ -192,7 +213,7 @@ Description: English Lubricants & Chemicals Relations page with journey, core va
                 <div class="sec05__card--header">
                   <?php echo esc_html($item['title']); ?>
                 </div>
-                <div class="sec05__card--body <?php echo $item['contents']['image'] ? " img" : "" ?>">
+                <div class="sec05__card--body">
                   <?php if ($item['contents']['title']): ?>
                     <div class="sec05__card--title">
                       <?php echo esc_html($item['contents']['title']); ?>
