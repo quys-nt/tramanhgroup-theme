@@ -74,6 +74,20 @@ $(document).ready(function () {
       },
     },
   });
+    var swiper = new Swiper('.js-swiper-career01', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.js-swiper-career-button-next',
+      prevEl: '.js-swiper-career-button-prev',
+    },
+    loop: true,
+    speed: 600,
+  });
 
   let isDown = false;
   let startX;
@@ -259,11 +273,11 @@ $(document).ready(function () {
   });
 
 
-  $('.tab-btn').on('click', function () {
+  $('.js-tab-btn').on('click', function () {
     var tabId = $(this).data('tab');
 
     // Remove active class from all tabs
-    $('.tab-btn').removeClass('active');
+    $('.js-tab-btn').removeClass('active');
     $('.tab-content').removeClass('active');
 
     // Add active class to clicked tab

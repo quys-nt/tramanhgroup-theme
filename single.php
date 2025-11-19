@@ -8,6 +8,11 @@ if (have_posts()) :
 			in_category('thu-vien-hinh-anh')
 		) {
 			get_template_part('template-parts/single-gallery');
+		} elseif (
+			in_category('career') ||
+			in_category('su-nghiep')
+		) {
+			get_template_part('template-parts/single-career');
 		} else {
 			get_template_part('template-parts/single-main');
 		}

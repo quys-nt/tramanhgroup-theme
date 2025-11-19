@@ -54,10 +54,16 @@
                 max-width: 467px;
               }
             }
+
+            &-04 {
+              align-items: start;
+            }
           }
         }
 
         &02 {
+          position: relative;
+          overflow: hidden;
 
           .sec01 {
             &__card {

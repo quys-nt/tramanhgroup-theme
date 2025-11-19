@@ -110,31 +110,37 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 			</div>
 		</section>
 	<?php endif; ?>
+	<?php
 
+	$sec_cate = get_field('post_category_sec', 'option');
+	$secCateIntro = $sec_cate['intro'];
+	$secCateTitleFirst = $sec_cate['title_first'];
+	$secCateTitleLast = $sec_cate['title_last'];
+	?>
 	<section class="p-archive__sec02">
 		<div class="l-container">
 			<div class="p-archive__sec02--group01">
 				<p class="c-text__intro01">
-					<?php echo $lang === "en" ? "Browse by Category" : "Duyệt theo danh mục" ?>
+					<?php echo $lang === "en" ? $secCateIntro['en'] : $secCateIntro['vi']; ?>
 				</p>
 				<h2 class="c-title__02 type-03">
 					<span class="c-title__02--last">
-						<?php echo $lang === "en" ? "Explore Our" : "Khám phá phạm vi" ?>
+						<?php echo $lang === "en" ? $secCateTitleFirst['en'] : $secCateTitleFirst['vi']; ?>
 					</span>
 					<span class="c-title__02--first">
-						<?php echo $lang === "en" ? "Media Coverage" : "đưa tin của chúng tôi" ?>
+						<?php echo $lang === "en" ? $secCateTitleLast['en'] : $secCateTitleLast['vi']; ?>
 					</span>
 				</h2>
 			</div>
 
 			<!-- Tab navigation -->
 			<div class="tabs-nav">
-				<button class="tab-btn active"
+				<button class="tab-btn js-tab-btn active"
 					data-tab="all">
 					<?php echo ($lang === 'en') ? 'All News' : 'Tất cả tin tức'; ?>
 				</button>
 				<?php foreach ($child_categories as $child_cat): ?>
-					<button class="tab-btn"
+					<button class="tab-btn js-tab-btn"
 						data-tab="<?php echo esc_attr($child_cat->slug); ?>">
 						<?php echo esc_html($child_cat->name); ?>
 					</button>

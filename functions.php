@@ -15,7 +15,8 @@ function add_cache_busting_to_styles()
 }
 add_action('wp_enqueue_scripts', 'add_cache_busting_to_styles');
 
-function enqueue_youtube_player_script() {
+function enqueue_youtube_player_script()
+{
   wp_enqueue_script(
     'youtube-player',
     get_template_directory_uri() . '/assets/js/youtube-player.js',
@@ -65,6 +66,22 @@ if (function_exists('acf_add_options_page')) {
     'page_title'    => 'Gallery Settings',
     'menu_title'    => 'Gallery',
     'menu_slug'     => 'gallery-settings',
+    'capability'    => 'edit_posts',
+    'redirect'      => false,
+    'parent_slug'   => 'theme-settings'
+  ));
+  acf_add_options_page(array(
+    'page_title'    => 'Career Settings',
+    'menu_title'    => 'Career',
+    'menu_slug'     => 'Career-settings',
+    'capability'    => 'edit_posts',
+    'redirect'      => false,
+    'parent_slug'   => 'theme-settings'
+  ));
+  acf_add_options_page(array(
+    'page_title'    => 'Post Settings',
+    'menu_title'    => 'Post',
+    'menu_slug'     => 'post-settings',
     'capability'    => 'edit_posts',
     'redirect'      => false,
     'parent_slug'   => 'theme-settings'
@@ -278,4 +295,41 @@ function get_post_category_breadcrumb($post_id = null)
   $breadcrumb['child'] = $child_cat;
 
   return $breadcrumb;
+}
+
+/**
+ * Get career department label
+ * 
+ * @param string $department_key Department key
+ * @return string Department label
+ */
+function get_career_department_label($department_key)
+{
+  $labels = array(
+    'automotive' => 'Automotive & Mobility',
+    'lubricants' => 'Lubricants & Chemicals',
+    'yachting' => 'Yachting & Lifestyle',
+    'retail' => 'Retail & Luxury',
+    'real_estate' => 'Real Estate',
+    'sports' => 'Sports & Community'
+  );
+
+  return isset($labels[$department_key]) ? $labels[$department_key] : $department_key;
+}
+
+/**
+ * Get all career departments
+ * 
+ * @return array Department options
+ */
+function get_career_departments()
+{
+  return array(
+    'automotive' => 'Automotive & Mobility',
+    'lubricants' => 'Lubricants & Chemicals',
+    'yachting' => 'Yachting & Lifestyle',
+    'retail' => 'Retail & Luxury',
+    'real_estate' => 'Real Estate',
+    'sports' => 'Sports & Community'
+  );
 }
