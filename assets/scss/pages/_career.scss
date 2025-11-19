@@ -2,6 +2,15 @@
 
 
 .p-career {
+  &__mv {
+    min-height: 472px;
+    background-size: cover;
+
+    @include g.media(sp) {
+      min-height: 324px;
+    }
+  }
+
   &__sec {
     &01 {
       padding-block: 80px;
@@ -136,6 +145,33 @@
             object-fit: contain;
           }
         }
+      }
+
+      &02 {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__single {
+
+    &--title {
+      font-weight: 600;
+      font-size: 80px;
+      line-height: 56px;
+      letter-spacing: -0.04em;
+      margin-bottom: 80px;
+
+      @include g.media(sp) {
+        font-size: 40px;
+        line-height: 56px;
+        margin-bottom: 40px;
+      }
+    }
+
+    &--group {
+      &01 {
+        margin-top: 12px;
       }
     }
   }

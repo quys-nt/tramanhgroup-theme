@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for Tin tức (Vietnamese version)
+ * Template for gallery (Vietnamese version)
  */
 get_header();
 

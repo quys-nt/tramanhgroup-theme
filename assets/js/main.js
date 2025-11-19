@@ -74,7 +74,8 @@ $(document).ready(function () {
       },
     },
   });
-    var swiper = new Swiper('.js-swiper-career01', {
+  
+  var swiper = new Swiper('.js-swiper-career01', {
     slidesPerView: 1,
     spaceBetween: 0,
     autoplay: {
@@ -87,6 +88,23 @@ $(document).ready(function () {
     },
     loop: true,
     speed: 600,
+  });
+
+  var swiper = new Swiper('.js-swiper-career02', {
+    slidesPerView: 3,
+    spaceBetween: 32,
+    speed: 600,
+    breakpoints: {
+      320: {
+        slidesPerView: 1.5,
+      },
+      768: {
+        slidesPerView: 2.5,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    },
   });
 
   let isDown = false;
