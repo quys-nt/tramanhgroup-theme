@@ -1,0 +1,54 @@
+@use '../global/' as g;
+
+.c-cookie-noite {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  width: 320px;
+  min-height: 324px;
+  background-color: g.$white01;
+  padding: 20px;
+
+  @include g.media(sp) {
+    width: 100%;
+    max-width: 400px;
+    bottom: 0;
+    right: 0;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .text {
+    &01 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+      color: g.$gray01;
+      margin-bottom: 24px;
+    }
+  }
+
+  .group {
+    &>* {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}

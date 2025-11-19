@@ -142,6 +142,28 @@
   </div>
 </div> -->
 
+<div class="c-cookie-noite js-cookie-noite" style="display: none;">
+  <div>
+    <div class="title">
+      Cookie Notice
+    </div>
+    <button class="close js-close-cookie-noite">
+      <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-close-black.svg'; ?>" alt="">
+    </button>
+  </div>
+  <div class="text01">
+    We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By continuing to use this site, you agree to our use of cookies.
+  </div>
+  <div class="group">
+    <button class="c-btn__04 js-">
+      Accept All
+    </button>
+    <button class="c-btn__06 js-">
+      Manage Preferences
+    </button>
+  </div>
+</div>
+
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <?php wp_footer(); ?>
 </body>

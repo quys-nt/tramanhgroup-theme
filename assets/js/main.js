@@ -74,7 +74,7 @@ $(document).ready(function () {
       },
     },
   });
-  
+
   var swiper = new Swiper('.js-swiper-career01', {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -334,4 +334,99 @@ $(document).ready(function () {
       }, 1000);
     }
   });
+
+  // Số ngày hết hạn cookie consent (30 ngày)
+  const COOKIE_CONSENT_EXPIRY_DAYS = 30;
+
+  // Kiểm tra xem user đã chấp nhận cookie chưa và còn hiệu lực không
+  function checkCookieConsent() {
+    const consentDate = localStorage.getItem('cookieConsentDate');
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    if (!cookieConsent) {
+      $('.js-cookie-noite').show();
+    }
+    if (!consentDate) {
+      return false;
+    }
+
+    // Tính số ngày đã trôi qua
+    const consentTime = new Date(consentDate).getTime();
+    const currentTime = new Date().getTime();
+    const daysPassed = (currentTime - consentTime) / (1000 * 60 * 60 * 24);
+
+    // Nếu đã quá thời gian quy định, xóa consent cũ
+    if (daysPassed >= COOKIE_CONSENT_EXPIRY_DAYS) {
+      localStorage.removeItem('cookieConsent');
+      localStorage.removeItem('cookieConsentDate');
+      return false;
+    }
+
+    return true;
+  }
+
+  // Hiển thị cookie notice nếu chưa chấp nhận
+  function showCookieNotice() {
+    if (!checkCookieConsent()) {
+      $('.js-cookie-noite').fadeIn(300);
+    }
+  }
+
+  // Ẩn cookie notice
+  function hideCookieNotice() {
+    $('.js-cookie-noite').fadeOut(300);
+  }
+
+  // Lưu cookie consent
+  function saveCookieConsent(type) {
+    localStorage.setItem('cookieConsent', type);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+  }
+
+  // Nút Close - đóng popup và lưu trạng thái "closed"
+  $('.js-close-cookie-noite').on('click', function () {
+    saveCookieConsent('closed');
+    hideCookieNotice();
+  });
+
+  // Nút Accept All - chấp nhận tất cả và lưu
+  $('.js-cookie-noite').on('click', '.c-btn__04', function (e) {
+    e.preventDefault();
+    console.log('Accept All clicked');
+    saveCookieConsent('accepted');
+    hideCookieNotice();
+
+    // Có thể thêm code để kích hoạt các cookies tracking ở đây
+    console.log('All cookies accepted');
+
+    // Ví dụ: Kích hoạt Google Analytics
+    // if (typeof gtag !== 'undefined') {
+    //   gtag('consent', 'update', {
+    //     'analytics_storage': 'granted'
+    //   });
+    // }
+  });
+
+  // Nút Manage Preferences - tạm thời ẩn như yêu cầu
+  $('.js-cookie-noite').on('click', '.c-btn__06', function (e) {
+    e.preventDefault();
+    console.log('Manage Preferences clicked');
+    saveCookieConsent('managed');
+    hideCookieNotice();
+
+    console.log('Cookie preferences managed');
+
+    // TODO: Sau này có thể mở modal để user chọn chi tiết các loại cookie
+    // $('#modal-cookie-preferences').fadeIn();
+  });
+
+  // Khởi tạo khi load trang
+  showCookieNotice();
+
+  // Optional: Thêm function để reset cookie consent (dùng cho testing)
+  window.resetCookieConsent = function () {
+    localStorage.removeItem('cookieConsent');
+    localStorage.removeItem('cookieConsentDate');
+    showCookieNotice();
+    console.log('Cookie consent reset');
+  };
 });
