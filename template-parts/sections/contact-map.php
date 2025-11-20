@@ -75,7 +75,7 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
     }).setView([defaultCenter.lat, defaultCenter.lng], <?php echo $default_zoom ? intval($default_zoom) : 16; ?>);
 
     // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19
     }).addTo(map);
@@ -207,6 +207,36 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
           }, 500);
         }
       });
+    });
+
+    // ===== THÊM HOÀNG SA, TRƯỜNG SA VÀ BIỂN ĐÔNG =====
+    const islands = [
+      {
+        name: 'Quần đảo Hoàng Sa',
+        position: [16.67, 112.33]
+      },
+      {
+        name: 'Quần đảo Trường Sa',
+        position: [10.0, 114.0]
+      },
+      {
+        name: 'Biển Đông',
+        position: [16.0, 115.5]
+      }
+    ];
+
+    const islandLabelIcon = (name) => L.divIcon({
+      className: 'island-label', 
+      html: `<div>${name}</div>`,
+      iconSize: [200, 20],
+      iconAnchor: [100, 10]
+    });
+
+    islands.forEach((island) => {
+      const islandMarker = L.marker(island.position, {
+        icon: islandLabelIcon(island.name),
+        interactive: false // Không cho phép click hoặc popup
+      }).addTo(map);
     });
 
     // Fit bounds to show all markers
