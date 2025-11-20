@@ -142,7 +142,7 @@
   </div>
 </div> -->
 
-<div class="c-cookie-noite js-cookie-noite" style="display: none;">
+<div class="c-cookie-noite js-cookie-noite" style="display: none">
   <div>
     <div class="title">
       Cookie Notice
@@ -155,16 +155,57 @@
     We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By continuing to use this site, you agree to our use of cookies.
   </div>
   <div class="group">
-    <button class="c-btn__04 js-">
+    <button class="c-btn__04 js-close-cookie-noite">
       Accept All
     </button>
-    <button class="c-btn__06 js-">
+    <button class="c-btn__06 js-close-cookie-noite">
       Manage Preferences
     </button>
   </div>
 </div>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
+<script>
+  // Hàm set cookie
+  function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+  // Hàm get cookie
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  // Kiểm tra và hiển thị popup khi load trang
+  jQuery(document).ready(function($) {
+    // Kiểm tra xem đã có cookie chưa
+    const cookieAccepted = getCookie('cookie_notice_accepted');
+
+    // Nếu chưa có cookie, hiển thị popup
+    if (!cookieAccepted) {
+      $('.js-cookie-noite').show();
+    }
+
+    // Xử lý khi click button đóng/chấp nhận
+    $('.js-close-cookie-noite').on('click', function() {
+      // Set cookie với thời gian 30 ngày
+      setCookie('cookie_notice_accepted', 'true', 30);
+
+      // Ẩn popup
+      $('.js-cookie-noite').fadeOut(300);
+    });
+  });
+</script>
 <?php wp_footer(); ?>
 </body>
 
