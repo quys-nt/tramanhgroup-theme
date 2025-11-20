@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template for gallery (Vietnamese version)
  */
