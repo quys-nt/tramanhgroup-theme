@@ -264,6 +264,12 @@
                 line-height: 20px;
                 letter-spacing: -0.02em;
                 color: g.$gray04;
+
+                @include g.media(sp) {
+                  font-size: 12px;
+                  line-height: 16px;
+                  letter-spacing: 0;
+                }
               }
 
               &02 {
@@ -271,6 +277,11 @@
                 font-size: 24px;
                 line-height: 32px;
                 letter-spacing: -0.03em;
+
+                @include g.media(sp) {
+                  font-size: 18px;
+                  line-height: 24px;
+                }
               }
 
               &03 {
