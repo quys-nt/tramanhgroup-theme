@@ -158,7 +158,7 @@ Description: English Automotive & Mobility Relations page with journey, core val
         <p class="text01">
           <?php echo esc_html($sec4Intro); ?>
         </p>
-        <a href=" <?php echo esc_attr($sec4Button['link']); ?>" class="c-btn__10">
+        <a href=" <?php echo esc_attr($sec4Button['link']); ?>" class="c-btn__10" target="_blank">
           <?php echo esc_html($sec4Button['text']); ?>
         </a>
       </div>

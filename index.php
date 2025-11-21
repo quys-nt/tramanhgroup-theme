@@ -113,7 +113,7 @@
                 <p class="desc">
                   <?php echo $lang === "en" ? $section_business['item_1']['desc']['en'] : $section_business['item_1']['desc']['vn']; ?>
                 </p>
-                <a href="<?php echo $section_business['item_1']['button_link']; ?>" class="c-btn__03">
+                <a href="<?php echo $lang === "en" ? $section_business['item_1']['button_link']['en'] : $section_business['item_1']['button_link']['vn']; ?>" class="c-btn__03">
                   <?php echo $lang === "en" ? $section_business['item_1']['button']['en'] : $section_business['item_1']['button']['vn']; ?>
                 </a>
               </div>
@@ -122,7 +122,7 @@
               <div class="p-home__our--item-main">
                 <div class="icons">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-automotive.svg" alt="icon-automotive">
-                </div>
+                </div>  
                 <div class="conents">
                   <h3 class="title">
                     <?php echo $lang === "en" ? $section_business['item_2']['title']['en'] : $section_business['item_2']['title']['vn']; ?>
@@ -130,8 +130,8 @@
                   <p class="desc">
                     <?php echo $lang === "en" ? $section_business['item_2']['desc']['en'] : $section_business['item_2']['desc']['vn']; ?>
                   </p>
-                  <a href="<?php echo $section_business['item_1']['button_link']; ?>" class="c-btn__01">
-                    <?php echo $lang === "en" ? $section_business['item_1']['button']['en'] : $section_business['item_1']['button']['vn']; ?>
+                  <a href="<?php echo $lang === "en" ? $section_business['item_2']['button_link']['en'] : $section_business['item_2']['button_link']['vn']; ?>" class="c-btn__01">
+                    <?php echo $lang === "en" ? $section_business['item_2']['button']['en'] : $section_business['item_2']['button']['vn']; ?>
                   </a>
                 </div>
               </div>
@@ -147,7 +147,7 @@
                 <p class="desc">
                   <?php echo $lang === "en" ? $section_business['item_3']['desc']['en'] : $section_business['item_3']['desc']['vn']; ?>
                 </p>
-                <a href="<?php echo $section_business['item_3']['button_link']; ?>" class="c-btn__03">
+                <a href="<?php echo $lang === "en" ? $section_business['item_3']['button_link']['en'] : $section_business['item_3']['button_link']['vn']; ?>" class="c-btn__03">
                   <?php echo $lang === "en" ? $section_business['item_3']['button']['en'] : $section_business['item_3']['button']['vn']; ?>
                 </a>
               </div>
@@ -165,7 +165,7 @@
                 <p class="desc">
                   <?php echo $lang === "en" ? $section_business['item_4']['desc']['en'] : $section_business['item_4']['desc']['vn']; ?>
                 </p>
-                <a href="<?php echo $section_business['item_4']['button_link']; ?>" class="c-btn__03">
+                <a href="<?php echo $lang === "en" ? $section_business['item_4']['button_link']['en'] : $section_business['item_4']['button_link']['vn']; ?>" class="c-btn__03">
                   <?php echo $lang === "en" ? $section_business['item_4']['button']['en'] : $section_business['item_4']['button']['vn']; ?>
                 </a>
               </div>
@@ -181,7 +181,7 @@
                 <p class="desc">
                   <?php echo $lang === "en" ? $section_business['item_5']['desc']['en'] : $section_business['item_5']['desc']['vn']; ?>
                 </p>
-                <a href="<?php echo $section_business['item_5']['button_link']; ?>" class="c-btn__03">
+                <a href="<?php echo $lang === "en" ? $section_business['item_5']['button_link']['en'] : $section_business['item_5']['button_link']['vn']; ?>" class="c-btn__03">
                   <?php echo $lang === "en" ? $section_business['item_5']['button']['en'] : $section_business['item_5']['button']['vn']; ?>
                 </a>
               </div>
@@ -197,7 +197,7 @@
                 <p class="desc">
                   <?php echo $lang === "en" ? $section_business['item_6']['desc']['en'] : $section_business['item_6']['desc']['vn']; ?>
                 </p>
-                <a href="<?php echo $section_business['item_6']['button_link']; ?>" class="c-btn__03">
+                <a href="<?php echo $lang === "en" ? $section_business['item_6']['button_link']['en'] : $section_business['item_6']['button_link']['vn']; ?>" class="c-btn__03">
                   <?php echo $lang === "en" ? $section_business['item_6']['button']['en'] : $section_business['item_6']['button']['vn']; ?>
                 </a>
               </div>
@@ -289,7 +289,7 @@
             <div class="swiper-wrapper">
               <?php while ($highlight_posts->have_posts()): $highlight_posts->the_post(); ?>
                 <div class="swiper-slide">
-                  <?php get_template_part('template-parts/content-02'); ?>
+                  <?php get_template_part('template-parts/content'); ?>
                 </div>
               <?php endwhile; ?>
               <?php wp_reset_postdata(); // Reset query sau loop 

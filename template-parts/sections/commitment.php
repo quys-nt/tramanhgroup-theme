@@ -34,7 +34,8 @@
               $image = $commitment['post_thumbnail'];
               $title = $lang === "en" ? $commitment['post_title']['en'] : $commitment['post_title']['vn'];
               $desc = $lang === "en" ? $commitment['post_desc']['en'] : $commitment['post_desc']['vn'];
-              $link = $commitment['post_link'];
+              $link = $lang === "en" ? $commitment['post_link']['en'] : $commitment['post_link']['vn'];
+              // $link = $commitment['post_link'];
             ?>
               <a href="<?php echo $link; ?>" class="p-home__commitment--item" data-aos="fade-up">
                 <img class="thumbnail" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $image['title']); ?>">

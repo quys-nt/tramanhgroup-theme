@@ -245,64 +245,7 @@ Description: English Overview page with journey, core values, etc.
     </section>
   <?php } ?>
 
-  <?php
-  $section_6 = get_field('section_6');
-  $sec6Intro = $section_6['intro'];
-  $sec6TitleFirst = $section_6['title_first'];
-  $sec6TitleLast = $section_6['title_last'];
-  $sec6item = $section_6['item'];
-  if ($section_6) {
-  ?>
-    <section class="p-about__sec04">
-      <div class="l-container">
-        <div class="c-text__center">
-          <p class="c-text__intro01">
-            <?php echo $sec6Intro; ?>
-          </p>
-          <h2 class="c-title__02 type-02">
-            <span class="c-title__02--first">
-              <?php echo $sec6TitleFirst; ?>
-            </span>
-            <span class="c-title__02--last">
-              <?php echo $sec6TitleLast; ?>
-            </span>
-          </h2>
-        </div>
-        <?php if ($sec6item) : ?>
-          <div class="p-about__sec04--box01">
-            <?php foreach ($sec6item as $item) :
-              $icon = $item['icon'];
-              $number = $item['number'];
-              $title = $item['title'];
-              $desc = $item['desc'];
-            ?>
-              <div class="item">
-                <div>
-                  <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt'] ?: $image['title']); ?>">
-                </div>
-                <div>
-                  <div class="group">
-                    <div class="number js-count-number">
-                      <?php echo $number; ?>
-                    </div>
-                    <?php if ($title): ?>
-                      <div class="text">
-                        <?php echo $title; ?>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                  <div class="desc">
-                    <?php echo $desc; ?>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
-      </div>
-    </section>
-  <?php } ?>
-
+  <?php get_template_part('template-parts/sections/commitment'); ?>
   <?php get_template_part('template-parts/sections/contact'); ?>
 </main>
 

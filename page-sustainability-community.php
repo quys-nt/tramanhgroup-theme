@@ -152,11 +152,18 @@ Description: English Sustainability & Community page with journey, core values, 
             </div>
           </div>
         </div>
-        <div class="p-cus__sec03--box02"
-          style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),  url('<?php echo esc_url($sec3Image['url']); ?>');">
-          <button class="btn">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-play-circle.png" alt="icon-play-circle">
-          </button>
+        <div class="p-cus__sec03--box02">
+          <?php
+          $youtube_section = get_field('youtube_section');
+
+          if ($youtube_section):
+            get_template_part('template-parts/sections/youtube-player', null, array(
+              'youtube_url' => $youtube_section['youtube_url'],
+              'image' => $youtube_section['image'],
+              'video_title' => $youtube_section['video_title'] ?: 'YouTube video',
+              'section_class' => 'p-audio__sec05'
+            ));
+          endif; ?>
         </div>
         <?php if ($sec3Item) : ?>
           <div class="p-cus__sec03--box03">

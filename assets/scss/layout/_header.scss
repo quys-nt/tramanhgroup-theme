@@ -142,12 +142,23 @@
         color: g.$black01;
       }
 
+      &:not(.menu-item-has-children) {
+        a {
+         &::after {
+          content: unset;
+         }
+        }
+      }
+
       &>a {
 
         &:hover {
-          background-color: #F0F0F0;
-          color: g.$black01;
           opacity: 1;
+
+          @include g.media(pc-tab) {
+            background-color: #F0F0F0;
+            color: g.$black01;
+          }
         }
 
         @include g.media(pc-tab) {

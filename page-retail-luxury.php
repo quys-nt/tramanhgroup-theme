@@ -113,7 +113,7 @@ Description: English Retail & Luxury page with journey, core values, etc.
                 </p>
               </div>
               <div class="c-text__right pc">
-                <a href="<?php echo esc_attr($sec2Btn['link']); ?>" class="c-btn__06 type-02">
+                <a href="<?php echo esc_attr($sec2Btn['link']); ?>" class="c-btn__06 type-02" target="_blank">
                   <?php echo esc_html($sec2Btn['text']); ?>
                 </a>
               </div>
