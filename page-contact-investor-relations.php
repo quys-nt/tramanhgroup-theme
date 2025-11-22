@@ -55,83 +55,18 @@ function get_file_extension($filename)
       </div>
     </section>
   <?php endif; ?>
-
   <?php
-  $sec_contact_1 = get_field('sec_contact_1');
-  $sec1Intro = $sec_contact_1['intro'];
-  $sec1TitleFirst = $sec_contact_1['title_first'];
-  $sec1TitleLast = $sec_contact_1['title_last'];
-  $sec1Desc = $sec_contact_1['desc'];
-  $sec1Grids = $sec_contact_1['grids'];
-  if ($sec_contact_1): ?>
-    <section class="p-contact__sec01">
-      <div class="l-container">
-        <div class="p-contact__sec01--box01">
-          <div>
-            <p class="c-text__intro01">
-              <?php echo $sec1Intro; ?>
-            </p>
-            <h2 class="c-title__02 type-03">
-              <span class="c-title__02--first">
-                <?php echo $sec1TitleFirst; ?>
-              </span>
-              <span class="c-title__02--last">
-                <?php echo $sec1TitleLast; ?>
-              </span>
-            </h2>
-          </div>
-          <div>
-            <div class="p-contact__sec01--desc">
-              <?php echo $sec1Desc; ?>
-            </div>
-          </div>
-        </div>
-        <div class="p-contact__sec01--box02">
-          <div class="sec01-item01">
-            <img src="<?php echo esc_url($sec1Grids['image']['url']); ?>" alt="<?php echo esc_attr($sec1Grids['image']['alt']); ?>">
-          </div>
-          <div class="sec01-item02">
-            <p class="text01">
-              <?php echo esc_html_e($sec1Grids['item_1']['text_1']); ?>
-            </p>
-            <p class="text02">
-              <?php echo esc_html_e($sec1Grids['item_1']['text_2']); ?>
-            </p>
-            <p class="text03">
-              <?php echo esc_html_e($sec1Grids['item_1']['text_3']); ?>
-            </p>
-          </div>
-          <div class="sec01-item03">
-            <p class="text01">
-              <?php echo esc_html_e($sec1Grids['item_2']['text_1']); ?>
-            </p>
-            <p class="text02">
-              <?php echo esc_html_e($sec1Grids['item_2']['text_2']); ?>
-            </p>
-          </div>
-          <div class="sec01-item04">
-            <p class="text01">
-              <?php echo esc_html_e($sec1Grids['item_3']['text_1']); ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  <?php endif; ?>
+  $youtube_section = get_field('youtube_section');
 
-  <?php
-  $sec_contact_2 = get_field('sec_contact_2');
-  $sec2Image = $sec_contact_2['image'];
-  if ($sec_contact_2): ?>
-    <div class="p-contact__sec02">
-      <div class="p-cus__sec03--box02"
-        style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),  url('<?php echo esc_url($sec2Image['url']); ?>');">
-        <button class="btn">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-play-circle.png" alt="icon-play-circle">
-        </button>
-      </div>
-    </div>
-  <?php endif; ?>
+  if ($youtube_section):
+    get_template_part('template-parts/sections/youtube-player', null, array(
+      'youtube_url' => $youtube_section['youtube_url'],
+      'image' => $youtube_section['image'],
+      'video_title' => $youtube_section['video_title'] ?: 'YouTube video',
+      'section_class' => 'p-audio__sec05'
+    ));
+  endif;
+  ?>
 
   <?php
   $sec_contact_3 = get_field('sec_contact_3');
