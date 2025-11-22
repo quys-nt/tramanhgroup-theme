@@ -6,6 +6,15 @@ $locations = $section_contact_map['locations']; // ACF Repeater với locations
 $default_center = $section_contact_map['default_center']; // Tâm map mặc định
 $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc định
 
+$default_popup_index = -1;
+if ($locations && is_array($locations)) {
+  foreach ($locations as $index => $location) {
+    if (!empty($location['location_auto_show'])) {
+      $default_popup_index = $index;
+      break;
+    }
+  }
+}
 ?>
 
 <!-- Map Container -->
@@ -210,8 +219,7 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
     });
 
     // ===== THÊM HOÀNG SA, TRƯỜNG SA VÀ BIỂN ĐÔNG =====
-    const islands = [
-      {
+    const islands = [{
         name: 'Quần đảo Hoàng Sa',
         position: [16.67, 112.33]
       },
@@ -226,7 +234,7 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
     ];
 
     const islandLabelIcon = (name) => L.divIcon({
-      className: 'island-label', 
+      className: 'island-label',
       html: `<div>${name}</div>`,
       iconSize: [200, 20],
       iconAnchor: [100, 10]
@@ -337,5 +345,18 @@ $default_zoom = $section_contact_map['default_zoom'] ?: 13; // Zoom level mặc 
         $(this).addClass('active');
       }
     });
+
+    // Auto open popup for default location
+    const defaultPopupIndex = <?php echo $default_popup_index; ?>;
+    if (defaultPopupIndex >= 0 && markers[defaultPopupIndex]) {
+      // Delay để đảm bảo map đã render xong
+      setTimeout(() => {
+        markers[defaultPopupIndex].openPopup();
+
+        // Highlight card tương ứng
+        $('.p-contact-map__location-card').removeClass('active');
+        $(`.p-contact-map__location-card[data-location-index="${defaultPopupIndex}"]`).addClass('active');
+      }, 500);
+    }
   });
 </script>
