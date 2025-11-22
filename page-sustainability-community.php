@@ -186,7 +186,9 @@ Description: English Sustainability & Community page with journey, core values, 
     </section>
   <?php } ?>
 
-  <?php get_template_part('template-parts/sections/commitment'); ?>
+  <?php get_template_part('template-parts/sections/commitment', null, array(
+    'show_desc' => true,
+  )); ?>
 </main>
 <?php get_footer(); ?>
 <script>

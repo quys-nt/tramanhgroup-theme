@@ -758,6 +758,14 @@
         gap: 24px;
         margin-bottom: 80px;
 
+        &.flex-end {
+          align-items: end;
+
+          .p-home__commitment--box01--right {
+            text-align: right;
+          }
+        }
+
         @include g.media(tab) {
           grid-template-columns: 1fr 1fr;
         }

@@ -1,10 +1,14 @@
   <?php
+  $show_desc = isset($args['show_desc']) ? $args['show_desc'] : false;
   $section_commitment = get_field('section_commitment', 'option');
   if ($section_commitment):
   ?>
     <section class="p-home__commitment">
       <div class="l-container not-padding">
-        <div class="p-home__commitment--box01" data-aos="fade-up">
+        <?php
+        $has_desc = !empty($section_commitment['commitment_desc']['en']) || !empty($section_commitment['commitment_desc']['vn']);
+        ?>
+        <div class="p-home__commitment--box01 <?php echo $has_desc && $show_desc ? "" : "flex-end"; ?>" data-aos="fade-up">
           <div>
             <?php if ($section_commitment['commitment_intro']): ?>
               <p class="c-text__intro01">
@@ -21,10 +25,12 @@
             </h2>
           </div>
           <div class="p-home__commitment--box01--right">
-            <?php if ($section_commitment['commitment_desc']): ?>
-              <div class="c-text03">
-                Trâm Anh Group is committed to integrating environmental responsibility (Sustainability) and social welfare into our core business strategy, fostering growth that benefits both the economy and the community.
-              </div>
+            <?php if ($show_desc): ?>
+              <?php if ($has_desc): ?>
+                <div class="c-text03">
+                  <?php echo $lang === "en" ? $section_commitment['commitment_desc']['en'] : $section_commitment['commitment_desc']['vn']; ?>
+                </div>
+              <?php endif; ?>
             <?php endif; ?>
             <?php if ($section_commitment['commitment_button_link']): ?>
               <a href="<?php echo esc_attr($lang === "en" ? $section_commitment['commitment_button_link']['en'] : $section_commitment['commitment_button_link']['vn']); ?>" class="c-btn__06">
