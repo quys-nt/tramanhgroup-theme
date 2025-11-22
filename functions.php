@@ -333,3 +333,87 @@ function get_career_departments()
     'sports' => 'Sports & Community'
   );
 }
+
+/**
+ * Get latest posts from child categories (mixed from all categories)
+ * Each category contributes equally to the total
+ * 
+ * @param int $parent_cat_id Parent category ID
+ * @param int $total_posts Total number of posts to display (default: 8)
+ * @return WP_Query Query object with mixed posts from all child categories
+ */
+function get_mixed_latest_posts_from_children($parent_cat_id, $total_posts = 8) {
+    // Get all child categories
+    $child_categories = get_categories(array(
+        'parent' => $parent_cat_id,
+        'hide_empty' => true,
+        'orderby' => 'name',
+        'order' => 'ASC'
+    ));
+    
+    if (empty($child_categories)) {
+        // Return empty query if no child categories
+        return new WP_Query(array('post__in' => array(0)));
+    }
+    
+    // Calculate posts per category
+    $posts_per_category = ceil($total_posts / count($child_categories));
+    
+    $all_post_ids = array();
+    
+    // Get posts from each category
+    foreach ($child_categories as $child_cat) {
+        $cat_posts = get_posts(array(
+            'cat' => $child_cat->term_id,
+            'posts_per_page' => $posts_per_category,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post_status' => 'publish',
+            'fields' => 'ids'
+        ));
+        
+        if (!empty($cat_posts)) {
+            $all_post_ids = array_merge($all_post_ids, $cat_posts);
+        }
+    }
+    
+    // Remove duplicates and limit to total_posts
+    $all_post_ids = array_unique($all_post_ids);
+    $all_post_ids = array_slice($all_post_ids, 0, $total_posts);
+    
+    // Create final query
+    if (empty($all_post_ids)) {
+        return new WP_Query(array('post__in' => array(0)));
+    }
+    
+    return new WP_Query(array(
+        'post__in' => $all_post_ids,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'posts_per_page' => $total_posts,
+        'post_status' => 'publish'
+    ));
+}
+
+/**
+ * Get parent category ID by slug (works with Polylang)
+ * 
+ * @param string $slug Category slug
+ * @return int|null Category ID or null
+ */
+function get_category_id_by_slug($slug) {
+    $category = get_category_by_slug($slug);
+    
+    if (!$category && function_exists('pll_current_language')) {
+        // Try to get translated category
+        $en_cat = get_category_by_slug($slug);
+        if ($en_cat) {
+            $translated_cat_id = pll_get_term($en_cat->term_id, pll_current_language());
+            if ($translated_cat_id) {
+                $category = get_category($translated_cat_id);
+            }
+        }
+    }
+    
+    return $category ? $category->term_id : null;
+}

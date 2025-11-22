@@ -122,7 +122,7 @@
               <div class="p-home__our--item-main">
                 <div class="icons">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-page/icons/icon-automotive.svg" alt="icon-automotive">
-                </div>  
+                </div>
                 <div class="conents">
                   <h3 class="title">
                     <?php echo $lang === "en" ? $section_business['item_2']['title']['en'] : $section_business['item_2']['title']['vn']; ?>
@@ -243,14 +243,27 @@
       <?php endif; ?>
     </section>
   <?php endif; ?>
+
   <?php
   $section_latest = get_field('section_latest', 'option');
-  if (function_exists('qhp_get_highlight_posts_by_category')) {
-    $highlight_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 8);
+
+  // Get Newsroom category ID (works with both languages)
+  $newsroom_slug = $lang == 'en' ? 'newsroom' : 'tin-tuc'; // Thay đổi slug này cho phù hợp với category của bạn
+  $newsroom_cat_id = get_category_id_by_slug($newsroom_slug);
+
+  // Get mixed latest posts from all child categories
+  $latest_posts = null;
+  if ($newsroom_cat_id && function_exists('get_mixed_latest_posts_from_children')) {
+    $latest_posts = get_mixed_latest_posts_from_children($newsroom_cat_id, 12);
   } else {
-    // Fallback nếu plugin chưa active
-    $highlight_posts = new WP_Query(array('post_count' => 0)); // Query rỗng
+    // Fallback: get highlight posts (giữ nguyên logic cũ nếu không có function mới)
+    if (function_exists('qhp_get_highlight_posts_by_category')) {
+      $latest_posts = qhp_get_highlight_posts_by_category($current_category->term_id, 12);
+    } else {
+      $latest_posts = new WP_Query(array('post_count' => 0));
+    }
   }
+
   if ($section_latest):
   ?>
     <section class="p-home__posts">
@@ -271,7 +284,7 @@
               </span>
             </h2>
           </div>
-          <?php if ($highlight_posts->found_posts > 3): ?>
+          <?php if ($latest_posts->found_posts > 3): ?>
             <div class="p-home__posts--box01--right">
               <div class="c-button js-swiper-button-prev">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow-left.svg" alt="icon-arrow-left">
@@ -283,27 +296,27 @@
           <?php endif; ?>
         </div>
       </div>
-      <?php if ($highlight_posts->have_posts()): ?>
+      <?php if ($latest_posts->have_posts()): ?>
         <div class="l-container">
           <div class="swiper-posts">
             <div class="swiper-wrapper">
-              <?php while ($highlight_posts->have_posts()): $highlight_posts->the_post(); ?>
+              <?php while ($latest_posts->have_posts()): $latest_posts->the_post(); ?>
                 <div class="swiper-slide">
                   <?php get_template_part('template-parts/content'); ?>
                 </div>
               <?php endwhile; ?>
-              <?php wp_reset_postdata(); // Reset query sau loop 
-              ?>
+              <?php wp_reset_postdata(); ?>
             </div>
             <?php if ($section_latest['latest_button_link']): ?>
               <div class="p-home__posts--bottom">
-                <a href="<?php echo $lang === "en" ? $section_latest['latest_button_link']['en'] : $section_latest['latest_button_link']['vn']; ?>  " class="c-btn__04">
+                <a href="<?php echo $lang === "en" ? $section_latest['latest_button_link']['en'] : $section_latest['latest_button_link']['vn']; ?>" class="c-btn__04">
                   <?php echo $lang === "en" ? $section_latest['latest_button_text']['en'] : $section_latest['latest_button_text']['vn']; ?>
                 </a>
               </div>
             <?php endif; ?>
           </div>
-        <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </section>
   <?php endif; ?>
 
