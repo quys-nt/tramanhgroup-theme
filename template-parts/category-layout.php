@@ -102,6 +102,11 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 									</div>
 								</div>
 							</div>
+							<div class="p-archive__sec01--card__time">
+								<p class="c-text04">
+									<?php the_time('d/m/Y')?>
+								</p>
+							</div>
 						</a>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); // Reset query sau loop 
