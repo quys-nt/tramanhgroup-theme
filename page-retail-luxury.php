@@ -103,7 +103,7 @@ Description: English Retail & Luxury page with journey, core values, etc.
                 </span>
               </h2>
             </div>
-            <p class="c-text03">
+            <p class="c-text01">
               <?php echo nl2br(esc_html($sec2Desc1)); ?>
             </p>
             <div class="p-business__sec06--group01">

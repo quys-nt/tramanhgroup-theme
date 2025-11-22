@@ -61,7 +61,7 @@ Description: English Yachting & Lifestyle Relations page with journey, core valu
                 </span>
               </h2>
             </div>
-            <p class="c-text03">
+            <p class="c-text01">
               <?php echo nl2br(esc_html($sec1Desc1)); ?>
             </p>
             <p class="c-text04">
@@ -156,7 +156,7 @@ Description: English Yachting & Lifestyle Relations page with journey, core valu
             <p class="c-text02">
               <?php echo esc_html($sec3Desc1); ?>
             </p>
-            <p class="c-text03">
+            <p class="c-text01">
               <?php echo esc_html($sec3Desc2); ?>
             </p>
           </div>

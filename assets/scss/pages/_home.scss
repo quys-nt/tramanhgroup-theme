@@ -752,18 +752,27 @@
 
     &--box {
       &01 {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 40px;
         gap: 24px;
         margin-bottom: 80px;
 
+        @include g.media(tab) {
+          grid-template-columns: 1fr 1fr;
+        }
+
         @include g.media(sp) {
+          grid-template-columns: 1fr;
           margin-bottom: 32px;
           padding-inline: 20px;
         }
 
         &--right {
+          &>*:not(:last-child) {
+            margin-bottom: 32px;
+          }
+
           @include g.media(sp) {
             display: none;
           }

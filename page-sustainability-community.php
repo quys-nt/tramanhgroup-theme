@@ -186,65 +186,6 @@ Description: English Sustainability & Community page with journey, core values, 
     </section>
   <?php } ?>
 
-  <?php
-  $section_4 = get_field('section_4');
-  $sec4Intro = $section_4['intro'];
-  $sec4TitleFirst = $section_4['title_first'];
-  $sec4TitleLast = $section_4['title_last'];
-  $sec4Item = $section_4['item'];
-  if ($section_4) {
-  ?>
-    <section class="p-about__sec04">
-      <div class="l-container">
-        <div class="l-container">
-          <div class="c-text__center">
-            <p class="c-text__intro01">
-              <?php esc_html_e($sec4Intro); ?>
-            </p>
-            <h2 class="c-title__02 type-02">
-              <span class="c-title__02--first">
-                <?php esc_html_e($sec4TitleFirst); ?>
-              </span>
-              <span class="c-title__02--last">
-                <?php esc_html_e($sec4Intro); ?>
-              </span>
-            </h2>
-          </div>
-        </div>
-        <?php if ($sec4Item) : ?>
-          <div class="p-about__sec04--box01 type-02">
-
-            <?php foreach ($sec4Item as $key => $item) :
-              $icon = $item['icon'];
-              $number = $item['number'];
-              $title = $item['title'];
-              $desc = $item['desc'];
-            ?>
-              <div class="item">
-                <div>
-                  <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php esc_attr_e($icon['alt']); ?> ">
-                </div>
-                <div>
-                  <div class="group">
-                    <div class="number js-count-number">
-                      <?php esc_html_e($number); ?>
-                    </div>
-                    <div class="text">
-                      <?php esc_html_e($title); ?>
-                    </div>
-                  </div>
-                  <div class="desc">
-                    <?php esc_html_e($desc); ?>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
-      </div>
-    </section>
-  <?php } ?>
-
   <?php get_template_part('template-parts/sections/commitment'); ?>
 </main>
 <?php get_footer(); ?>

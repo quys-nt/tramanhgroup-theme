@@ -26,9 +26,15 @@
 
   &03 {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+
+    @include g.media(sp) {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   &04 {

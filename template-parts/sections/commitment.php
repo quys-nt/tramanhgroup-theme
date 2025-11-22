@@ -21,6 +21,11 @@
             </h2>
           </div>
           <div class="p-home__commitment--box01--right">
+            <?php if ($section_commitment['commitment_desc']): ?>
+              <div class="c-text03">
+                Trâm Anh Group is committed to integrating environmental responsibility (Sustainability) and social welfare into our core business strategy, fostering growth that benefits both the economy and the community.
+              </div>
+            <?php endif; ?>
             <?php if ($section_commitment['commitment_button_link']): ?>
               <a href="<?php echo esc_attr($lang === "en" ? $section_commitment['commitment_button_link']['en'] : $section_commitment['commitment_button_link']['vn']); ?>" class="c-btn__06">
                 <?php echo $lang === "en" ? $section_commitment['commitment_button_text']['en'] : $section_commitment['commitment_button_text']['vn']; ?>

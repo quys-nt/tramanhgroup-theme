@@ -62,7 +62,7 @@
             </h2>
           </div>
           <div>
-            <div class="c-text03">
+            <div class="c-text01">
               <?php echo nl2br(esc_html($lang === "en" ? $sec1Desc['en'] : $sec1Desc['vi'])); ?>
             </div>
           </div>

@@ -66,7 +66,7 @@ Description: English Sports & Community Relations page with journey, core values
                 </span>
               </h2>
             </div>
-            <p class="c-text03">
+            <p class="c-text01">
               <?php echo nl2br(esc_html($sec1Desc1)); ?>
             </p>
             <p class="c-text04">
