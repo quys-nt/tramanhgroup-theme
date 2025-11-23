@@ -186,16 +186,14 @@ Description: English Lubricants & Chemicals Relations page with journey, core va
         $listSec04_count_ios = count($sec4IOS);
         if ($listSec04_count_ios > 0):
         ?>
-          <div class="p-business__sec05--grid02">
+          <div class="p-business__sec09--grid">
             <?php foreach ($sec4IOS as $item) : ?>
-              <div class="sec05__card02">
-                <div class="sec05__card02--body">
-                  <div class="sec05__card02--img">
-                    <img src="<?php echo esc_attr($item['image']['url']); ?>" alt="<?php echo esc_attr($item['image']['alt']); ?>">
-                  </div>
-                  <div class="sec05__card02--content">
-                    <?php echo  wp_kses_post($item['text']); ?>
-                  </div>
+              <div class="card-item">
+                <div class="card-item-title">
+                  <?php echo nl2br(esc_html($item['title'])); ?>
+                </div>
+                <div class="card-item-content">
+                  <?php echo nl2br(esc_html($item['text'])); ?>
                 </div>
               </div>
             <?php endforeach; ?>

@@ -13,5 +13,8 @@
         <?php the_title(); ?>
       </h3>
     </a>
+    <p class="time">
+      <?php the_time('d/m/Y'); ?>
+    </p>
   </div>
 </div>
