@@ -74,7 +74,10 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 						$is_image = strpos($mime_type, 'image/') !== false;
 						$is_video = strpos($mime_type, 'video/') !== false;
 					?>
-						<div class="gallery-item <?php echo $is_video ? "is-video" : "" ?>" data-modal-src="<?php echo esc_url($full_url); ?>" data-modal-type="<?php echo esc_attr($mime_type); ?>">
+						<div class="gallery-item <?php echo $is_video ? "is-video" : "" ?>"
+							data-slide-index="<?php echo $index; ?>"
+							data-modal-src="<?php echo esc_url($full_url); ?>"
+							data-modal-type="<?php echo esc_attr($mime_type); ?>">
 							<?php if ($is_image) : ?>
 								<img
 									src="<?php echo esc_url($item['sizes']['large'] ?? $item['url']); ?>"
@@ -165,13 +168,49 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 
 </main>
 
-<!-- Modal cho Gallery -->
+<!-- Modal cho Gallery với Swiper -->
 <div id="gallery-modal" class="modal">
-	<div class="modal-bg js-hidden"></div>
+	<div class="modal-bg js-modal-close"></div>
 	<div class="modal-body">
-		<span class="close js-hidden">&times;</span>
+		<span class="close js-modal-close">&times;</span>
 		<div class="modal-content">
-			<div class="js-modal-gallery-item"></div>
+			<div class="swiper modal-swiper">
+				<div class="swiper-wrapper">
+					<?php
+					if ($gallery_items && is_array($gallery_items)) :
+						foreach ($gallery_items as $index => $item) :
+							$mime_type = $item['mime_type'] ?? get_post_mime_type($item['ID']);
+							$full_url = $item['url'] ?? wp_get_attachment_url($item['ID']);
+							$is_image = strpos($mime_type, 'image/') !== false;
+							$is_video = strpos($mime_type, 'video/') !== false;
+					?>
+							<div class="swiper-slide">
+								<?php if ($is_image) : ?>
+									<div class="modal-item modal-video">
+										<img src="<?php echo esc_url($full_url); ?>" alt="<?php echo esc_attr($item['alt'] ?? ''); ?>">
+									</div>
+								<?php elseif ($is_video) : ?>
+									<div class="modal-item modal-video">
+										<video src="<?php echo esc_url($full_url); ?>" controls>
+											<p>Trình duyệt không hỗ trợ video.</p>
+										</video>
+									</div>
+								<?php endif; ?>
+							</div>
+					<?php
+						endforeach;
+					endif;
+					?>
+				</div>
+			</div>
+
+			<!-- Navigation buttons -->
+			<div class="modal-list01">
+				<div class="modal-btn prev js-swiper-button-prev">
+				</div>
+				<div class="modal-btn next js-swiper-button-next">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -181,47 +220,84 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		const modal = document.getElementById('gallery-modal');
-		const modalContent = modal.querySelector('.js-modal-gallery-item');
-		const closeBtn = $('.js-hidden');
 		const galleryItems = document.querySelectorAll('.gallery-item');
+		let modalSwiper = null;
+
+		// Khởi tạo Swiper cho modal
+		function initModalSwiper(initialSlide = 0) {
+			// Destroy swiper cũ nếu có
+			if (modalSwiper) {
+				modalSwiper.destroy(true, true);
+			}
+
+			// Khởi tạo swiper mới
+			modalSwiper = new Swiper('.modal-swiper', {
+				initialSlide: initialSlide,
+				navigation: {
+					nextEl: '.js-swiper-button-next',
+					prevEl: '.js-swiper-button-prev',
+				},
+				keyboard: {
+					enabled: true,
+					onlyInViewport: false,
+				},
+				loop: true,
+				slidesPerView: 1,
+				spaceBetween: 0,
+				on: {
+					slideChange: function() {
+						// Dừng tất cả video khi chuyển slide
+						const videos = modal.querySelectorAll('video');
+						videos.forEach(video => {
+							video.pause();
+							video.currentTime = 0;
+						});
+					}
+				}
+			});
+		}
 
 		// Mở modal khi click gallery-item
 		galleryItems.forEach(function(item) {
 			item.addEventListener('click', function() {
-				$("html body").css("overflow", "hidden")
-				const src = this.getAttribute('data-modal-src');
-				const type = this.getAttribute('data-modal-type');
-				let content = '';
+				const slideIndex = parseInt(this.getAttribute('data-slide-index'));
 
-				if (type && type.startsWith('image/')) {
-					content = `<img src="${src}" alt="Full size image">`;
-				} else if (type && type.startsWith('video/')) {
-					content = `<div class="modal-video"><video src="${src}" controls autoplay ><p>Trình duyệt không hỗ trợ video.</p></video></div>`;
-				}
-
-				modalContent.innerHTML = content;
+				// Mở modal và khởi tạo swiper với slide được click
 				modal.style.display = 'flex';
+				document.body.style.overflow = 'hidden';
+
+				// Delay một chút để đảm bảo modal đã hiển thị
+				setTimeout(() => {
+					initModalSwiper(slideIndex);
+				}, 50);
 			});
 		});
 
 		// Đóng modal
-		$('.js-hidden').on('click', function() {
-			modal.style.display = 'none';
-			$("html body").removeAttr("style")
+		const closeElements = document.querySelectorAll('.js-modal-close');
+		closeElements.forEach(function(element) {
+			element.addEventListener('click', function() {
+				closeModal();
+			});
 		});
 
-		// Đóng khi click ngoài content
-		window.addEventListener('click', function(event) {
-			if (event.target === modal) {
-				modal.style.display = 'none';
-				$("html body").removeAttr("style");
-			}
-		});
+		// Hàm đóng modal
+		function closeModal() {
+			modal.style.display = 'none';
+			document.body.style.overflow = '';
+
+			// Dừng tất cả video
+			const videos = modal.querySelectorAll('video');
+			videos.forEach(video => {
+				video.pause();
+				video.currentTime = 0;
+			});
+		}
 
 		// Đóng bằng ESC key
 		document.addEventListener('keydown', function(event) {
-			if (event.key === 'Escape') {
-				modal.style.display = 'none';
+			if (event.key === 'Escape' && modal.style.display === 'flex') {
+				closeModal();
 			}
 		});
 	});
