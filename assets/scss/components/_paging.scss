@@ -1,19 +1,7 @@
 @use '../global/' as g;
 
 .c-paging {
-  &__loop {
-    margin-top: 24px;
 
-    &--item {
-      margin-block: 24px;
-    }
-
-    &--next {
-      text-align: right;
-    }
-  }
-
-  &__post {
     margin-top: 36px;
     display: flex;
     justify-content: center;
@@ -27,12 +15,11 @@
       text-decoration: none;
       width: 35px;
       height: 35px;
-      border: 1px solid g.$yellow01;
+      border: 1px solid g.$green01;
 
       &.current {
-        background-color: g.$yellow01;
+        background-color: g.$green01;
         color: g.$black01;
       }
     }
-  }
 }
