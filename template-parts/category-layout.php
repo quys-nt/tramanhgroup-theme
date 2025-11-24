@@ -63,17 +63,24 @@ if (function_exists('qhp_get_highlight_posts_by_category')) {
 	endif; ?>
 
 	<?php if ($highlight_posts->have_posts()): ?>
+		<?php
+
+	$sec_cate = get_field('post_category_sec_highlights', 'option');
+	$secCateIntroHightlight = $sec_cate['intro'];
+	$secCateTitleFirstHightlight = $sec_cate['title_first'];
+	$secCateTitleLastHightlight = $sec_cate['title_last'];
+	?>
 		<section class="p-archive__sec01">
 			<div class="l-container">
 				<p class="c-text__intro01">
-					<?php echo $lang === "en" ? "Highlights" : "Điểm nổi bật" ?>
+					<?php echo $lang === "en" ? $secCateIntroHightlight['en'] : $secCateIntroHightlight['vi']; ?>
 				</p>
 				<h2 class="c-title__02 type-03">
 					<span class="c-title__02--first">
-						<?php echo $lang === "en" ? "Spotlight Stories" : "Những câu chuyện nổi bật" ?>
+						<?php echo $lang === "en" ? $secCateTitleFirstHightlight['en'] : $secCateTitleFirstHightlight['vi']; ?>
 					</span>
 					<span class="c-title__02--last">
-						<?php echo $lang === "en" ? "& Key Moments" : "và những khoảnh khắc quan trọng" ?>
+						<?php echo $lang === "en" ? $secCateTitleLastHightlight['en'] : $secCateTitleLastHightlight['vi']; ?>
 					</span>
 				</h2>
 				<div class="p-archive__sec01--grid">

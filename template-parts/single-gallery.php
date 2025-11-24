@@ -59,51 +59,61 @@ $newsroom_link = $parent_category ? get_category_link($parent_category->term_id)
 
 
 	<?php
-	$gallery_items = get_field('gallery');
-	if ($gallery_items && is_array($gallery_items)) :
-	?>
-		<section class="p-single__gallery">
-			<div class="l-container">
-				<div class="p-single__gallery--grid">
-					<?php
+$gallery_items = get_field('gallery');
+// Lọc bỏ các phần tử null, false, empty
+if ($gallery_items && is_array($gallery_items)) {
+    $gallery_items = array_filter($gallery_items);
+}
 
-					foreach ($gallery_items as $index => $item) :
-						// $item là attachment object từ ACF Gallery field (hỗ trợ cả image và video)
-						$mime_type = $item['mime_type'] ?? get_post_mime_type($item['ID']);
-						$full_url = $item['url'] ?? wp_get_attachment_url($item['ID']);
-						$is_image = strpos($mime_type, 'image/') !== false;
-						$is_video = strpos($mime_type, 'video/') !== false;
-					?>
-						<div class="gallery-item <?php echo $is_video ? "is-video" : "" ?>"
-							data-slide-index="<?php echo $index; ?>"
-							data-modal-src="<?php echo esc_url($full_url); ?>"
-							data-modal-type="<?php echo esc_attr($mime_type); ?>">
-							<?php if ($is_image) : ?>
-								<img
-									src="<?php echo esc_url($item['sizes']['large'] ?? $item['url']); ?>"
-									srcset="<?php echo esc_attr($item['sizes']['medium'] ?? ''); ?> 768w, <?php echo esc_attr($item['sizes']['large'] ?? ''); ?> 1024w, <?php echo esc_url($full_url); ?> 1200w"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-									alt="<?php echo esc_attr($item['alt'] ?? ''); ?>"
-									loading="lazy"
-									class="gallery-image">
-							<?php elseif ($is_video) : ?>
-								<video
-									src="<?php echo esc_url($full_url); ?>"
-									poster="<?php echo esc_url($item['sizes']['large'] ?? ''); ?>"
-									class="gallery-video"
-									loading="lazy"
-									width="100%"
-									height="auto">
-								</video>
-							<?php endif; ?>
-						</div>
-					<?php
-					endforeach;
-					?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
+if (!empty($gallery_items)) :
+?>
+    <section class="p-single__gallery">
+        <div class="l-container">
+            <div class="p-single__gallery--grid">
+                <?php
+                foreach ($gallery_items as $index => $item) :
+                    // Kiểm tra $item có hợp lệ không
+                    if (!$item || !is_array($item)) continue;
+                    
+                    $mime_type = $item['mime_type'] ?? get_post_mime_type($item['ID'] ?? 0);
+                    $full_url = $item['url'] ?? wp_get_attachment_url($item['ID'] ?? 0);
+                    
+                    // Kiểm tra URL có tồn tại không
+                    if (!$full_url) continue;
+                    
+                    $is_image = strpos($mime_type, 'image/') !== false;
+                    $is_video = strpos($mime_type, 'video/') !== false;
+                ?>
+                    <div class="gallery-item <?php echo $is_video ? "is-video" : "" ?>"
+                        data-slide-index="<?php echo $index; ?>"
+                        data-modal-src="<?php echo esc_url($full_url); ?>"
+                        data-modal-type="<?php echo esc_attr($mime_type); ?>">
+                        <?php if ($is_image) : ?>
+                            <img
+                                src="<?php echo esc_url($item['sizes']['large'] ?? $item['url']); ?>"
+                                srcset="<?php echo esc_attr($item['sizes']['medium'] ?? ''); ?> 768w, <?php echo esc_attr($item['sizes']['large'] ?? ''); ?> 1024w, <?php echo esc_url($full_url); ?> 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                                alt="<?php echo esc_attr($item['alt'] ?? ''); ?>"
+                                loading="lazy"
+                                class="gallery-image">
+                        <?php elseif ($is_video) : ?>
+                            <video
+                                src="<?php echo esc_url($full_url); ?>"
+                                poster="<?php echo esc_url($item['sizes']['large'] ?? ''); ?>"
+                                class="gallery-video"
+                                loading="lazy"
+                                width="100%"
+                                height="auto">
+                            </video>
+                        <?php endif; ?>
+                    </div>
+                <?php
+                endforeach;
+                ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 
 	<?php if (the_content()): ?>
 		<section class="p-single__sec02">
