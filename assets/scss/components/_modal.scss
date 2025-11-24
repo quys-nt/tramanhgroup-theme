@@ -120,7 +120,6 @@
     }
 
     img {
-      max-height: calc(80vh);
       object-fit: cover;
     }
   }
@@ -187,7 +186,7 @@
 
   &-item {
     position: relative;
-    padding-top: 68%;
+    padding-top: 66%;
   }
 
   &-list {
