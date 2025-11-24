@@ -539,14 +539,15 @@
       }
 
       img {
-        width: auto;
-        max-width: 174px;
-        max-height: 96px;
-        object-fit: contain;
+          width: 100%;
+          height: auto;
+          max-width: 174px;
+          max-height: 174px;
+          object-fit: contain;
 
         @include g.media(sp) {
           max-width: 116px;
-          max-height: 63px;
+          max-height: 116px;
         }
       }
     }
