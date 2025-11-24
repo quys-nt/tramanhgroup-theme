@@ -74,6 +74,8 @@ function get_file_extension($filename)
   $sec3TitleFirst = $sec_contact_3['title_first'];
   $sec3TitleLast = $sec_contact_3['title_last'];
   $sec3Form = $sec_contact_3['form'];
+  $sec3FormVi = $sec_contact_3['form_vi'];
+  $formContact = $lang === "en" ? $sec3Form : $sec3FormVi;
   $sec3Image = $sec_contact_3['image'];
   if ($sec_contact_3): ?>
     <section class="p-contact__sec03">
@@ -92,9 +94,9 @@ function get_file_extension($filename)
               </span>
             </h2>
             <div class="p-contact__sec03--form">
-              <?php
-              echo do_shortcode($sec3Form);
-              ?>
+             <?php
+            echo do_shortcode($formContact);
+            ?>
             </div>
           </div>
           <div>
