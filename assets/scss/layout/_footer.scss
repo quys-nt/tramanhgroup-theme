@@ -36,6 +36,10 @@
             display: flex;
             gap: 4px;
 
+            &:not(:last-child) {
+              margin-bottom: 8px;
+            }
+
             .icon {
               width: 16px;
             }

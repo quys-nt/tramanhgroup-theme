@@ -121,11 +121,19 @@
             padding: 10px;
           }
 
+
+
           img {
             width: 100%;
-            max-width: 140px;
-            max-height: 96px;
+            height: auto;
+            max-width: 174px;
+            max-height: 174px;
             object-fit: contain;
+
+            @include g.media(sp) {
+              max-width: 116px;
+              max-height: 116px;
+            }
           }
         }
       }

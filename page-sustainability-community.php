@@ -110,11 +110,11 @@ Description: English Sustainability & Community page with journey, core values, 
           <div class="text01 js-animation-typewriter">
             <?php echo $sec2Contents; ?>
           </div>
-          <div class="p-cus__sec02--box01">
+          <!-- <div class="p-cus__sec02--box01">
             <a href="<?php esc_attr_e($sec2ButtonLink); ?>" class="c-btn__08">
               <?php esc_html_e($sec2Button); ?>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

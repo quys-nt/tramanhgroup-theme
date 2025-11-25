@@ -37,12 +37,12 @@
                 <?php endif; ?>
               </span>
             </li>
-            <li>
+            <!-- <li>
               <span>
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-phone.svg" alt="icon phone">
               </span>
               <a href="tel:+1900 11 22 33">1900 11 22 33</a>
-            </li>
+            </li> -->
             <li>
               <span>
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="icon mail">
