@@ -64,7 +64,9 @@
         </div>
         <div class="p-home__commitment--bottom">
           <?php if ($section_commitment['commitment_button_link']): ?>
-            <a href="<?php echo $section_commitment['commitment_button_link']; ?>" class="c-btn__06">Learn More</a>
+              <a href="<?php echo esc_attr($lang === "en" ? $section_commitment['commitment_button_link']['en'] : $section_commitment['commitment_button_link']['vn']); ?>" class="c-btn__06">
+                <?php echo $lang === "en" ? $section_commitment['commitment_button_text']['en'] : $section_commitment['commitment_button_text']['vn']; ?>
+              </a>
           <?php endif; ?>
         </div>
       </div>

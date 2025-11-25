@@ -93,7 +93,7 @@ function get_file_extension($filename)
                 <?php echo $sec3TitleLast; ?>
               </span>
             </h2>
-            <div class="p-contact__sec03--form">
+            <div class="p-contact__sec03--form js-form-contact">
              <?php
             echo do_shortcode($formContact);
             ?>

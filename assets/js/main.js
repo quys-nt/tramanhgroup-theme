@@ -334,4 +334,10 @@ $(document).ready(function () {
       }, 1000);
     }
   });
+
+  if ($('.js-form-contact form').length > 0) {
+    $('.js-form-contact form select').each(function () {
+      $(this).find('option:first').val('');
+    });
+  }
 });
